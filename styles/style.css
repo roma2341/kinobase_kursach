@@ -1,0 +1,21 @@
+.navigation_menu_block {
+width: 1349px;
+height: 36px;
+background-color: #222222;
+}
+
+.account_and_search_block {
+width: 1349px;
+height: 52px;
+background-color: #144b9e;
+}
+
+.expectations_rating_block {
+width: 1349px;
+height: 275px;
+background-image:url(images/expectations_logo.png);
+}
+
+body {
+	background-color: #dfdfdf;
+}
