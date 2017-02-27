@@ -1,3 +1,10 @@
+body {
+	background-image:url("../images/background_image.png");
+	background-repeat:repeat;
+	margin: 0 0;
+	padding: 0 0;
+}
+
 .navigation_menu_block {
 width: 1349px;
 height: 36px;
@@ -9,13 +16,131 @@ width: 1349px;
 height: 52px;
 background-color: #144b9e;
 }
-
-.expectations_rating_block {
-width: 1349px;
-height: 275px;
-background-image:url(images/expectations_logo.png);
+.expectations_and_ratings_block_wrapper{
+	padding:10px 0px;
 }
 
-body {
-	background-color: #dfdfdf;
+.expectations_and_ratings_block {
+width: 1349px;
+height: 275px;
+background-image:url('../images/expectations_logo.png');
+}
+
+.expectations_details {
+	/* Style for "фон" */
+width: 307px;
+height: 202px;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+border-radius: 4px 5px 5px 4px;
+background-color: #000000;
+opacity: 0.89;
+color:white;
+}
+
+.expectations_details .title{
+width: 205px;
+height: 29px;
+color: #ffffff;
+font-family: Tahoma;
+}
+.expectations_details .title_ru{
+font-size: 16px;
+font-weight: 700;
+}
+.expectations_details .title_en{
+font-size: 12px;
+font-weight: 400;
+}
+
+.date_and_rate .date_counter{
+vertical-align:top;
+position:relative;
+}
+
+.date_counter{
+	display:inline-block;
+}
+
+.date_counter .digit_scoreboard{
+/* Style for "0" */
+display:inline-block;
+width: 29px;
+line-height: 46px;
+color: #000000;
+font-family: Tahoma;
+font-size: 60px;
+font-weight: 400;
+background-image:url("../images/date_counter.png");
+padding: 7px;
+color:black;
+}
+.month_wrapper{
+display:inline-block;
+vertical-align:bottom;
+}
+.month_wrapper .on_site{
+width: 44px;
+color: #ffffff;
+font-family: Tahoma;
+font-size: 9px;
+font-weight: 700;
+}
+.month_wrapper .month{
+margin-top:10px;
+width: 41px;
+color: #ffffff;
+font-family: Tahoma;
+font-size: 14px;
+font-weight: 700;
+}
+
+.date_and_rate .rating{
+width: 95px;
+font-size:0px;
+display:inline-block;
+vertical-align:bottom;
+margin-left:18px;
+}
+.rating .star{
+background-image:url("../images/white_star.png");
+width:17px;
+height:17px;
+display:inline-block;
+}
+.rating .star.checked {
+	background-image:url("../images/pink_star.png");
+}
+.date_and_rate .rate_scale {
+display:inline-block;
+width: 36px;
+color: #ffffff;
+font-family: Tahoma;
+font-size: 12px;
+font-weight: 400;
+vertical-align:bottom;
+}
+
+.expectations_details .content{
+width: 277px;
+height: 64px;
+text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);
+color: #ffffff;
+font-family: Tahoma;
+font-size: 11px;
+font-weight: 400;
+}
+
+.expectations_images_preview{
+width:307px;
+margin-top:6px;
+}
+.expectations_images_preview .image_item{
+	display:inline-block;
+width: 93px;
+height: 42px;
+margin-left:4px;
+border: 2px grey solid;
+}
+.expectations_images_preview .image_item:nth-child(1){
+margin-left:0px;
 }
