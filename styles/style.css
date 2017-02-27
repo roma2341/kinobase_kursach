@@ -1,8 +1,13 @@
 body {
-	background-image:url("../images/background_image.png");
-	background-repeat:repeat;
 	margin: 0 0;
 	padding: 0 0;
+}
+
+.page_content_wrapper{
+	margin:0 auto;
+	width:1349px;
+	background-image:url("../images/background_image.png");
+	background-repeat:repeat;
 }
 
 .navigation_menu_block {
@@ -14,10 +19,21 @@ background-color: #222222;
 height: 52px;
 background-color: #144b9e;
 }
+.expectations_rating_title_wrapper{
+padding-top:23px;
+padding-left:282px;
+overflow:hidden;
+}
+.expectations_rating_title_wrapper .expectations_title{
+color: #908f8f;
+text-shadow: 1px 1px 2px black, 0 0 1em white;
+font-family: Tahoma;
+font-size: 19px;
+font-weight: 700;
+text-transform:uppercase;
+}
 .expectations_and_ratings_block_wrapper{
-	padding:10px 0px;
-
-height: 289px;
+padding:10px 0px;
 background-image:url('../images/slider_line.png');
 box-shadow: inset 0 0 25px 25px rgba(0, 0, 0, 0.28);
 background-color: #202020;
@@ -27,10 +43,50 @@ background-color: #202020;
 height: 275px;
 background-image:url('../images/expectations_logo.png');
 background-size:cover;
+position:relative;
+}
+
+.expectations_and_ratings_block .previous_item{
+	position:absolute;
+	left:178px;
+	top:120px;
+}
+.expectations_and_ratings_block .next_item{
+	position:absolute;
+	top:120px;
+	right:180px;
+}
+
+
+.circle{
+width: 34px;
+height: 34px;
+box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 0 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(255, 255, 255, 0.5);
+border: 1px solid #d2d2d2;
+background-color: #eeeeee;
+border-radius:20px;
+}
+.circle.item:after{
+content:'';
+display:block;
+width:10px;
+height:16px;
+background-image:url("../images/left_arrow.png");
+margin:0 auto;
+margin-top:8px
+}
+.circle.item.next_item:after{
+-webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
 .expectations_details {
-	/* Style for "фон" */
+position:absolute;
+left:813px;
+top:12px;
 width: 307px;
 height: 202px;
 box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
