@@ -35,7 +35,7 @@ text-transform:uppercase;
 .expectations_and_ratings_block_wrapper{
 padding:10px 0px;
 background-image:url('../images/slider_line.png');
-box-shadow: inset 0 0 25px 25px rgba(0, 0, 0, 0.28);
+box-shadow: inset 0 0 25px 25px rgba(0, 0, 0, 0.08);
 background-color: #202020;
 }
 
@@ -44,6 +44,9 @@ height: 275px;
 background-image:url('../images/expectations_logo.png');
 background-size:cover;
 position:relative;
+}
+.expectations_and_ratings_block .content{
+	padding-top:23px;
 }
 
 .expectations_and_ratings_block .previous_item{
@@ -82,13 +85,13 @@ margin-top:8px
     -o-transform: rotate(180deg);
     transform: rotate(180deg);
 }
-
-.expectations_details {
-position:absolute;
+.expectations_details_wrapper{
+position:relative;
 left:813px;
 top:12px;
 width: 307px;
-height: 202px;
+}
+.expectations_details {
 box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
 border-radius: 4px 5px 5px 4px;
 background-color: #000000;
@@ -152,11 +155,11 @@ font-family: Tahoma;
 font-size: 14px;
 font-weight: 700;
 }
-
-.date_and_rate .rating{
-width: 95px;
+.rating{
 font-size:0px;
-display:inline-block;
+display:inline-block;	
+}
+.date_and_rate .rating{
 vertical-align:bottom;
 margin-left:18px;
 }
@@ -202,4 +205,97 @@ border: 2px grey solid;
 }
 .expectations_images_preview .image_item:nth-child(1){
 margin-left:0px;
+}
+.content_block .content_title{
+width: 100%;
+height: 16px;
+font-family: Tahoma;
+font-weight: 700;
+font-size: 14px;
+text-align:center;
+display:inline-block;
+}
+.content_title h3{
+font-size: 17px;
+margin:0;
+padding:0;
+display:inline-block;
+}
+
+.films_list_block{
+	padding-left:28px;
+	padding-top:17px;
+}
+
+.films_list_block .film_item:first-child{
+margin-left:0px;
+}
+.films_list_block .film_item{
+	margin-left:28px;
+	display:inline-block;
+	vertical-align: top;
+}
+
+
+
+.film_item .item_title {
+/* Style for "название" */
+width: 214px;
+height: 25px;
+color: #202020;
+font-family: Tahoma;
+font-size: 12px;
+font-weight: 400;
+display:block;
+}
+.film_item .item_details {
+	/* Style for "описание" */
+width: 220px;
+height: 61px;
+color: #202020;
+font-family: Tahoma;
+font-size: 11px;
+font-weight: 400;
+}
+.film_item .item_image {
+/* Style for "картинка" */
+margin-top:7px;
+width: 221px;
+height: 154px;
+padding:5px;
+padding-top:4px;
+background-color:#bebebe;
+box-sizing:border-box;
+}
+
+.film_item .rating{
+vertical-align:bottom;
+right:4px;
+top:5px;
+position:absolute;
+}
+.film_item .item_image{
+	position:relative;
+}
+.bottom_shadow{
+width: 245px;
+height: 21px;
+content: '';
+opacity: 0.6;
+display:block;
+background-image:url('../images/bottom_shadow.png');
+}
+.watch_now{
+	background:url('../images/watch_now.png') no-repeat;
+padding:7px 9px;
+	/* Style for "Смотеть се" */
+color: #ffffff;
+font-family: Tahoma;
+font-size: 11px;
+font-weight: 700;
+white-space: nowrap;
+display:inline-block;
+box-sizing:border-box;
+background-size:150% 100%;
+        border-radius:4px;
 }
