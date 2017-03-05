@@ -318,6 +318,8 @@ height: 795px;
 background-image:url('../images/film_info_background.png');
 overflow:hidden;
 position:relative;
+margin-top:22px;
+display:inline-block;
 }
 .info_section_title{
 width: 242px;
@@ -352,4 +354,61 @@ font-weight: 400;
 	width:49%;
 	display:inline-block;
 	box-sizing:border-box;
+}
+.film_details_block{
+	width:468px;	
+	display:inline-block;
+	vertical-align: top;
+	padding-left:17px;
+	padding-right:25px;
+	padding-bottom:22px;
+	background-color:white;
+	margin-top: 22px;
+}
+.film_details_block .item{
+	width:150px;
+	display:inline-block;
+}
+.film_details_block .value{
+	width:150px;
+	display:inline-block;
+}
+.film_details_block .details_title{
+color: #000000;
+font-family: Tahoma;
+font-weight: 400;
+text-transform: uppercase;	
+}
+.film_details_block .ru{
+font-size: 20px;
+}
+.film_details_block .en{
+font-size: 12px;
+}
+
+.film_details_block .item,
+.film_details_block .value{
+color: #000000;
+font-family: Tahoma;
+font-size: 11px;
+line-height: 20px;
+}
+
+.film_details_block .item{
+	font-weight:700;
+}
+.film_details_block .value{
+	font-weight:400;
+}
+.story_label,.story_content{
+color: #000000;
+font-family: Tahoma;
+}
+.story_label{
+font-size: 14px;
+font-weight: 700;	
+}
+.story_content{
+font-size: 11px;
+font-weight: 400;
 }
