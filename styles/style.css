@@ -542,3 +542,43 @@ display:inline-block;
 border-radius:5px;
 margin-top:6px;
 }
+
+.paginator_item{
+	display:inline-block;
+	font-family: Tahoma;
+	font-size: 9px;
+	font-weight: 400;
+	color: #e2e2e2;
+	background-color:blue;
+	margin-left:0px;
+	positino:absolute;
+	width: 21px;
+	height: 18px;
+	background:url('../images/yellow_triangle.png');
+	background-size: cover; 
+	bacgkround-repeat:none;
+	margin-left:15px;
+}
+.paginator_item.selected{
+width:32px;
+height:28px;
+background:url('../images/blue_triangle.png');
+}
+
+.paginator_item span{
+padding-top:5px;
+display:inline-block;
+text-align:center;
+width:100%;
+}
+
+.paginator_item.selected span{
+	padding-top:12px;
+	}
+
+.paginator_item {
+	vertical-align:bottom;
+}
+.paginator_area{
+	margin-top:15px;
+}
