@@ -184,7 +184,6 @@ vertical-align:bottom;
 
 .expectations_details .content{
 width: 277px;
-height: 64px;
 text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);
 color: #ffffff;
 font-family: Tahoma;
@@ -359,11 +358,13 @@ font-weight: 400;
 	width:468px;	
 	display:inline-block;
 	vertical-align: top;
+	margin-top: 22px;
+}
+.short_info_block{
 	padding-left:17px;
 	padding-right:25px;
 	padding-bottom:22px;
 	background-color:white;
-	margin-top: 22px;
 }
 .film_details_block .item{
 	width:150px;
@@ -411,4 +412,18 @@ font-weight: 700;
 .story_content{
 font-size: 11px;
 font-weight: 400;
+}
+
+.playback_area{
+margin-top: 8px;
+padding-top: 12px;
+position:relative;
+width: 464px;
+height: 249px;
+background-color: white;
+}
+.play_button{
+	position:absolute;
+	right:9px;
+	top:8px;
 }
