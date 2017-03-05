@@ -437,26 +437,34 @@ background-color: white;
 	border-radius:4px;
 	display:inline-block;
 }
-.comments_area .comment_body.second_level{
-	width:60%;
+.user_comment.second_level .comment_body{
+	width:303px;
 	background:white;
 }
-.comments_area .user_avatar {
+.user_comment .user_avatar {
 	display:inline-block;
 	vertical-align:top;
 }
-.comments_area .user_avatar *img{
+.user_comment.second_level{
+float:right;
+}
+
+.user_comment .user_avatar *img{
 width: 66px;
 height: 66px;
 }
 
-.comments_area .title .user_name{
+.user_comment .title .user_name{
 color: #dfdfdf;
 font-family: Tahoma;
 font-size: 12px;
 font-weight: 700;
 display:inline-block;
 }
+.user_comment.second_level .title .user_name{
+color: #92006b;
+}
+
 .comments_area .title .user_name:before{
 	background-image:url("../images/avatar_icon.png");
 	width:12px;
@@ -465,7 +473,7 @@ display:inline-block;
 	display:inline-block;
 }
 
-.comments_area .title .comment_date{
+.user_comment .title .comment_date{
 color: #999898;
 font-family: Tahoma;
 font-size: 9px;
@@ -473,23 +481,28 @@ font-weight: 400;
 display:inline-block;
 float:right;
 }
+.user_comment.second_level .title .comment_date{
+/*TODO*/
+}
 
-.comments_area .user_comment{
+.user_comment .user_comment{
 	position:relative;
 	padding-left:17px;
 	padding-top:11px;
 }
 
-.comments_area .comment_text{
-width: 349px;
+.user_comment .comment_text{
 height: 41px;
 color: #ffffff;
 font-family: Tahoma;
 font-size: 12px;
 font-weight: 400;
 }
+.user_comment.second_level .comment_text{
+color: #272727;
+}
 
-.comments_area .response_link{
+.user_comment .response_link{
 color: #92006b;
 font-family: Tahoma;
 font-size: 10px;
