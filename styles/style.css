@@ -25,7 +25,7 @@ padding-left:282px;
 overflow:hidden;
 }
 .expectations_rating_title_wrapper .expectations_title{
-color: #908f8f;
+color: #ece8e8;
 text-shadow: 1px 1px 2px black, 0 0 1em white;
 font-family: Tahoma;
 font-size: 19px;
@@ -298,4 +298,58 @@ display:inline-block;
 box-sizing:border-box;
 background-size:150% 100%;
         border-radius:4px;
+}
+.content_block{
+	margin-left:116px;
+}
+.left_content_block{
+ width:830px;
+ background-color:yellow;
+ display:inline-block;
+}
+.right_content_block{
+ width:245px;
+ background-color:#2a92a9;
+  display:inline-block;
+}
+.film_info_block{
+width: 265px;
+height: 795px;
+background-image:url('../images/film_info_background.png');
+overflow:hidden;
+position:relative;
+}
+.info_section_title{
+width: 242px;
+font-family: Tahoma;
+color: #ffffff;
+font-size: 14px;
+font-weight: 700;
+}
+.info_section{
+color: #6d6c6c;
+font-size: 12px;
+font-weight: 400;
+}
+.film_info_image{
+	padding-bottom:12px;
+}
+.film_info_block .section{
+	padding-top:10px;
+	padding-left:9px;
+}
+.film_info_block .section:before{
+	height:2px;
+	width:100%;
+	background-image:url('../images/section_separator.png');
+	display:block;
+	position:absolute;
+	content:'';
+	left:0px;
+	margin-top:-7px;
+}
+.half_width_block{
+	width:49%;
+	display:inline-block;
+	box-sizing:border-box;
 }
