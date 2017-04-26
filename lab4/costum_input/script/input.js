@@ -48,18 +48,20 @@ var elements = document.getElementsByClassName(COSTUM_ELEMENT_CLASS);
 	for (var i = 0; i < elements.length; i++){
 		elements[i].setAttribute(ELEMENT_MODEL_ID_ATTRIBUTE_NAME,i);
 		elementsModels.push(new ElementModel(elements[i]));
-		bindKeyPressEvent(elements[i]);
+		bindInputEvents(elements[i]);
 	}
 
 }
 
-function keyPressEventHandler = function(event){
+function keyPressEventHandler(event){
 	var element = event.target;
 	var char = String.fromCharCode(event.keyCode);
 	preventIllegalCharacter(event,char);
 	var char = String.fromCharCode(event.keyCode);
 }
-function keyUpEventHandler = function(event){
+function keyUpEventHandler(event){
+	var element = event.target;
+	var elementModel = getElementModel(element);
 	var char = String.fromCharCode(event.keyCode);
 	if (!validateInput(event.target,char)){
 		element.value = elementModel.previousValue;
@@ -69,11 +71,9 @@ function keyUpEventHandler = function(event){
 }
 
 
-function bindKeyPressEvent(element){
-	var elementModel = getElementModel(element);
+function bindInputEvents(element){
 	addEvent(element,"keyup",keyUpEventHandler);
 	addEvent(element,"keypress",keyPressEventHandler);
-
 }
 
 function updateView(element,model){
