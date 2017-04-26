@@ -50,45 +50,51 @@ var elements = document.getElementsByClassName(COSTUM_ELEMENT_CLASS);
 		elementsModels.push(new ElementModel(elements[i]));
 		bindKeyPressEvent(elements[i]);
 	}
-	console.info('cosum input successfully inited');
 
 }
-function bindKeyPressEvent(element){
-		var elementModel = getElementModel(element);
-addEvent(element,"keyup",function(event){
-	var char = String.fromCharCode(event.keyCode);
-	console.log('key pressed:'+event.keyCode);
-	if (!validateInput(event.target,char)){
-	element.value = elementModel.previousValue;
-	}
-	updateView(event.target,elementModel);
-	elementModel.previousValue = unformatString(element.value);
-	});
-addEvent(element,"keypress",function(event){
+
+function keyPressEventHandler = function(event){
 	var element = event.target;
 	var char = String.fromCharCode(event.keyCode);
 	preventIllegalCharacter(event,char);
-	console.log('previousValue'+elementModel.previousValue);
 	var char = String.fromCharCode(event.keyCode);
-	
-	});
+}
+function keyUpEventHandler = function(event){
+	var char = String.fromCharCode(event.keyCode);
+	if (!validateInput(event.target,char)){
+		element.value = elementModel.previousValue;
+	}
+	updateView(event.target,elementModel);
+	elementModel.previousValue = unformatString(element.value);
+}
+
+
+function bindKeyPressEvent(element){
+	var elementModel = getElementModel(element);
+	addEvent(element,"keyup",keyUpEventHandler);
+	addEvent(element,"keypress",keyPressEventHandler);
 
 }
 
 function updateView(element,model){
-	var numberDetails = getNumberDetailsFromString(model.previousValue);
+	var numberDetails = getNumberDetailsFromString(model.previousValue.toString());
 	var unformatted = unformatString(element.value);
 	element.value = formatString(unformatted);
 }
 function formatString(str){
-return commafy(str);
+	var opt = getLanguageOptions();
+	var withSeparatedDigitGroups = separateDigitGroups(str,opt.digitGroupSeparator,opt.decimalCharacter);
+	var withCurrencySymbol = addCurrencySymbol(withSeparatedDigitGroups,opt.currencySymbol,opt.currencySymbolPlacement); 
+return withCurrencySymbol;
 }
 
 function unformatString(str){
-var regexString = getLanguageOptions().digitGroupSeparator + '|' + getLanguageOptions().currencySymbol;
-var regex = new RegExp(regexString, "g");
-var strWithDecimalSeparator = str.replace(regex,'');
-return strWithDecimalSeparator;
+		var opt = getLanguageOptions();
+	console.log('unformatting('+str+')=');
+	var strWithoutCurrencySymbol = removeCurrencySymbol(str,opt.currencySymbol,opt.currencySymbolPlacement);
+	var strWithDecimalSeparator = removeDigitGroups(strWithoutCurrencySymbol,opt.digitGroupSeparator,opt.currencySymbol);
+	console.log(strWithDecimalSeparator+'<<unformatted');
+	return strWithDecimalSeparator;
 }
 
 function isCharPermitted(char){
@@ -106,6 +112,7 @@ if (!isCharPermitted(char))//contains not number
 
 function validateInput(element,char){
 	if (element.value=="")return true;
+	console.log('validating input:'+element.value);
 var numberDetails = getNumberDetailsFromString(element.value);
 if (numberDetails.intPart.toString().length > config.integerPartMaxSize ) {
 return false;

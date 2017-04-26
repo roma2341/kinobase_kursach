@@ -14,15 +14,19 @@ function getFloatPart(number){
 }
 
 function getNumberDetailsFromString(str){
-	var number = parseFloat(str);
-var intPart = Math.floor(number);
-	var floatPart = getFloatPart(number);
+    var tokens = str.split('.');
+	var number = parseFloat(tokens[0]) || 0;
+var intPart = parseInt(tokens[0]);
+	var floatPart = parseInt(tokens[1]) || 0;
 return{
 	number: number,
 	intPart: intPart,
 	floatPart: floatPart
 }
 }
+
+
+
 var defaultLeadingZero = false;
 const languageOption = {
     French: { // Français
@@ -63,13 +67,47 @@ const languageOption = {
     },
 };
 
-function commafy(numStr) {
-    var str = numStr.split('.');
+function separateDigitGroups(numStr,digitGroupSeparator,decimalCharacter) {
+    var str = numStr.split(decimalCharacter);
     if (str[0].length >= 5) {
-        str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+        str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1'+digitGroupSeparator);
     }
     if (str[1] && str[1].length >= 5) {
         str[1] = str[1].replace(/(\d{3})/g, '$1 ');
     }
-    return str.join('.');
+    return str.join(decimalCharacter);
+}
+function addCurrencySymbol(str,symbol, positionStr){
+    var resultStr;
+    switch(positionStr.toLowerCase()){
+        //prefix
+        case 'p':
+            resultStr = symbol + str; 
+        break;
+        //sufix;
+        case 's':
+            resultStr = str + symbol; 
+        break;
+    }
+    return resultStr;
+}
+function removeCurrencySymbol(str,symbol,positionStr){
+     var resultStr;
+    switch(positionStr.toLowerCase()){
+        //prefix
+        case 'p':
+            resultStr = str.substring(symbol.length);
+        break;
+        //sufix;
+        case 's':
+            resultStr = str.slice(0,-symbol.length);
+        break;
+    }
+    return resultStr;
+}
+function removeDigitGroups(str,digitGroupSeparator,currencySymbol){
+var regexString = digitGroupSeparator + '|' + currencySymbol;
+var regex = new RegExp(regexString, "g");
+var strWithoutCurrencySymbol = str.replace(regex,'');
+return strWithoutCurrencySymbol;
 }
