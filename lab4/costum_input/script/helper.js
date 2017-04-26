@@ -1,4 +1,42 @@
 
+var KeyCode = {
+    separators: {
+        comma: 188,
+        dot: 190,   
+    },
+    functional: {
+        leftArrow: 37,
+        upArrow: 38,
+        rightArrow: 39,
+        downArrow: 40,
+        backspace: 8,
+        ctrl: 17,
+        shift: 16,
+        delete: 46
+    },
+    isDigit: function(keyCode){
+        return (keyCode >= 48 && keyCode <= 57);
+    },
+    isSeparator: function(keyCode){
+     return [188,190].indexOf(keyCode) !=- 1;
+    },
+    isArrowKey: function(keyCode){
+        return [37,38,39,40].indexOf(keyCode) != -1;
+    },
+    isFunctional: function(keyCode){
+        return this.isArrowKey() || [8,17,16,46].indexOf(keyCode)!=-1;
+    },
+    isKeyCodePermitted: function(char){
+    if(this.isDigit(char) || this.isSeparator(char) || this.isFunctional(char))
+        return true;
+    else
+        return false;
+    }
+
+}
+
+
+
 function addEvent(element, eventName, callback) {
     if (element.addEventListener) {
         element.addEventListener(eventName, callback, false);
@@ -41,7 +79,7 @@ const languageOption = {
         digitGroupSeparator    : ',',
         decimalCharacter       : '.',
         currencySymbol         : '$',
-        currencySymbolPlacement: 'p',
+        currencySymbolPlacement: 's',
         leadingZero            : defaultLeadingZero
     },
     British: {
@@ -78,6 +116,7 @@ function separateDigitGroups(numStr,digitGroupSeparator,decimalCharacter) {
     return str.join(decimalCharacter);
 }
 function addCurrencySymbol(str,symbol, positionStr){
+    if (str.length<1) return str;
     var resultStr;
     switch(positionStr.toLowerCase()){
         //prefix
@@ -92,6 +131,7 @@ function addCurrencySymbol(str,symbol, positionStr){
     return resultStr;
 }
 function removeCurrencySymbol(str,symbol,positionStr){
+     if (str.length<2) return str;
      var resultStr;
     switch(positionStr.toLowerCase()){
         //prefix
