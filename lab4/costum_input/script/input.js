@@ -1,8 +1,7 @@
+"use strict";
 var COSTUM_ELEMENT_CLASS = "costum_input";
 var ELEMENT_MODEL_ID_ATTRIBUTE_NAME = "element_model_id";
 
-
-var carretPositionBeforeKeyPress = 0;
 var availableKeyCodes = [
 ',',
 '.'
@@ -33,6 +32,7 @@ var config = {
 function ElementModel(element,previousValue){
 this.element = element;
 this.previousValue = previousValue || "";
+this.previousCarretIndex = 0;
 }
 
 var elementsModels = [];
@@ -58,22 +58,33 @@ function keyPressEventHandler(event){
 	var elementModel = getElementModel(element);
 }
 function keyDownEventHandler(event){
-	carretPositionBeforeKeyPress = event.target.selectionStart;
+	var element = event.target;
+	var elementModel = getElementModel(element);
 	preventIllegalKeyCode(event);
-	correctCarretPositionBeforeKeyPress(event.target);
+	if (isViewUpdateRequired(event))
+	correctCarretPositionBeforeKeyPress(element);
 }
 
 function keyUpEventHandler(event){
 	var element = event.target;
 	var elementModel = getElementModel(element);
-	var char = String.fromCharCode(event.keyCode);
-	if (!validateInput(event.target,char)){
+	var carretIndexWithoutFormat = getCarretPosExcludingFormatChars(element);
+		var char = String.fromCharCode(event.keyCode);
+	if (!validateInput(event.target)){
 		element.value = elementModel.previousValue;
 	}
 	if (isViewUpdateRequired(event))
 	updateView(event.target,elementModel);
 	elementModel.previousValue = element.value;
+	elementModel.previousCarretIndex = carretIndexWithoutFormat;
+	
+}
 
+function onClickEventHandler(event){
+var element = event.target;
+var elementModel = getElementModel(element);
+var carretIndexWithoutFormat = getCarretPosExcludingFormatChars(element);
+elementModel.previousCarretIndex = carretIndexWithoutFormat;
 }
 
 function isViewUpdateRequired(event){
@@ -85,11 +96,13 @@ function bindInputEvents(element){
 	addEvent(element,"keydown",keyDownEventHandler);
 	addEvent(element,"keyup",keyUpEventHandler);
 	addEvent(element,"keypress",keyPressEventHandler);
+	addEvent(element,"click",onClickEventHandler);
 }
 function correctCarretPositionBeforeKeyPress(element){
+var elementModel = getElementModel(element);
 var opt = getLanguageOptions();
 var textLength = element.value.length;
-var carretPos = carretPositionBeforeKeyPress;
+var carretPos = getActualCarretPosByExcludingFormatChars(elementModel.previousCarretIndex,element.value);;
 var currencySymbolLength = opt.currencySymbol.length;
 switch (opt.currencySymbolPlacement.toLowerCase()){
 	case 'p':
@@ -101,21 +114,50 @@ switch (opt.currencySymbolPlacement.toLowerCase()){
 		break;
 }
 //carretPos += 1; // count of inputed characters to fix carret
+console.log('correctCarretPositionBeforeKeyPress:'+element.selectionStart+' to '+carretPos);
 element.selectionStart = carretPos;
 element.selectionEnd = carretPos;
 }
 
-function processCarretPositionShiftForDigitsGroups(carretPos, formattedString){
+function getCarretPosExcludingFormatChars(element){
+var str = element.value;
+var resultIndex = 0;
+var carretPos = element.selectionStart;
+for (var i = 0; i < carretPos; i++){
+	if (CharaterGroups.isDigit(str.charAt(i))){
+		resultIndex++;
+		}
+	}
+	console.log('ignore format:'+resultIndex);
+return resultIndex;
+}
+
+function getActualCarretPosByExcludingFormatChars(indexExcludingFmt,formattedString){
+var realIndex = 0;
+var currentDigitOrDigitSeparatorIndex = 0;
+for (; realIndex < formattedString.length && currentDigitOrDigitSeparatorIndex < indexExcludingFmt; realIndex++){
+if (CharaterGroups.isDigit(formattedString[realIndex]))
+	currentDigitOrDigitSeparatorIndex++;
+}
+console.log('real:'+realIndex);
+return realIndex;
+}
+
+
+function processCarretPositionShiftForDigitsGroups_DEPRECATED(carretPos, formattedString){
 	var opt = getLanguageOptions();
 	var strBeforeCarret = formattedString.substring(0,carretPos);
 	var digitSeparators = occurences(strBeforeCarret,opt.digitGroupSeparator);
-return digitSeparators==null ? 0 : digitSeparators.length;
+	var result = digitSeparators==null ? 0 : digitSeparators.length;
+	console.log('proc carret pos.: carPos='+carretPos +' new:'+result);
+return result;
 }
 
 function correctCarretPositionAfterKeyPress(element,addedSymbolsCount,removedSymbolsCount){
 var opt = getLanguageOptions();
+var elementModel = getElementModel(element);
 var textLength = element.value.length;
-var carretPos = carretPositionBeforeKeyPress;
+var carretPos = getActualCarretPosByExcludingFormatChars(elementModel.previousCarretIndex,element.value);
 var currencySymbolLength = opt.currencySymbol.length;
 switch (opt.currencySymbolPlacement.toLowerCase()){
 	case 'p':
@@ -127,7 +169,9 @@ switch (opt.currencySymbolPlacement.toLowerCase()){
 		break;
 }	
 carretPos += addedSymbolsCount; // count of inputed characters to fix carret
-carretPos += processCarretPositionShiftForDigitsGroups(carretPos,element.value);
+//var carretFix = processCarretPositionShiftForDigitsGroups(carretPos,element.value);
+//carretPos += carretFix;
+//console.log(StringUtils.format('carretPos += addedSymbolsCount({0}) carretFix({1})',addedSymbolsCount,carretFix));
 element.selectionStart = carretPos;
 element.selectionEnd = carretPos;
 
@@ -151,16 +195,13 @@ function formatString(str){
 	var opt = getLanguageOptions();
 	var withSeparatedDigitGroups = separateDigitGroups(str,opt.digitGroupSeparator,opt.decimalCharacter);
 	var withCurrencySymbol = addCurrencySymbol(withSeparatedDigitGroups,opt.currencySymbol,opt.currencySymbolPlacement); 
-	console.log(str+'->'+withCurrencySymbol);
 return withCurrencySymbol;
 }
 
 function unformatString(str){
 		var opt = getLanguageOptions();
-	//console.log('unformatting('+str+')=');
 	var strWithoutCurrencySymbol = removeCurrencySymbol(str,opt.currencySymbol,opt.currencySymbolPlacement);
 	var strWithDecimalSeparator = removeDigitGroups(strWithoutCurrencySymbol,opt.digitGroupSeparator,opt.currencySymbol);
-	//console.log(strWithDecimalSeparator+'<<unformatted');
 	return strWithDecimalSeparator;
 }
 
@@ -170,7 +211,7 @@ if (event.shiftKey || !KeyCode.isKeyCodePermitted(event.keyCode))//contains not 
 	event.preventDefault();
 }
 
-function validateInput(element,char){
+function validateInput(element){
 	if (element.value=="")return true;
 var numberDetails = getNumberDetailsFromString(unformatString(element.value));
 if (numberDetails.intPart.toString().length > config.integerPartMaxSize ) {

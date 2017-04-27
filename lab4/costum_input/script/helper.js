@@ -1,3 +1,20 @@
+ var StringUtils = {
+format: function() {
+      var s = arguments[0];
+      for (var i = 0; i < arguments.length - 1; i++) {       
+          var reg = new RegExp("\\{" + i + "\\}", "gm");             
+          s = s.replace(reg, arguments[i + 1]);
+      }
+      return s;
+  }
+}
+var CharaterGroups = {
+    digits: ['0','1','2','3','4','5','6','7','8','9'],
+    isDigit: function(char){
+        return this.digits.indexOf(char)!=-1;
+    }
+
+}
 
 var KeyCode = {
     separators: {
