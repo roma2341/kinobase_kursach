@@ -139,6 +139,7 @@ function updateView(element,model){
 	correctCarretPositionAfterKeyPress(element,addedSymbolsCount,removedSymbolsCount);
 }
 function formatString(str){
+	if(str == "") return "";
 	var opt = getLanguageOptions();
 	var withSeparatedDigitGroups = separateDigitGroups(str,opt.digitGroupSeparator,opt.decimalCharacter);
 	var withCurrencySymbol = addCurrencySymbol(withSeparatedDigitGroups,opt.currencySymbol,opt.currencySymbolPlacement); 
