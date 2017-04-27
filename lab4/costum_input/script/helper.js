@@ -113,7 +113,7 @@ const languageOption = {
 
 function separateDigitGroups(numStr,digitGroupSeparator,decimalCharacter) {
     var str = numStr.split(decimalCharacter);
-    if (str[0].length >= 5) {
+    if (str[0].length >= 4) {
         str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1'+digitGroupSeparator);
     }
     if (str[1] && str[1].length >= 5) {

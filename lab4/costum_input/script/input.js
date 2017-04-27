@@ -109,7 +109,7 @@ function processCarretPositionShiftForDigitsGroups(carretPos, formattedString){
 	var opt = getLanguageOptions();
 	var strBeforeCarret = formattedString.substring(0,carretPos);
 	var digitSeparators = occurences(strBeforeCarret,opt.digitGroupSeparator);
-return digitSeparators.length;
+return digitSeparators==null ? 0 : digitSeparators.length;
 }
 
 function correctCarretPositionAfterKeyPress(element,addedSymbolsCount,removedSymbolsCount){
@@ -151,6 +151,7 @@ function formatString(str){
 	var opt = getLanguageOptions();
 	var withSeparatedDigitGroups = separateDigitGroups(str,opt.digitGroupSeparator,opt.decimalCharacter);
 	var withCurrencySymbol = addCurrencySymbol(withSeparatedDigitGroups,opt.currencySymbol,opt.currencySymbolPlacement); 
+	console.log(str+'->'+withCurrencySymbol);
 return withCurrencySymbol;
 }
 
