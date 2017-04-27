@@ -109,7 +109,7 @@ switch (opt.currencySymbolPlacement.toLowerCase()){
 		carretPos = carretPos < currencySymbolLength ? currencySymbolLength :  carretPos;
 		break;
 	case 's':
-	var lastPosibleCarretPos = textLength - currencySymbolLength - 1;
+	var lastPosibleCarretPos = textLength - currencySymbolLength;
 		carretPos = carretPos > lastPosibleCarretPos ? lastPosibleCarretPos : carretPos;
 		break;
 }

@@ -102,7 +102,7 @@ const languageOption = {
         digitGroupSeparator    : ',',
         decimalCharacter       : '.',
         currencySymbol         : '$',
-        currencySymbolPlacement: 'p',
+        currencySymbolPlacement: 's',
         leadingZero            : defaultLeadingZero
     },
     British: {
