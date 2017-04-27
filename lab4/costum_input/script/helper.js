@@ -34,8 +34,14 @@ var KeyCode = {
     }
 
 }
+function escapeRegExp(str) {
+  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}
 
-
+function occurences(str, substr){
+    var criteria = new RegExp(escapeRegExp(substr),'g')
+  return str.match(criteria);
+}
 
 function addEvent(element, eventName, callback) {
     if (element.addEventListener) {

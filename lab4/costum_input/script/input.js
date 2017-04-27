@@ -105,6 +105,13 @@ element.selectionStart = carretPos;
 element.selectionEnd = carretPos;
 }
 
+function processCarretPositionShiftForDigitsGroups(carretPos, formattedString){
+	var opt = getLanguageOptions();
+	var strBeforeCarret = formattedString.substring(0,carretPos);
+	var digitSeparators = occurences(strBeforeCarret,opt.digitGroupSeparator);
+return digitSeparators.length;
+}
+
 function correctCarretPositionAfterKeyPress(element,addedSymbolsCount,removedSymbolsCount){
 var opt = getLanguageOptions();
 var textLength = element.value.length;
@@ -120,6 +127,7 @@ switch (opt.currencySymbolPlacement.toLowerCase()){
 		break;
 }	
 carretPos += addedSymbolsCount; // count of inputed characters to fix carret
+carretPos += processCarretPositionShiftForDigitsGroups(carretPos,element.value);
 element.selectionStart = carretPos;
 element.selectionEnd = carretPos;
 
