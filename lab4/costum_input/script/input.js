@@ -6,14 +6,15 @@ var availableKeyCodes = [
 ',',
 '.'
 ];
-var config = {
+var defaultConfig = {
 	integerPartMaxSize: 9,
 	floatPartMaxSize: 4,
 	placeholder: "Racoon",
 	style: {
 		font:{
-			size: 12,
-			color: "#aabbcc"
+			size: 20,
+			color: "red",
+			family: "Graphik Light"
 		},
 		placeholder: "Racoon",
 		fillColor: "white",
@@ -29,6 +30,11 @@ var config = {
 	}
 
 };
+
+function getDefaultConfig(){
+	return defaultConfig;
+}
+
 function ElementModel(element,previousValue){
 this.element = element;
 this.previousValue = previousValue || "";
@@ -38,7 +44,12 @@ this.previousCarretIndex = 0;
 var elementsModels = [];
 
 function getLanguageOptions(){
-	return languageOption[config.number.format];
+	return languageOption[getDefaultConfig().number.format];
+}
+function initCssPropertiesOfInput(element){
+element.style.fontFamily = getDefaultConfig().style.font.family;
+element.style.fontSize = getDefaultConfig().style.font.size;
+element.style.color = getDefaultConfig().style.font.color;
 }
 
 function initCostumInputs() {
@@ -47,6 +58,7 @@ var elements = document.getElementsByClassName(COSTUM_ELEMENT_CLASS);
 	
 	for (var i = 0; i < elements.length; i++){
 		elements[i].setAttribute(ELEMENT_MODEL_ID_ATTRIBUTE_NAME,i);
+		initCssPropertiesOfInput(elements[i]);
 		elementsModels.push(new ElementModel(elements[i]));
 		bindInputEvents(elements[i]);
 	}
@@ -216,10 +228,10 @@ if (event.shiftKey || !KeyCode.isKeyCodePermitted(event.keyCode))//contains not 
 function validateInput(element){
 	if (element.value=="")return true;
 var numberDetails = getNumberDetailsFromString(unformatString(element.value));
-if (numberDetails.intPart.toString().length > config.integerPartMaxSize ) {
+if (numberDetails.intPart.toString().length > getDefaultConfig().integerPartMaxSize ) {
 return false;
 }
-if (numberDetails.floatPart.toString().length > config.floatPartMaxSize ) {
+if (numberDetails.floatPart.toString().length > getDefaultConfig().floatPartMaxSize ) {
 return false;
 }
 return true;
