@@ -116,8 +116,9 @@ function separateDigitGroups(numStr,digitGroupSeparator,decimalCharacter) {
     return str.join(decimalCharacter);
 }
 function addCurrencySymbol(str,symbol, positionStr){
-    if (str.length<1) return str;
-    var resultStr;
+    //if (str.length<1 || str==symbol) return "";
+    if (str=="") return str;
+    var resultStr = "";
     switch(positionStr.toLowerCase()){
         //prefix
         case 'p':
@@ -134,7 +135,7 @@ function addCurrencySymbol(str,symbol, positionStr){
     return resultStr;
 }
 function removeCurrencySymbol(str,symbol,positionStr){
-     if (str.length<2) return str;
+     if (str.length<=symbol.length) return str;
      var resultStr;
     switch(positionStr.toLowerCase()){
         //prefix
