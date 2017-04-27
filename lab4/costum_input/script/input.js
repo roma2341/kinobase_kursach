@@ -120,11 +120,12 @@ element.selectionEnd = carretPos;
 }
 
 function getCarretPosExcludingFormatChars(element){
+var opt = getLanguageOptions();
 var str = element.value;
 var resultIndex = 0;
 var carretPos = element.selectionStart;
 for (var i = 0; i < carretPos; i++){
-	if (CharaterGroups.isDigit(str.charAt(i))){
+	if (CharaterGroups.isDigit(str.charAt(i)) || str.charAt(i)==opt.decimalCharacter){
 		resultIndex++;
 		}
 	}
@@ -134,9 +135,10 @@ return resultIndex;
 
 function getActualCarretPosByExcludingFormatChars(indexExcludingFmt,formattedString){
 var realIndex = 0;
+var opt = getLanguageOptions();
 var currentDigitOrDigitSeparatorIndex = 0;
 for (; realIndex < formattedString.length && currentDigitOrDigitSeparatorIndex < indexExcludingFmt; realIndex++){
-if (CharaterGroups.isDigit(formattedString[realIndex]))
+if (CharaterGroups.isDigit(formattedString[realIndex]) || formattedString[realIndex]==opt.decimalCharacter)
 	currentDigitOrDigitSeparatorIndex++;
 }
 console.log('real:'+realIndex);
