@@ -1,3 +1,12 @@
 input { 
     text-align: right; 
 }
+.bold_costum_input{
+  font-weight:bold;
+}
+.italic_costum_input{
+  font-style :italic;
+}
+.underline_costum_input{
+ text-decoration: underline;
+}

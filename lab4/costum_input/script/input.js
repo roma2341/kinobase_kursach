@@ -1,6 +1,7 @@
 "use strict";
 var COSTUM_ELEMENT_CLASS = "costum_input";
 var ELEMENT_MODEL_ID_ATTRIBUTE_NAME = "element_model_id";
+var COSTUM_INPUT_CSS_PREFIX = "_costum_input";
 
 var availableKeyCodes = [
 ',',
@@ -9,21 +10,20 @@ var availableKeyCodes = [
 var defaultConfig = {
 	integerPartMaxSize: 9,
 	floatPartMaxSize: 4,
-	placeholder: "Racoon",
+	placeholder: "Тикніть сюди",
 	style: {
 		font:{
 			size: 20,
 			color: "red",
-			family: "Graphik Light"
+			family: "Impact,Charcoal,sans-serif"
 		},
-		placeholder: "Racoon",
-		fillColor: "white",
+		fillColor: "pink",
 		border:{
 			color: "red",
 			size: 1,
 		},
-		align: "left",
-		emphasis: ["bold","italic","underline"]
+		align: "right",
+		emphasises: ["bold","italic","underline"]
 	},
 	number:{
 		format: "NorthAmerican",// приклад eu 111.111.111,222; приклад us - 111,111,111.222
@@ -46,10 +46,19 @@ var elementsModels = [];
 function getLanguageOptions(){
 	return languageOption[getDefaultConfig().number.format];
 }
-function initCssPropertiesOfInput(element){
-element.style.fontFamily = getDefaultConfig().style.font.family;
-element.style.fontSize = getDefaultConfig().style.font.size;
-element.style.color = getDefaultConfig().style.font.color;
+function initCssPropertiesOfInput(element,conf){
+element.style.fontFamily = conf.style.font.family;
+element.style.fontSize = conf.style.font.size;
+element.style.color = conf.style.font.color;
+element.style.backgroundColor = conf.style.fillColor;
+element.style.borderColor = conf.style.border.color;
+element.style.borderWidth = conf.style.border.size;
+element.style.textAlign = conf.style.align;
+for (var i = 0; i < conf.style.emphasises.length; i++){
+var emphasis = conf.style.emphasises[i];
+addClass(element,emphasis + COSTUM_INPUT_CSS_PREFIX);
+}
+
 }
 
 function initCostumInputs() {
@@ -58,7 +67,8 @@ var elements = document.getElementsByClassName(COSTUM_ELEMENT_CLASS);
 	
 	for (var i = 0; i < elements.length; i++){
 		elements[i].setAttribute(ELEMENT_MODEL_ID_ATTRIBUTE_NAME,i);
-		initCssPropertiesOfInput(elements[i]);
+		elements[i].placeholder = defaultConfig.placeholder;
+		initCssPropertiesOfInput(elements[i],getDefaultConfig());
 		elementsModels.push(new ElementModel(elements[i]));
 		bindInputEvents(elements[i]);
 	}
