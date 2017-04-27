@@ -2,14 +2,14 @@ var COSTUM_ELEMENT_CLASS = "costum_input";
 var ELEMENT_MODEL_ID_ATTRIBUTE_NAME = "element_model_id";
 
 
-var generateNumberFormats
+var carretPositionBeforeKeyPress = 0;
 var availableKeyCodes = [
 ',',
 '.'
 ];
 var config = {
-	integerPartMaxSize: 5,
-	floatPartMaxSize: 2,
+	integerPartMaxSize: 9,
+	floatPartMaxSize: 4,
 	placeholder: "Racoon",
 	style: {
 		font:{
@@ -32,7 +32,7 @@ var config = {
 };
 function ElementModel(element,previousValue){
 this.element = element;
-this.previousValue = previousValue | "";
+this.previousValue = previousValue || "";
 }
 
 var elementsModels = [];
@@ -58,7 +58,9 @@ function keyPressEventHandler(event){
 	var elementModel = getElementModel(element);
 }
 function keyDownEventHandler(event){
+	carretPositionBeforeKeyPress = event.target.selectionStart;
 	preventIllegalKeyCode(event);
+	correctCarretPositionBeforeKeyPress(event.target);
 }
 
 function keyUpEventHandler(event){
@@ -68,10 +70,9 @@ function keyUpEventHandler(event){
 	if (!validateInput(event.target,char)){
 		element.value = elementModel.previousValue;
 	}
-		elementModel.previousValue = element.value;
-
 	if (isViewUpdateRequired(event))
 	updateView(event.target,elementModel);
+	elementModel.previousValue = element.value;
 
 }
 
@@ -85,11 +86,10 @@ function bindInputEvents(element){
 	addEvent(element,"keyup",keyUpEventHandler);
 	addEvent(element,"keypress",keyPressEventHandler);
 }
-
-function correctCarretPosition(element){
+function correctCarretPositionBeforeKeyPress(element){
 var opt = getLanguageOptions();
 var textLength = element.value.length;
-var carretPos = element.selectionStart;
+var carretPos = carretPositionBeforeKeyPress;
 var currencySymbolLength = opt.currencySymbol.length;
 switch (opt.currencySymbolPlacement.toLowerCase()){
 	case 'p':
@@ -100,17 +100,43 @@ switch (opt.currencySymbolPlacement.toLowerCase()){
 		carretPos = carretPos > lastPosibleCarretPos ? lastPosibleCarretPos : carretPos;
 		break;
 }
-carretPos += 1; // count of inputed characters to fix carret
+//carretPos += 1; // count of inputed characters to fix carret
+element.selectionStart = carretPos;
+element.selectionEnd = carretPos;
+}
+
+function correctCarretPositionAfterKeyPress(element,addedSymbolsCount,removedSymbolsCount){
+var opt = getLanguageOptions();
+var textLength = element.value.length;
+var carretPos = carretPositionBeforeKeyPress;
+var currencySymbolLength = opt.currencySymbol.length;
+switch (opt.currencySymbolPlacement.toLowerCase()){
+	case 'p':
+		carretPos = carretPos < currencySymbolLength ? currencySymbolLength :  carretPos;
+		break;
+	case 's':
+	var lastPosibleCarretPos = textLength - currencySymbolLength - 1;
+		carretPos = carretPos > lastPosibleCarretPos ? lastPosibleCarretPos : carretPos;
+		break;
+}	
+carretPos += addedSymbolsCount; // count of inputed characters to fix carret
 element.selectionStart = carretPos;
 element.selectionEnd = carretPos;
 
 }
 
 function updateView(element,model){
-	var numberDetails = getNumberDetailsFromString(model.previousValue.toString());
+	var numberDetails = getNumberDetailsFromString(model.previousValue);
 	var unformatted = unformatString(element.value);
+	var previousUnformatted = unformatString(model.previousValue);
 	element.value = formatString(unformatted);
-	correctCarretPosition(element);
+	var addedSymbolsCount =  unformatted.length - previousUnformatted.length;
+	var removedSymbolsCount = 0;
+	if (addedSymbolsCount < 0) {
+		addedSymbolsCount = 0;
+		removedSymbolsCount = -1;
+	}
+	correctCarretPositionAfterKeyPress(element,addedSymbolsCount,removedSymbolsCount);
 }
 function formatString(str){
 	var opt = getLanguageOptions();

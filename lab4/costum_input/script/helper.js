@@ -24,7 +24,7 @@ var KeyCode = {
         return [37,38,39,40].indexOf(keyCode) != -1;
     },
     isFunctional: function(keyCode){
-        return this.isArrowKey() || [8,17,16,46].indexOf(keyCode)!=-1;
+        return this.isArrowKey(keyCode) || [8,17,16,46].indexOf(keyCode)!=-1;
     },
     isKeyCodePermitted: function(char){
     if(this.isDigit(char) || this.isSeparator(char) || this.isFunctional(char))
@@ -79,7 +79,7 @@ const languageOption = {
         digitGroupSeparator    : ',',
         decimalCharacter       : '.',
         currencySymbol         : '$',
-        currencySymbolPlacement: 's',
+        currencySymbolPlacement: 'p',
         leadingZero            : defaultLeadingZero
     },
     British: {
@@ -121,10 +121,13 @@ function addCurrencySymbol(str,symbol, positionStr){
     switch(positionStr.toLowerCase()){
         //prefix
         case 'p':
+            if(str.charAt(0)!=symbol)
             resultStr = symbol + str; 
         break;
         //sufix;
         case 's':
+            var lastChar = str.slice(-1);
+            if(lastChar!=symbol)
             resultStr = str + symbol; 
         break;
     }
