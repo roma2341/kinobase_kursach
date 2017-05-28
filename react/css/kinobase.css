@@ -6,7 +6,7 @@ body {
 .page_content_wrapper{
 	margin:0 auto;
 	width:1349px;
-	background-image:url("../images/background_image.png");
+	background-image:url("../assets/images/background_image.png");
 	background-repeat:repeat;
 }
 
@@ -34,14 +34,14 @@ text-transform:uppercase;
 }
 .expectations_and_ratings_block_wrapper{
 padding:10px 0px;
-background-image:url('../images/slider_line.png');
+background-image:url('../assets/images/slider_line.png');
 box-shadow: inset 0 0 25px 25px rgba(0, 0, 0, 0.08);
 background-color: #202020;
 }
 
 .expectations_and_ratings_block {
 height: 275px;
-background-image:url('../images/expectations_logo.png');
+background-image:url('../assets/images/expectations_logo.png');
 background-size:cover;
 position:relative;
 }
@@ -74,7 +74,7 @@ content:'';
 display:block;
 width:10px;
 height:16px;
-background-image:url("../images/left_arrow.png");
+background-image:url("../assets/images/left_arrow.png");
 margin:0 auto;
 margin-top:8px
 }
@@ -132,7 +132,7 @@ color: #000000;
 font-family: Tahoma;
 font-size: 60px;
 font-weight: 400;
-background-image:url("../images/date_counter.png");
+background-image:url("../assets/images/date_counter.png");
 padding: 7px;
 color:black;
 }
@@ -164,13 +164,13 @@ vertical-align:bottom;
 margin-left:18px;
 }
 .rating .star{
-background-image:url("../images/white_star.png");
+background-image:url("../assets/images/white_star.png");
 width:17px;
 height:17px;
 display:inline-block;
 }
 .rating .star.checked {
-	background-image:url("../images/pink_star.png");
+	background-image:url("../assets/images/pink_star.png");
 }
 .date_and_rate .rate_scale {
 display:inline-block;
@@ -282,10 +282,10 @@ height: 21px;
 content: '';
 opacity: 0.6;
 display:block;
-background-image:url('../images/bottom_shadow.png');
+background-image:url('../assets/images/bottom_shadow.png');
 }
 .watch_now{
-	background:url('../images/watch_now.png') no-repeat;
+	background:url('../assets/images/watch_now.png') no-repeat;
 padding:7px 9px;
 	/* Style for "Смотеть се" */
 color: #ffffff;
@@ -314,7 +314,7 @@ background-size:150% 100%;
 .film_info_block{
 width: 265px;
 height: 795px;
-background-image:url('../images/film_info_background.png');
+background-image:url('../assets/images/film_info_background.png');
 overflow:hidden;
 position:relative;
 margin-top:22px;
@@ -342,7 +342,7 @@ font-weight: 400;
 .film_info_block .section:before{
 	height:2px;
 	width:100%;
-	background-image:url('../images/section_separator.png');
+	background-image:url('../assets/images/section_separator.png');
 	display:block;
 	position:absolute;
 	content:'';
@@ -432,7 +432,7 @@ position:relative;
 .comments_area .comment_body{
 	padding:4px 4px;
 	width: 372px;
-	background-image:url("../images/film_info_background.png");
+	background-image:url("../assets/images/film_info_background.png");
 		background-repeat:no-repeat;
 	background-size:cover;
 	border-radius:4px;
@@ -467,7 +467,7 @@ color: #92006b;
 }
 
 .comments_area .title .user_name:before{
-	background-image:url("../images/avatar_icon.png");
+	background-image:url("../assets/images/avatar_icon.png");
 	width:12px;
 	height:12px;
 	content: '';
@@ -554,7 +554,7 @@ margin-top:6px;
 	positino:absolute;
 	width: 21px;
 	height: 18px;
-	background:url('../images/yellow_triangle.png');
+	background:url('../assets/images/yellow_triangle.png');
 	background-size: cover; 
 	bacgkround-repeat:none;
 	margin-left:15px;
@@ -562,7 +562,7 @@ margin-top:6px;
 .paginator_item.selected{
 width:32px;
 height:28px;
-background:url('../images/blue_triangle.png');
+background:url('../assets/images/blue_triangle.png');
 }
 
 .paginator_item span{

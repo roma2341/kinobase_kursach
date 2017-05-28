@@ -462,6 +462,7 @@ return elementModel;
 window.onload = function(){
 	initCostumInputs();
 };
+window.initCostumInputs = initCostumInputs;
 
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import CostumInput from '../css/kinobase.css'
 class Lab1 extends React.Component {
 
     constructor(props) {
@@ -7,243 +7,242 @@ class Lab1 extends React.Component {
 
     }
 
-    render() {
-        return 
-       <div class="page_content_wrapper">
-        <div class="header">
-            <div class="navigation_menu_block">
+    render() { return <div>
+        <div className="page_content_wrapper">
+        <div className="header">
+            <div className="navigation_menu_block">
 
             </div>
 
-            <div class="account_and_search_block">
+            <div className="account_and_search_block">
 
             </div>
-            <div class="expectations_rating_title_wrapper">
-                <div class="expectations_title">
+            <div className="expectations_rating_title_wrapper">
+                <div className="expectations_title">
                     Рейтинг ожиданий
                 </div>
             </div>
-            <div class="expectations_and_ratings_block_wrapper">
-                <div class="expectations_and_ratings_block">
-                    <div class="circle item previous_item"></div>
-                    <div class="expectations_details_wrapper">
-                        <div class="expectations_details">
-                            <div class="text_details">
-                                <div class="title title_ru">Мадагаскар 3</div>
-                                <div class="title title_en">Madagascar 3: Europes Most Wanted</div>
-                                <div class="date_and_rate">
-                                    <div class="date_counter">
-                                        <div class="digit_scoreboard">0</div>
-                                        <div class="digit_scoreboard">7</div>
+            <div className="expectations_and_ratings_block_wrapper">
+                <div className="expectations_and_ratings_block">
+                    <div className="circle item previous_item"></div>
+                    <div className="expectations_details_wrapper">
+                        <div className="expectations_details">
+                            <div className="text_details">
+                                <div className="title title_ru">Мадагаскар 3</div>
+                                <div className="title title_en">Madagascar 3: Europes Most Wanted</div>
+                                <div className="date_and_rate">
+                                    <div className="date_counter">
+                                        <div className="digit_scoreboard">0</div>
+                                        <div className="digit_scoreboard">7</div>
                                     </div>
-                                    <div class="month_wrapper">
-                                        <div class="on_site">На сайте</div>
-                                        <div class="month">Июня</div>
+                                    <div className="month_wrapper">
+                                        <div className="on_site">На сайте</div>
+                                        <div className="month">Июня</div>
                                     </div>
-                                    <div class="rating">
-                                        <div class="star checked"></div>
-                                        <div class="star checked"></div>
-                                        <div class="star checked"></div>
-                                        <div class="star checked"></div>
-                                        <div class="star"></div>
+                                    <div className="rating">
+                                        <div className="star checked"></div>
+                                        <div className="star checked"></div>
+                                        <div className="star checked"></div>
+                                        <div className="star checked"></div>
+                                        <div className="star"></div>
                                     </div>
-                                    <div class="rate_scale">9,5/10</div>
+                                    <div className="rate_scale">9,5/10</div>
                                 </div>
-                                <div class="content">
+                                <div className="content">
                                     Бегемотиха Глория, жираф Мелман, зебра Марти и, конечно, лев Алекс решают вернуться в Нью-Йорк после их побега в Африку. Из-за механических инновации пресловутого шимпанзе и сумасшедших пингвинов, весь план рушится. 
                                 </div>
                             </div>
 
                         </div>
-                        <div class="expectations_images_preview">
-                            <div class="image_item"><img src="images/leo_tiger_preview.png" alt=""/></div>
-                            <div class="image_item"><img src="images/spiderman_preview.png" alt=""/></div>
-                            <div class="image_item"><img src="images/dictator_preview.png" alt=""/></div>
+                        <div className="expectations_images_preview">
+                            <div className="image_item"><img src="assets/images/leo_tiger_preview.png" alt=""/></div>
+                            <div className="image_item"><img src="assets/images/spiderman_preview.png" alt=""/></div>
+                            <div className="image_item"><img src="assets/images/dictator_preview.png" alt=""/></div>
 
                         </div>
                     </div>
 
-                    <div class="circle item next_item"></div>
+                    <div className="circle item next_item"></div>
 
 
                 </div>
             </div>
 
-            <div class="content_block_wrapper">
+            <div className="content_block_wrapper">
 
-                <div class="content_block">
-                    <div class="content_title"><span>Пусть к вам проникнет наше настроение и останется только хорошее впечатление! </span><h3>Наслаждайтесь просмотр...</h3></div>
-                    <div class="left_content_block">
-                    <div class="films_list_block">
-                        <div class="film_item">
-                            <div class="item_title">Новый Человек-паук (2012)</div>
-                            <div class="item_image">
-                                <img src="images/spider_man1.png" alt=""/>
-                                <div class="rating">
-                                    <div class="star checked"></div>
-                                    <div class="star checked"></div>
-                                    <div class="star checked"></div>
-                                    <div class="star checked"></div>
-                                    <div class="star"></div>
+                <div className="content_block">
+                    <div className="content_title"><span>Пусть к вам проникнет наше настроение и останется только хорошее впечатление! </span><h3>Наслаждайтесь просмотр...</h3></div>
+                    <div className="left_content_block">
+                    <div className="films_list_block">
+                        <div className="film_item">
+                            <div className="item_title">Новый Человек-паук (2012)</div>
+                            <div className="item_image">
+                                <img src="assets/images/spider_man1.png" alt=""/>
+                                <div className="rating">
+                                    <div className="star checked"></div>
+                                    <div className="star checked"></div>
+                                    <div className="star checked"></div>
+                                    <div className="star checked"></div>
+                                    <div className="star"></div>
                                 </div>
                             </div>
-                            <div class="bottom_shadow"></div>
-                            <div class="item_details">
+                            <div className="bottom_shadow"></div>
+                            <div className="item_details">
                                 Получив сверхчеловеческие способности, Питер Паркер пытается вести нормальную жизнь и разобраться, кем же он теперь стал. Но сейчас на нормальную жизнь ...
                             </div>
-                            <div class="watch_now">Смотреть сейчас</div>
+                            <div className="watch_now">Смотреть сейчас</div>
                         </div>
 
-                        <div class="film_item">
-                            <div class="item_title">Авраам Линкольн: Охотник на вампиров (2012)</div>
-                            <div class="item_image">
-                                <img src="images/lincoln1.png" alt=""/>
-                                <div class="rating">
-                                    <div class="star checked"></div>
-                                    <div class="star checked"></div>
-                                    <div class="star checked"></div>
-                                    <div class="star checked"></div>
-                                    <div class="star"></div>
+                        <div className="film_item">
+                            <div className="item_title">Авраам Линкольн: Охотник на вампиров (2012)</div>
+                            <div className="item_image">
+                                <img src="assets/images/lincoln1.png" alt=""/>
+                                <div className="rating">
+                                    <div className="star checked"></div>
+                                    <div className="star checked"></div>
+                                    <div className="star checked"></div>
+                                    <div className="star checked"></div>
+                                    <div className="star"></div>
                                 </div>
                             </div>
-                            <div class="bottom_shadow"></div>
-                            <div class="item_details">
+                            <div className="bottom_shadow"></div>
+                            <div className="item_details">
                                 Убита мать президента Линкольна, и все указывает на вампиров. После этой трагедии Линкольн объявляет войну до полного уничтожения ...
                             </div>
-                            <div class="watch_now">Смотреть сейчас</div>
+                            <div className="watch_now">Смотреть сейчас</div>
                         </div>
 
 
-                        <div class="film_item">
-                            <div class="item_title">Темный рыцарь: Возрождение легенды (2012)</div>
-                            <div class="item_image">
-                                <img src="images/batman1.png" alt=""/>
-                                <div class="rating">
-                                    <div class="star checked"></div>
-                                    <div class="star checked"></div>
-                                    <div class="star checked"></div>
-                                    <div class="star checked"></div>
-                                    <div class="star"></div>
+                        <div className="film_item">
+                            <div className="item_title">Темный рыцарь: Возрождение легенды (2012)</div>
+                            <div className="item_image">
+                                <img src="assets/images/batman1.png" alt=""/>
+                                <div className="rating">
+                                    <div className="star checked"></div>
+                                    <div className="star checked"></div>
+                                    <div className="star checked"></div>
+                                    <div className="star checked"></div>
+                                    <div className="star"></div>
                                 </div>
                             </div>
-                            <div class="bottom_shadow"></div>
-                            <div class="item_details">
+                            <div className="bottom_shadow"></div>
+                            <div className="item_details">
                                 Восемь лет спустя после событий Темного Рыцаря, в Готэм приходит новый лидер террористов, Бэйн, неся с собой хаос и разрушения ...
                             </div>
-                            <div class="watch_now">Смотреть сейчас</div>
+                            <div className="watch_now">Смотреть сейчас</div>
                         </div>
 
 
                     </div>
 
-                <div class="film_info_block">
-                    <div class="section film_info_image">
-                        <img src="images/mechanic1.png" alt=""/>
+                <div className="film_info_block">
+                    <div className="section film_info_image">
+                        <img src="assets/images/mechanic1.png" alt=""/>
                     </div>
-                    <div class="section info_section_title">Актеры:</div>
-                    <div class="section info_section">Джейсон Стэтхэм, Дональд Сазерленд, Бен Фостер, Тони Голдуин, Джефф Чейз, Мини Анден, Джеймс Логан, Эдди Дж. Фернандез, Джошуа Бриджуотер, Джон МакКоннелл</div>
+                    <div className="section info_section_title">Актеры:</div>
+                    <div className="section info_section">Джейсон Стэтхэм, Дональд Сазерленд, Бен Фостер, Тони Голдуин, Джефф Чейз, Мини Анден, Джеймс Логан, Эдди Дж. Фернандез, Джошуа Бриджуотер, Джон МакКоннелл</div>
 
-                    <div class="section info_section_title">Продюссер:</div>
-                    <div class="section info_section">Рене Бессон, Роберт Чартофф, Уильям Чартофф, Роб Кауэн</div>
+                    <div className="section info_section_title">Продюссер:</div>
+                    <div className="section info_section">Рене Бессон, Роберт Чартофф, Уильям Чартофф, Роб Кауэн</div>
 
-                    <div class="section info_section_title">Режиссер:</div>
-                    <div class="section info_section">Саймон Уэст</div>
+                    <div className="section info_section_title">Режиссер:</div>
+                    <div className="section info_section">Саймон Уэст</div>
 
-                    <div class="section info_section_title">Сценарист:</div>
-                    <div class="section info_section">Льюис Джон Карлино, Ричард Уэнк</div>
+                    <div className="section info_section_title">Сценарист:</div>
+                    <div className="section info_section">Льюис Джон Карлино, Ричард Уэнк</div>
 
-                    <div class="section info_section">
-                    <div class="half_width_block">
-                        <div class="info_section_title">Бюджет:</div>
-                    <div class="info_section">$40 000 000</div>
+                    <div className="section info_section">
+                    <div className="half_width_block">
+                        <div className="info_section_title">Бюджет:</div>
+                    <div className="info_section">$40 000 000</div>
                     </div>
-                    <div class="half_width_block">
-                        <div class="info_section_title">Сборы в мире:</div>
-                    <div class="info_section">$40 000 000</div>
+                    <div className="half_width_block">
+                        <div className="info_section_title">Сборы в мире:</div>
+                    <div className="info_section">$40 000 000</div>
                     </div>
-                    <div class="half_width_block">
-                        <div class="info_section_title">Сборы в США:</div>
-                    <div class="info_section">$40 000 000</div>
+                    <div className="half_width_block">
+                        <div className="info_section_title">Сборы в США:</div>
+                    <div className="info_section">$40 000 000</div>
                     </div>
-                    <div class="half_width_block">
-                        <div class="info_section_title">Релиз на DVD:</div>
-                    <div class="info_section">$40 000 000</div>
+                    <div className="half_width_block">
+                        <div className="info_section_title">Релиз на DVD:</div>
+                    <div className="info_section">$40 000 000</div>
                     </div>
                     </div>
-                    <div class="section"></div>
+                    <div className="section"></div>
 
 
                 </div>
 
-                    <div class="film_details_block">
-                    <div class="short_info_block">
-        <div class="details_title ru">МЕХАНИК</div>
-        <div class="details_title en">THE MECHANIC</div>
+                    <div className="film_details_block">
+                    <div className="short_info_block">
+        <div className="details_title ru">МЕХАНИК</div>
+        <div className="details_title en">THE MECHANIC</div>
 
-        <div class="item">Год выпуска:</div>
-        <div class="value">2010</div>
+        <div className="item">Год выпуска:</div>
+        <div className="value">2010</div>
                 <br/>
 
-        <div class="item">Страна</div>
-        <div class="value">США</div>
+        <div className="item">Страна</div>
+        <div className="value">США</div>
                 <br/>
 
-        <div class="item">Жанр</div>
-        <div class="value">Боевики, Триллеры, Криминал</div>
+        <div className="item">Жанр</div>
+        <div className="value">Боевики, Триллеры, Криминал</div>
                 <br/>
 
-        <div class="item">Продолжительность:</div>
-        <div class="value">89 мин.</div>
+        <div className="item">Продолжительность:</div>
+        <div className="value">89 мин.</div>
                 <br/>
 
-        <div class="item">Рейтинг фильма:</div>
-        <div class="value">MDB: 6.5 Кинопоиск: 6.72</div>
+        <div className="item">Рейтинг фильма:</div>
+        <div className="value">MDB: 6.5 Кинопоиск: 6.72</div>
                 <br/>
 
-        <div class="story_label">Сюжет:</div>
-        <div class="story_content">
+        <div className="story_label">Сюжет:</div>
+        <div className="story_content">
 Артур Бишоп очень хорошо знает свое дело. А дело его – убивать. Он наемник, лучший среди лучших. Артур всегда работает один, но ему приходится сотрудничать с молодым парнем. Теперь они команда. Вот только им все равно предстоит вступить в бой друг с другом, из которого хотя бы одному не уйти живым.
         </div>
     </div>
-    <div class="playback_area_wrapper">
-    <div class="playback_area">
-            <img src="images/artur_bishop.png" alt=""/>
-        <div class="play_button">
-            <img src="images/play_button.png" alt=""/>
+    <div className="playback_area_wrapper">
+    <div className="playback_area">
+            <img src="assets/images/artur_bishop.png" alt=""/>
+        <div className="play_button">
+            <img src="assets/images/play_button.png" alt=""/>
         </div>
     </div>
     </div>
 
-    <div class="comments_area">
+    <div className="comments_area">
 
-        <div class="user_comment">
-            <div class="user_avatar">
-                <img src="images/spiderman_avatar.png" alt=""/>
-                <div class="response_link">Ответить</div>
+        <div className="user_comment">
+            <div className="user_avatar">
+                <img src="assets/images/spiderman_avatar.png" alt=""/>
+                <div className="response_link">Ответить</div>
             </div>
-            <div class="comment_body">
-                <div class="title">
-                    <div class="user_name">TritonGrown</div>
-                    <div class="comment_date">26.05.2012 в 18:40</div>
+            <div className="comment_body">
+                <div className="title">
+                    <div className="user_name">TritonGrown</div>
+                    <div className="comment_date">26.05.2012 в 18:40</div>
                 </div>
-                <div class="comment_text">
+                <div className="comment_text">
                 Фельмище супер,а для тех кто любит гонки вообще найлучшое что может бить.Для семейного просмотра тоже идеал.Фильм + 5   
                 </div>
 
             </div>
         </div>
 
-            <div class="user_comment second_level">
-            <div class="user_avatar">
-                <img src="images/spiderman_avatar.png" alt=""/>
-                <div class="response_link">Ответить</div>
+            <div className="user_comment second_level">
+            <div className="user_avatar">
+                <img src="assets/images/spiderman_avatar.png" alt=""/>
+                <div className="response_link">Ответить</div>
             </div>
-            <div class="comment_body">
-                <div class="title">
-                    <div class="user_name">TritonGrown</div>
-                    <div class="comment_date">26.05.2012 в 18:40</div>
+            <div className="comment_body">
+                <div className="title">
+                    <div className="user_name">TritonGrown</div>
+                    <div className="comment_date">26.05.2012 в 18:40</div>
                 </div>
-                <div class="comment_text">
+                <div className="comment_text">
                 Фельмище супер,а для тех кто любит гонки вообще найлучшое что может бить.Для семейного просмотра тоже идеал.Фильм + 5   
                 </div>
 
@@ -252,16 +251,16 @@ class Lab1 extends React.Component {
 
     </div>
 
-    <div class="comment_input_area">
-        <textarea class="comment_input">текст...</textarea>
-        <div class="send_comment_button">Отправить сообщение</div>
+    <div className="comment_input_area">
+        <textarea className="comment_input" defaultValue="текст..."></textarea>
+        <div className="send_comment_button">Отправить сообщение</div>
     </div>
 
-    <div class="paginator_area">
-        <div class="paginator_item selected"><span>1</span></div>
-        <div class="paginator_item"><span>2</span></div>
-        <div class="paginator_item"><span>3</span></div>
-        <div class="paginator_item"><span>4</span></div>
+    <div className="paginator_area">
+        <div className="paginator_item selected"><span>1</span></div>
+        <div className="paginator_item"><span>2</span></div>
+        <div className="paginator_item"><span>3</span></div>
+        <div className="paginator_item"><span>4</span></div>
     </div>
 
 
@@ -270,7 +269,7 @@ class Lab1 extends React.Component {
 
                 </div>
 
-    <div class="right_content_block">
+    <div className="right_content_block">
     </div>
 
                 </div>
@@ -279,7 +278,7 @@ class Lab1 extends React.Component {
 
         </div>
     </div>
-
+    </div>
     }
 
 

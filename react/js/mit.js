@@ -12,7 +12,7 @@ function isOdd(n){
  суму всіх непарних чисел у цьому діапазоні.
  */
 
-	function processTask1(){
+	window.processTask1 = function processTask1(){
 		var diapasonStart = parseInt(document.getElementById('task1FirstNumber').value);
 		var diapasonEnd = parseInt(document.getElementById('task1LastNumber').value);
 		var sumOfOdd = sumOddNumbersInRange(diapasonStart,diapasonEnd);
@@ -38,7 +38,7 @@ function fact(n){
 if (n == 1 || n == 0) return 1;
 return fact(n-1) * n;
 }
-function processTask2(){
+window.processTask2 = function processTask2(){
 var num = parseInt(document.getElementById('task2Input').value);
 		var factorialOfNumber = fact(num);
 		var resultElm = document.getElementById('task2Result');
@@ -89,7 +89,7 @@ function findHeyes(num){
 
 }
 
-function processTask3(num){
+window.processTask3 = function processTask3(num){
 var num = parseInt(document.getElementById('task3Input').value);
 var result = findHeyes(num);
 var resultJSON = JSON.stringify(result);
@@ -144,7 +144,7 @@ function reverseNum(n){
 	return digitsToNumber(digits);
 
 }
-function processTask4(num){
+window.processTask4 =function processTask4(num){
 var num = parseInt(document.getElementById('task4Input').value);
 var digits = digitsOfNumber(num);
 var digitsCount = countDigits(num);

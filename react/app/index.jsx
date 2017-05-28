@@ -14,9 +14,8 @@ import { browserHistory, Link, hashHistory, Router, Route, IndexRoute } from 're
 render
     (
         <Router history={hashHistory}>
-          <Route path='/lab1' component={Lab1} >
-          </Route>
       		<Route path='/' component={App} >
+            <Route path='lab1' component={Lab1} />
       			<Route path='lab2' component={Lab2} />
       			<Route path='lab3' component={Lab3} />
       			<IndexRoute component={Home}/>
