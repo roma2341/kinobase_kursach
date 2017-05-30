@@ -78,13 +78,20 @@ var elements = document.getElementsByClassName(COSTUM_ELEMENT_CLASS);
 function keyPressEventHandler(event){
 	var element = event.target;
 	var elementModel = getElementModel(element);
+		preventIllegalKeyCode(event);
+		if (isViewUpdateRequired(event)){
+	correctCarretPositionBeforeKeyPress(element);
+	if (!validateInputBeforeKeyPress(event) && !checkKeyCodeIsBackSpace(event.keyCode)){
+		//element.value = elementModel.previousValue;
+		event.preventDefault();
+	}
 }
+}
+
 function keyDownEventHandler(event){
 	var element = event.target;
 	var elementModel = getElementModel(element);
-	preventIllegalKeyCode(event);
-	if (isViewUpdateRequired(event))
-	correctCarretPositionBeforeKeyPress(element);
+
 }
 
 function keyUpEventHandler(event){
@@ -92,9 +99,9 @@ function keyUpEventHandler(event){
 	var elementModel = getElementModel(element);
 	var carretIndexWithoutFormat = getCarretPosExcludingFormatChars(element);
 		var char = String.fromCharCode(event.keyCode);
-	if (!validateInput(event.target)){
+	/*if (!validateInputBeforeKeyPress(event)){
 		element.value = elementModel.previousValue;
-	}
+	}*/
 	if (isViewUpdateRequired(event))
 	updateView(event.target,elementModel);
 	elementModel.previousValue = element.value;
@@ -228,16 +235,32 @@ function unformatString(str){
 	var strWithDecimalSeparator = removeDigitGroups(strWithoutCurrencySymbol,opt.digitGroupSeparator,opt.currencySymbol);
 	return strWithDecimalSeparator;
 }
+function isKeyCodeOfDigitGroupSeparator(keyCode){
+return getLanguageOptions().digitGroupSeparator == String.fromCharCode(keyCode);
+}
 
 
 function preventIllegalKeyCode(event){
-if (event.shiftKey || !KeyCode.isKeyCodePermitted(event.keyCode))//contains not number
+if (event.shiftKey || !KeyCode.isKeyCodePermitted(event.keyCode) || isKeyCodeOfDigitGroupSeparator(event.keyCode) )//contains not number
 	event.preventDefault();
 }
+function getInputValueAfterKeyPress(element,event){
+var char = String.fromCharCode(event.keyCode);
+var carretPosition = element.selectionStart;
+var inputValueAfterKeyPress = element.value;
+	inputValueAfterKeyPress = inputValueAfterKeyPress.slice(0,carretPosition) + char + inputValueAfterKeyPress.slice(carretPosition);
+return inputValueAfterKeyPress;
+}
 
-function validateInput(element){
-	if (element.value=="")return true;
-var numberDetails = getNumberDetailsFromString(unformatString(element.value));
+function validateInputBeforeKeyPress(event){
+var inputValueAfterKeyPress = getInputValueAfterKeyPress(event.target,event);
+return validateInputValue(inputValueAfterKeyPress);
+}
+function validateInputValue(inputValue){
+		if (inputValue=="")return true;
+		var unformattedValue = unformatString(inputValue);
+		if (!isCorrectNumberString(unformattedValue,'.')) return false;
+var numberDetails = getNumberDetailsFromString(unformattedValue);
 if (numberDetails.intPart.toString().length > getDefaultConfig().integerPartMaxSize ) {
 return false;
 }
@@ -245,6 +268,10 @@ if (numberDetails.floatPart.toString().length > getDefaultConfig().floatPartMaxS
 return false;
 }
 return true;
+}
+
+function validateInput(element){
+return validateInputValue(element.value);
 }
 
 function getElementModel(element){

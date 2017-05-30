@@ -178,6 +178,11 @@ var regex = new RegExp(regexString, "g");
 var strWithoutCurrencySymbol = str.replace(regex,'');
 return strWithoutCurrencySymbol;
 }
+function isCorrectNumberString(str,floatPartSeparator){
+ var regexString = '^(-{0,1}\\d+\\'+floatPartSeparator+'{0,1}\\d*)$';
+var regex = new RegExp(regexString, "g");
+return regex.test(str);   
+}
 
 function addClass(elements, myClass) {
 
@@ -202,4 +207,8 @@ function addClass(elements, myClass) {
       elements[i].className += ' ' + myClass;
     }
   }
+}
+
+function checkKeyCodeIsBackSpace(keyCode){
+    return keyCode == 8;
 }
