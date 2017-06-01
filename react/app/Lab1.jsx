@@ -7,7 +7,7 @@ class Lab1 extends React.Component {
 
     }
 
-    render() { return <div>
+    render() { return <div className="kinobase_component">
         <div className="page_content_wrapper">
         <div className="header">
             <div className="navigation_menu_block">

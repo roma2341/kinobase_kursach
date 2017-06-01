@@ -1,3 +1,4 @@
+
  var StringUtils = {
 format: function() {
       var s = arguments[0];
@@ -71,18 +72,18 @@ function addEvent(element, eventName, callback) {
 }
 
 function getFloatPart(number){
-	return number - Math.floor(number);
+    return number - Math.floor(number);
 }
 
 function getNumberDetailsFromString(str){
     var tokens = str.split('.');
-	var number = parseFloat(tokens[0]) || 0;
+    var number = parseFloat(tokens[0]) || 0;
 var intPart = parseInt(tokens[0]);
-	var floatPart = parseInt(tokens[1]) || 0;
+    var floatPart = parseInt(tokens[1]) || 0;
 return{
-	number: number,
-	intPart: intPart,
-	floatPart: floatPart
+    number: number,
+    intPart: intPart,
+    floatPart: floatPart
 }
 }
 
@@ -178,6 +179,11 @@ var regex = new RegExp(regexString, "g");
 var strWithoutCurrencySymbol = str.replace(regex,'');
 return strWithoutCurrencySymbol;
 }
+function isCorrectNumberString(str,floatPartSeparator){
+ var regexString = '^(-{0,1}\\d+\\'+floatPartSeparator+'{0,1}\\d*)$';
+var regex = new RegExp(regexString, "g");
+return regex.test(str);   
+}
 
 function addClass(elements, myClass) {
 
@@ -204,6 +210,10 @@ function addClass(elements, myClass) {
   }
 }
 
+function checkKeyCodeIsBackSpace(keyCode){
+    return keyCode == 8;
+}
+
 "use strict";
 var COSTUM_ELEMENT_CLASS = "costum_input";
 var ELEMENT_MODEL_ID_ATTRIBUTE_NAME = "element_model_id";
@@ -213,32 +223,39 @@ var availableKeyCodes = [
 ',',
 '.'
 ];
-var defaultConfig = {
-	integerPartMaxSize: 9,
-	floatPartMaxSize: 4,
-	placeholder: "Тикніть сюди",
-	style: {
-		font:{
-			size: 20,
-			color: "red",
-			family: "Impact,Charcoal,sans-serif"
-		},
-		fillColor: "pink",
-		border:{
-			color: "red",
-			size: 1,
-		},
-		align: "right",
-		emphasises: ["bold","italic","underline"]
-	},
-	number:{
-		format: "NorthAmerican",// приклад eu 111.111.111,222; приклад us - 111,111,111.222
-	}
 
-};
+var currentConfig = new DefaultConfig();
 
-function getDefaultConfig(){
-	return defaultConfig;
+function DefaultConfig(){
+    this.integerPartMaxSize = 9;
+    this.floatPartMaxSize = 4;
+    this.placeholder = "Тикніть сюди";
+    this.style = {
+        width:600,
+        font:{
+            size: 20,
+            color: "red",
+            family: "Impact,Charcoal,sans-serif"
+        },
+        fillColor: "pink",
+        border:{
+            color: "red",
+            size: 1
+        },
+        align: "right",
+        emphasises: ["bold","italic","underline"]
+    };
+    this.number = {
+        format: "NorthAmerican",// приклад eu 111.111.111,222; приклад us - 111,111,111.222
+    };
+
+}
+
+window.getCurrentConfig = function getCurrentConfig(){
+    return currentConfig;
+}
+window.updateCurrentConfig = function updateCurrentConfig(newConf){
+    currentConfig = newConf;
 }
 
 function ElementModel(element,previousValue){
@@ -250,62 +267,70 @@ this.previousCarretIndex = 0;
 var elementsModels = [];
 
 function getLanguageOptions(){
-	return languageOption[getDefaultConfig().number.format];
+    return languageOption[getCurrentConfig().number.format];
 }
+
 function initCssPropertiesOfInput(element,conf){
 element.style.fontFamily = conf.style.font.family;
-element.style.fontSize = conf.style.font.size;
+element.style.fontSize = conf.style.font.size+"px";
 element.style.color = conf.style.font.color;
 element.style.backgroundColor = conf.style.fillColor;
 element.style.borderColor = conf.style.border.color;
-element.style.borderWidth = conf.style.border.size;
+element.style.borderWidth = conf.style.border.size+"px";
 element.style.textAlign = conf.style.align;
+element.style.width = conf.style.width+"px";
 for (var i = 0; i < conf.style.emphasises.length; i++){
 var emphasis = conf.style.emphasises[i];
 addClass(element,emphasis + COSTUM_INPUT_CSS_PREFIX);
 }
 
 }
-
-function initCostumInputs() {
+window.initCostumInputs = function initCostumInputs() {
 
 var elements = document.getElementsByClassName(COSTUM_ELEMENT_CLASS);
-	
-	for (var i = 0; i < elements.length; i++){
-		elements[i].setAttribute(ELEMENT_MODEL_ID_ATTRIBUTE_NAME,i);
-		elements[i].placeholder = defaultConfig.placeholder;
-		initCssPropertiesOfInput(elements[i],getDefaultConfig());
-		elementsModels.push(new ElementModel(elements[i]));
-		bindInputEvents(elements[i]);
-	}
+    
+    for (var i = 0; i < elements.length; i++){
+        elements[i].setAttribute(ELEMENT_MODEL_ID_ATTRIBUTE_NAME,i);
+        elements[i].placeholder = getCurrentConfig().placeholder;
+        initCssPropertiesOfInput(elements[i],getCurrentConfig());
+        elementsModels.push(new ElementModel(elements[i]));
+        bindInputEvents(elements[i]);
+    }
 
 }
 
 function keyPressEventHandler(event){
-	var element = event.target;
-	var elementModel = getElementModel(element);
+    var element = event.target;
+    var elementModel = getElementModel(element);
+        preventIllegalKeyCode(event);
+        if (isViewUpdateRequired(event)){
+    correctCarretPositionBeforeKeyPress(element);
+    if (!validateInputBeforeKeyPress(event) && !checkKeyCodeIsBackSpace(event.keyCode)){
+        //element.value = elementModel.previousValue;
+        event.preventDefault();
+    }
 }
+}
+
 function keyDownEventHandler(event){
-	var element = event.target;
-	var elementModel = getElementModel(element);
-	preventIllegalKeyCode(event);
-	if (isViewUpdateRequired(event))
-	correctCarretPositionBeforeKeyPress(element);
+    var element = event.target;
+    var elementModel = getElementModel(element);
+
 }
 
 function keyUpEventHandler(event){
-	var element = event.target;
-	var elementModel = getElementModel(element);
-	var carretIndexWithoutFormat = getCarretPosExcludingFormatChars(element);
-		var char = String.fromCharCode(event.keyCode);
-	if (!validateInput(event.target)){
-		element.value = elementModel.previousValue;
-	}
-	if (isViewUpdateRequired(event))
-	updateView(event.target,elementModel);
-	elementModel.previousValue = element.value;
-	elementModel.previousCarretIndex = carretIndexWithoutFormat;
-	
+    var element = event.target;
+    var elementModel = getElementModel(element);
+    var carretIndexWithoutFormat = getCarretPosExcludingFormatChars(element);
+        var char = String.fromCharCode(event.keyCode);
+    /*if (!validateInputBeforeKeyPress(event)){
+        element.value = elementModel.previousValue;
+    }*/
+    if (isViewUpdateRequired(event))
+    updateView(event.target,elementModel);
+    elementModel.previousValue = element.value;
+    elementModel.previousCarretIndex = carretIndexWithoutFormat;
+    
 }
 
 function onClickEventHandler(event){
@@ -321,10 +346,10 @@ return true;
 }
 
 function bindInputEvents(element){
-	addEvent(element,"keydown",keyDownEventHandler);
-	addEvent(element,"keyup",keyUpEventHandler);
-	addEvent(element,"keypress",keyPressEventHandler);
-	addEvent(element,"click",onClickEventHandler);
+    addEvent(element,"keydown",keyDownEventHandler);
+    addEvent(element,"keyup",keyUpEventHandler);
+    addEvent(element,"keypress",keyPressEventHandler);
+    addEvent(element,"click",onClickEventHandler);
 }
 function correctCarretPositionBeforeKeyPress(element){
 var elementModel = getElementModel(element);
@@ -333,13 +358,13 @@ var textLength = element.value.length;
 var carretPos = getActualCarretPosByExcludingFormatChars(elementModel.previousCarretIndex,element.value);;
 var currencySymbolLength = opt.currencySymbol.length;
 switch (opt.currencySymbolPlacement.toLowerCase()){
-	case 'p':
-		carretPos = carretPos < currencySymbolLength ? currencySymbolLength :  carretPos;
-		break;
-	case 's':
-	var lastPosibleCarretPos = textLength - currencySymbolLength;
-		carretPos = carretPos > lastPosibleCarretPos ? lastPosibleCarretPos : carretPos;
-		break;
+    case 'p':
+        carretPos = carretPos < currencySymbolLength ? currencySymbolLength :  carretPos;
+        break;
+    case 's':
+    var lastPosibleCarretPos = textLength - currencySymbolLength;
+        carretPos = carretPos > lastPosibleCarretPos ? lastPosibleCarretPos : carretPos;
+        break;
 }
 //carretPos += 1; // count of inputed characters to fix carret
 console.log('correctCarretPositionBeforeKeyPress:'+element.selectionStart+' to '+carretPos);
@@ -353,11 +378,11 @@ var str = element.value;
 var resultIndex = 0;
 var carretPos = element.selectionStart;
 for (var i = 0; i < carretPos; i++){
-	if (CharaterGroups.isDigit(str.charAt(i)) || str.charAt(i)==opt.decimalCharacter){
-		resultIndex++;
-		}
-	}
-	console.log('ignore format:'+resultIndex);
+    if (CharaterGroups.isDigit(str.charAt(i)) || str.charAt(i)==opt.decimalCharacter){
+        resultIndex++;
+        }
+    }
+    console.log('ignore format:'+resultIndex);
 return resultIndex;
 }
 
@@ -367,7 +392,7 @@ var opt = getLanguageOptions();
 var currentDigitOrDigitSeparatorIndex = 0;
 for (; realIndex < formattedString.length && currentDigitOrDigitSeparatorIndex < indexExcludingFmt; realIndex++){
 if (CharaterGroups.isDigit(formattedString[realIndex]) || formattedString[realIndex]==opt.decimalCharacter)
-	currentDigitOrDigitSeparatorIndex++;
+    currentDigitOrDigitSeparatorIndex++;
 }
 console.log('real:'+realIndex);
 return realIndex;
@@ -375,11 +400,11 @@ return realIndex;
 
 
 function processCarretPositionShiftForDigitsGroups_DEPRECATED(carretPos, formattedString){
-	var opt = getLanguageOptions();
-	var strBeforeCarret = formattedString.substring(0,carretPos);
-	var digitSeparators = occurences(strBeforeCarret,opt.digitGroupSeparator);
-	var result = digitSeparators==null ? 0 : digitSeparators.length;
-	console.log('proc carret pos.: carPos='+carretPos +' new:'+result);
+    var opt = getLanguageOptions();
+    var strBeforeCarret = formattedString.substring(0,carretPos);
+    var digitSeparators = occurences(strBeforeCarret,opt.digitGroupSeparator);
+    var result = digitSeparators==null ? 0 : digitSeparators.length;
+    console.log('proc carret pos.: carPos='+carretPos +' new:'+result);
 return result;
 }
 
@@ -390,14 +415,14 @@ var textLength = element.value.length;
 var carretPos = getActualCarretPosByExcludingFormatChars(elementModel.previousCarretIndex,element.value);
 var currencySymbolLength = opt.currencySymbol.length;
 switch (opt.currencySymbolPlacement.toLowerCase()){
-	case 'p':
-		carretPos = carretPos < currencySymbolLength ? currencySymbolLength :  carretPos;
-		break;
-	case 's':
-	var lastPosibleCarretPos = textLength - currencySymbolLength - 1;
-		carretPos = carretPos > lastPosibleCarretPos ? lastPosibleCarretPos : carretPos;
-		break;
-}	
+    case 'p':
+        carretPos = carretPos < currencySymbolLength ? currencySymbolLength :  carretPos;
+        break;
+    case 's':
+    var lastPosibleCarretPos = textLength - currencySymbolLength - 1;
+        carretPos = carretPos > lastPosibleCarretPos ? lastPosibleCarretPos : carretPos;
+        break;
+}   
 carretPos += addedSymbolsCount; // count of inputed characters to fix carret
 //var carretFix = processCarretPositionShiftForDigitsGroups(carretPos,element.value);
 //carretPos += carretFix;
@@ -408,49 +433,69 @@ element.selectionEnd = carretPos;
 }
 
 function updateView(element,model){
-	var numberDetails = getNumberDetailsFromString(model.previousValue);
-	var unformatted = unformatString(element.value);
-	var previousUnformatted = unformatString(model.previousValue);
-	element.value = formatString(unformatted);
-	var addedSymbolsCount =  unformatted.length - previousUnformatted.length;
-	var removedSymbolsCount = 0;
-	if (addedSymbolsCount < 0) {
-		addedSymbolsCount = 0;
-		removedSymbolsCount = -1;
-	}
-	correctCarretPositionAfterKeyPress(element,addedSymbolsCount,removedSymbolsCount);
+    var numberDetails = getNumberDetailsFromString(model.previousValue);
+    var unformatted = unformatString(element.value);
+    var previousUnformatted = unformatString(model.previousValue);
+    element.value = formatString(unformatted);
+    var addedSymbolsCount =  unformatted.length - previousUnformatted.length;
+    var removedSymbolsCount = 0;
+    if (addedSymbolsCount < 0) {
+        addedSymbolsCount = 0;
+        removedSymbolsCount = -1;
+    }
+    correctCarretPositionAfterKeyPress(element,addedSymbolsCount,removedSymbolsCount);
 }
 function formatString(str){
-	if(str == "") return "";
-	var opt = getLanguageOptions();
-	var withSeparatedDigitGroups = separateDigitGroups(str,opt.digitGroupSeparator,opt.decimalCharacter);
-	var withCurrencySymbol = addCurrencySymbol(withSeparatedDigitGroups,opt.currencySymbol,opt.currencySymbolPlacement); 
+    if(str == "") return "";
+    var opt = getLanguageOptions();
+    var withSeparatedDigitGroups = separateDigitGroups(str,opt.digitGroupSeparator,opt.decimalCharacter);
+    var withCurrencySymbol = addCurrencySymbol(withSeparatedDigitGroups,opt.currencySymbol,opt.currencySymbolPlacement); 
 return withCurrencySymbol;
 }
 
 function unformatString(str){
-		var opt = getLanguageOptions();
-	var strWithoutCurrencySymbol = removeCurrencySymbol(str,opt.currencySymbol,opt.currencySymbolPlacement);
-	var strWithDecimalSeparator = removeDigitGroups(strWithoutCurrencySymbol,opt.digitGroupSeparator,opt.currencySymbol);
-	return strWithDecimalSeparator;
+        var opt = getLanguageOptions();
+    var strWithoutCurrencySymbol = removeCurrencySymbol(str,opt.currencySymbol,opt.currencySymbolPlacement);
+    var strWithDecimalSeparator = removeDigitGroups(strWithoutCurrencySymbol,opt.digitGroupSeparator,opt.currencySymbol);
+    return strWithDecimalSeparator;
+}
+function isKeyCodeOfDigitGroupSeparator(keyCode){
+return getLanguageOptions().digitGroupSeparator == String.fromCharCode(keyCode);
 }
 
 
 function preventIllegalKeyCode(event){
-if (event.shiftKey || !KeyCode.isKeyCodePermitted(event.keyCode))//contains not number
-	event.preventDefault();
+if (event.shiftKey || !KeyCode.isKeyCodePermitted(event.keyCode) || isKeyCodeOfDigitGroupSeparator(event.keyCode) )//contains not number
+    event.preventDefault();
+}
+function getInputValueAfterKeyPress(element,event){
+var char = String.fromCharCode(event.keyCode);
+var carretPosition = element.selectionStart;
+var inputValueAfterKeyPress = element.value;
+    inputValueAfterKeyPress = inputValueAfterKeyPress.slice(0,carretPosition) + char + inputValueAfterKeyPress.slice(carretPosition);
+return inputValueAfterKeyPress;
 }
 
-function validateInput(element){
-	if (element.value=="")return true;
-var numberDetails = getNumberDetailsFromString(unformatString(element.value));
-if (numberDetails.intPart.toString().length > getDefaultConfig().integerPartMaxSize ) {
+function validateInputBeforeKeyPress(event){
+var inputValueAfterKeyPress = getInputValueAfterKeyPress(event.target,event);
+return validateInputValue(inputValueAfterKeyPress);
+}
+function validateInputValue(inputValue){
+        if (inputValue=="")return true;
+        var unformattedValue = unformatString(inputValue);
+        if (!isCorrectNumberString(unformattedValue,'.')) return false;
+var numberDetails = getNumberDetailsFromString(unformattedValue);
+if (numberDetails.intPart.toString().length > getCurrentConfig().integerPartMaxSize ) {
 return false;
 }
-if (numberDetails.floatPart.toString().length > getDefaultConfig().floatPartMaxSize ) {
+if (numberDetails.floatPart.toString().length > getCurrentConfig().floatPartMaxSize ) {
 return false;
 }
 return true;
+}
+
+function validateInput(element){
+return validateInputValue(element.value);
 }
 
 function getElementModel(element){
@@ -460,9 +505,5 @@ return elementModel;
 }
 
 window.onload = function(){
-	initCostumInputs();
+    initCostumInputs();
 };
-window.initCostumInputs = initCostumInputs;
-
-
-

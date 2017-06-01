@@ -135,6 +135,7 @@ font-weight: 400;
 background-image:url("../assets/images/date_counter.png");
 padding: 7px;
 color:black;
+box-sizing:content-box;
 }
 .month_wrapper{
 display:inline-block;
@@ -303,7 +304,6 @@ background-size:150% 100%;
 }
 .left_content_block{
  width:830px;
- background-color:yellow;
  display:inline-block;
 }
 .right_content_block{
