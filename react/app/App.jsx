@@ -26,9 +26,9 @@ constructor(props) {
     </div>
     <ul className="nav navbar-nav">
       <li className="active"><a href="#">Home</a></li>
-      <li><a href="#/lab1">Page 1</a></li>
-      <li><a href="#/lab2">Page 2</a></li>
-      <li><a href="#/lab3">Page 3</a></li>
+      <li><a href="#/lab1">Модуль 1</a></li>
+      <li><a href="#/lab2">Модуль 2</a></li>
+      <li><a href="#/lab3">Модуль 3</a></li>
     </ul>
   </div>
 </nav>

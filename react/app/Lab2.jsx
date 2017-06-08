@@ -3,6 +3,7 @@ import Script from 'react-load-script'
 import { Button } from 'react-bootstrap';
 import $ from 'jquery';
 import Velocity from 'velocity-animate';
+import CostumInput from '../css/mit.css'
 require('../js/mit.js');
 /*$.prototype.velocity = Velocity;*/
 
