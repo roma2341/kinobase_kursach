@@ -1,7 +1,6 @@
 import 'babel-polyfill'
 import React from 'react';
 import { render } from 'react-dom';
-import AwesomeComponent from './AwesomeComponent.jsx';
 
 
 import { browserHistory, Link, hashHistory, Router, Route, IndexRoute } from 'react-router'

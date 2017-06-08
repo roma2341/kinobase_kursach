@@ -1,7 +1,6 @@
 import 'babel-polyfill'
 import React from 'react';
 import { render } from 'react-dom';
-import AwesomeComponent from './AwesomeComponent.jsx';
 import Home from './Home.jsx';
 import Lab3 from './Lab3.jsx';
 import Lab2 from './Lab2.jsx';

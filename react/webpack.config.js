@@ -21,7 +21,8 @@ var config = {
             path.resolve('./js')
         ]
     },
-
+    devtool: 'source-map',
+    debug: true,
     module: {
         plugins: [
             new webpack.ProvidePlugin({

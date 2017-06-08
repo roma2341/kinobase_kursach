@@ -103,7 +103,7 @@ const languageOption = {
         digitGroupSeparator    : ',',
         decimalCharacter       : '.',
         currencySymbol         : '$',
-        currencySymbolPlacement: 's',
+        currencySymbolPlacement: 'p',
         leadingZero            : defaultLeadingZero
     },
     British: {
@@ -139,15 +139,22 @@ function separateDigitGroups(numStr,digitGroupSeparator,decimalCharacter) {
     }
     return str.join(decimalCharacter);
 }
+
+function insertStrAt(index, source, dest){ 
+  return dest.substr(0, index) + source + dest.substr(index);
+}
+
 function addCurrencySymbol(str,symbol, positionStr){
     //if (str.length<1 || str==symbol) return "";
     if (str=="") return str;
     var resultStr = "";
+    var isMinusSign = str.charAt(0)=='-';
+    var insertionPos = isMinusSign ? 1 : 0;
     switch(positionStr.toLowerCase()){
         //prefix
         case 'p':
             if(str.charAt(0)!=symbol)
-            resultStr = symbol + str; 
+            resultStr = insertStrAt(insertionPos,symbol,str);
         break;
         //sufix;
         case 's':
@@ -161,16 +168,24 @@ function addCurrencySymbol(str,symbol, positionStr){
 function removeCurrencySymbol(str,symbol,positionStr){
      if (str.length<=symbol.length) return str;
      var resultStr;
+     var isMinusSign = str.charAt(0)=='-';
+     var symbolsCountPrefix = symbol.length;
+     if (isMinusSign) symbolsCountPrefix++;
+     var symbolCountSuffix = symbol.length;
     switch(positionStr.toLowerCase()){
         //prefix
         case 'p':
-            resultStr = str.substring(symbol.length);
+            resultStr = str.substring(symbolsCountPrefix);
         break;
         //sufix;
         case 's':
-            resultStr = str.slice(0,-symbol.length);
+            resultStr = str.slice(0,-symbolCountSuffix);
         break;
     }
+    if(isMinusSign){
+        resultStr = '-' + resultStr;
+    }
+    console.log('removeCurrencySymbol ('+str+')->'+'('+resultStr+')');
     return resultStr;
 }
 function removeDigitGroups(str,digitGroupSeparator,currencySymbol){
@@ -180,9 +195,11 @@ var strWithoutCurrencySymbol = str.replace(regex,'');
 return strWithoutCurrencySymbol;
 }
 function isCorrectNumberString(str,floatPartSeparator){
- var regexString = '^(-{0,1}\\d+\\'+floatPartSeparator+'{0,1}\\d*)$';
+ var regexString = '^(\\-{0,1}\\d+\\'+floatPartSeparator+'{0,1}\\d*)$';
 var regex = new RegExp(regexString, "g");
-return regex.test(str);   
+var isCorrect = regex.test(str);
+console.log('isCorrectNumber: '+str + ' bool:' + isCorrect);
+return isCorrect;   
 }
 
 function addClass(elements, myClass) {
@@ -291,6 +308,9 @@ var elements = document.getElementsByClassName(COSTUM_ELEMENT_CLASS);
     
     for (var i = 0; i < elements.length; i++){
         elements[i].setAttribute(ELEMENT_MODEL_ID_ATTRIBUTE_NAME,i);
+        elements[i].onpaste = function(e) {
+            e.preventDefault();
+        }
         elements[i].placeholder = getCurrentConfig().placeholder;
         initCssPropertiesOfInput(elements[i],getCurrentConfig());
         elementsModels.push(new ElementModel(elements[i]));
@@ -299,8 +319,19 @@ var elements = document.getElementsByClassName(COSTUM_ELEMENT_CLASS);
 
 }
 
+function applyPressedKeyFunctionIfExcist(event){
+    var element = event.target;
+        if (event.keyCode == 45){
+            var elementValue = element.value;
+            var withToggledSign = toggleSign(elementValue);
+            element.value = withToggledSign;
+            event.preventDefault();
+        }
+}
+
 function keyPressEventHandler(event){
     var element = event.target;
+    applyPressedKeyFunctionIfExcist(event);
     var elementModel = getElementModel(element);
         preventIllegalKeyCode(event);
         if (isViewUpdateRequired(event)){
@@ -317,12 +348,24 @@ function keyDownEventHandler(event){
     var elementModel = getElementModel(element);
 
 }
+function toggleSign(numberString){
+    if (numberString==null || numberString.length<1)return "";
+    var result;
+   if(numberString.charAt(0)=='-'){
+                result = numberString.slice(1,numberString.length);
+            }
+            else{
+                result = '-'+numberString;
+            }
+            return result;
+}
 
 function keyUpEventHandler(event){
     var element = event.target;
     var elementModel = getElementModel(element);
     var carretIndexWithoutFormat = getCarretPosExcludingFormatChars(element);
         var char = String.fromCharCode(event.keyCode);
+
     /*if (!validateInputBeforeKeyPress(event)){
         element.value = elementModel.previousValue;
     }*/
@@ -367,7 +410,6 @@ switch (opt.currencySymbolPlacement.toLowerCase()){
         break;
 }
 //carretPos += 1; // count of inputed characters to fix carret
-console.log('correctCarretPositionBeforeKeyPress:'+element.selectionStart+' to '+carretPos);
 element.selectionStart = carretPos;
 element.selectionEnd = carretPos;
 }
@@ -382,7 +424,6 @@ for (var i = 0; i < carretPos; i++){
         resultIndex++;
         }
     }
-    console.log('ignore format:'+resultIndex);
 return resultIndex;
 }
 
@@ -394,7 +435,6 @@ for (; realIndex < formattedString.length && currentDigitOrDigitSeparatorIndex <
 if (CharaterGroups.isDigit(formattedString[realIndex]) || formattedString[realIndex]==opt.decimalCharacter)
     currentDigitOrDigitSeparatorIndex++;
 }
-console.log('real:'+realIndex);
 return realIndex;
 }
 
@@ -404,7 +444,6 @@ function processCarretPositionShiftForDigitsGroups_DEPRECATED(carretPos, formatt
     var strBeforeCarret = formattedString.substring(0,carretPos);
     var digitSeparators = occurences(strBeforeCarret,opt.digitGroupSeparator);
     var result = digitSeparators==null ? 0 : digitSeparators.length;
-    console.log('proc carret pos.: carPos='+carretPos +' new:'+result);
 return result;
 }
 
@@ -465,10 +504,15 @@ return getLanguageOptions().digitGroupSeparator == String.fromCharCode(keyCode);
 
 
 function preventIllegalKeyCode(event){
-if (event.shiftKey || !KeyCode.isKeyCodePermitted(event.keyCode) || isKeyCodeOfDigitGroupSeparator(event.keyCode) )//contains not number
+if (event.shiftKey || !KeyCode.isKeyCodePermitted(event.keyCode) || isKeyCodeOfDigitGroupSeparator(event.keyCode) || event.keyCode == 45)//contains not number
     event.preventDefault();
 }
 function getInputValueAfterKeyPress(element,event){
+    if (event.keyCode == 45){
+        var toggledSign =  toggleSign(element.value);
+        console.log('toggled sign:'+toggledSign);
+        return toggledSign;
+    }
 var char = String.fromCharCode(event.keyCode);
 var carretPosition = element.selectionStart;
 var inputValueAfterKeyPress = element.value;
