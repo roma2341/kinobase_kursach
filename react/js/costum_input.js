@@ -236,6 +236,12 @@ function addClass(elements, myClass) {
 function checkKeyCodeIsBackSpace(keyCode){
     return keyCode == 8;
 }
+function checkKeyCodeIsDelete(keyCode){
+    return keyCode == 46;
+}
+function checkKeyCodeIsRemovable(keyCode) {
+    return checkKeyCodeIsBackSpace(keyCode) || checkKeyCodeIsDelete(keyCode);
+}
 
 "use strict";
 var COSTUM_ELEMENT_CLASS = "costum_input";
@@ -345,7 +351,7 @@ function keyPressEventHandler(event){
         preventIllegalKeyCode(event);
         if (isViewUpdateRequired(event)){
     correctCarretPositionBeforeKeyPress(element);
-    if (!validateInputBeforeKeyPress(event) && !checkKeyCodeIsBackSpace(event.keyCode)){
+    if (!validateInputBeforeKeyPress(event) && !checkKeyCodeIsRemovable(event.keyCode)){
         //element.value = elementModel.previousValue;
         event.preventDefault();
     }
@@ -355,7 +361,7 @@ function keyPressEventHandler(event){
 function keyDownEventHandler(event){
     var element = event.target;
     var elementModel = getElementModel(element);
-       if (checkKeyCodeIsBackSpace(event.keyCode) && !validateInputBeforeKeyPress(event)){
+       if (checkKeyCodeIsRemovable(event.keyCode) && !validateInputBeforeKeyPress(event)){
         //element.value = elementModel.previousValue;
         event.preventDefault();
     }
@@ -531,6 +537,9 @@ var carretPosition = element.selectionStart;
 var inputValueAfterKeyPress = element.value;
 if (checkKeyCodeIsBackSpace(event.keyCode)){
 inputValueAfterKeyPress = inputValueAfterKeyPress.slice(0,carretPosition-1)+inputValueAfterKeyPress.slice(carretPosition);
+}
+else if(checkKeyCodeIsDelete(event.keyCode)){
+    inputValueAfterKeyPress = inputValueAfterKeyPress.slice(0,carretPosition)+inputValueAfterKeyPress.slice(carretPosition+1);
 }
 else {
     inputValueAfterKeyPress = inputValueAfterKeyPress.slice(0,carretPosition) + char + inputValueAfterKeyPress.slice(carretPosition);
