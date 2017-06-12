@@ -16,6 +16,7 @@ var CharaterGroups = {
     }
 
 }
+var defaultClassName = "costum_input";
 
 var KeyCode = {
     separators: {
@@ -32,6 +33,7 @@ var KeyCode = {
         shift: 16,
         delete: 46
     },
+    minus: 45,
     isDigit: function(keyCode){
         return (keyCode >= 48 && keyCode <= 57);
     },
@@ -296,6 +298,9 @@ element.style.borderColor = conf.style.border.color;
 element.style.borderWidth = conf.style.border.size+"px";
 element.style.textAlign = conf.style.align;
 element.style.width = conf.style.width+"px";
+
+element.className = defaultClassName;
+
 for (var i = 0; i < conf.style.emphasises.length; i++){
 var emphasis = conf.style.emphasises[i];
 addClass(element,emphasis + COSTUM_INPUT_CSS_PREFIX);
@@ -321,7 +326,7 @@ var elements = document.getElementsByClassName(COSTUM_ELEMENT_CLASS);
 
 function applyPressedKeyFunctionIfExcist(event){
     var element = event.target;
-        if (event.keyCode == 45){
+        if (event.keyCode == KeyCode.minus){
             var elementValue = element.value;
             var withToggledSign = toggleSign(elementValue);
             element.value = withToggledSign;
@@ -504,11 +509,11 @@ return getLanguageOptions().digitGroupSeparator == String.fromCharCode(keyCode);
 
 
 function preventIllegalKeyCode(event){
-if (event.shiftKey || !KeyCode.isKeyCodePermitted(event.keyCode) || isKeyCodeOfDigitGroupSeparator(event.keyCode) || event.keyCode == 45)//contains not number
+if (event.shiftKey || !KeyCode.isKeyCodePermitted(event.keyCode) || isKeyCodeOfDigitGroupSeparator(event.keyCode) || event.keyCode == KeyCode.minus)//contains not number
     event.preventDefault();
 }
 function getInputValueAfterKeyPress(element,event){
-    if (event.keyCode == 45){
+    if (event.keyCode == KeyCode.minus){
         var toggledSign =  toggleSign(element.value);
         console.log('toggled sign:'+toggledSign);
         return toggledSign;

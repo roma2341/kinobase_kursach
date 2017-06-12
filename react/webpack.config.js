@@ -44,6 +44,10 @@ var config = {
         test: /\.css$/, 
         loader: "style-loader!css-loader" 
       },
+	{
+        test: /\.less$/, 
+        loader: "style-loader!css-loader!less-loader" 
+      },
       { 
         test: /\.png$/, 
         loader: "url-loader?limit=1000000" 

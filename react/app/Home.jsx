@@ -10,7 +10,7 @@ class Home extends React.Component {
 
     render() {
         return <div>
-      Hello world
+      Ласкаво просимо 
         </div>
     }
 

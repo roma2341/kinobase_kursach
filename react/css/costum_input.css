@@ -10,3 +10,6 @@ input {
 .underline_costum_input{
  text-decoration: underline;
 }
+textarea {
+   resize: none;
+}

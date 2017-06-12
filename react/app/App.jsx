@@ -18,7 +18,7 @@ constructor(props) {
     render() {
         return (
             <div>
-           <nav className="navbar navbar-inverse">
+           <nav className="navbar-inverse">
   <div className="container-fluid">
     <div className="navbar-header">
       <a className="navbar-brand" href="#">Курсова робота</a>

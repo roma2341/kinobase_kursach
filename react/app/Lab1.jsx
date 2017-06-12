@@ -1,5 +1,5 @@
 import React from 'react';
-import CostumInput from '../css/kinobase.css'
+import CostumInput from '../less/kinobase.less'
 class Lab1 extends React.Component {
 
     constructor(props) {
@@ -10,9 +10,6 @@ class Lab1 extends React.Component {
     render() { return <div className="kinobase_component">
         <div className="page_content_wrapper">
         <div className="header">
-            <div className="navigation_menu_block">
-
-            </div>
 
             <div className="account_and_search_block">
 

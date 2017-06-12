@@ -79,12 +79,13 @@ function findHeyes(num){
 		}
 		tryUpdateTop(num);
 		sequenceArray.push(num);
-		sequenceString += '='+num+'\n';
+		sequenceString += '='+num+';';
 	}
 	return {
 		sequence: sequenceArray,
 		steps: steps,
-		top: top
+		top: top,
+		sequenceString: sequenceString
 	}
 
 }
