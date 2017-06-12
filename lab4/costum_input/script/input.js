@@ -246,9 +246,17 @@ if (event.shiftKey || !KeyCode.isKeyCodePermitted(event.keyCode) || isKeyCodeOfD
 }
 function getInputValueAfterKeyPress(element,event){
 var char = String.fromCharCode(event.keyCode);
+var isBackSpace = checkKeyCodeIsBackSpace(event.keyCode);
 var carretPosition = element.selectionStart;
 var inputValueAfterKeyPress = element.value;
+if (isBackSpace){
+inputValueAfterKeyPress.slice(carretPosition-1,carretPosition);
+}
+else {
 	inputValueAfterKeyPress = inputValueAfterKeyPress.slice(0,carretPosition) + char + inputValueAfterKeyPress.slice(carretPosition);
+}
+console.log('inputValueAfterKeyPress:'+inputValueAfterKeyPress);
+
 return inputValueAfterKeyPress;
 }
 

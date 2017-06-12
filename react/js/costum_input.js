@@ -82,10 +82,14 @@ function getNumberDetailsFromString(str){
     var number = parseFloat(tokens[0]) || 0;
 var intPart = parseInt(tokens[0]);
     var floatPart = parseInt(tokens[1]) || 0;
+    var intPartStr = tokens[0] || 0;
+    var floatPartStr = tokens[1] || 0;
 return{
-    number: number,
-    intPart: intPart,
-    floatPart: floatPart
+    number,
+    intPart,
+    floatPart,
+    intPartStr,
+    floatPartStr
 }
 }
 
@@ -187,7 +191,7 @@ function removeCurrencySymbol(str,symbol,positionStr){
     if(isMinusSign){
         resultStr = '-' + resultStr;
     }
-    console.log('removeCurrencySymbol ('+str+')->'+'('+resultStr+')');
+    //console.log('removeCurrencySymbol ('+str+')->'+'('+resultStr+')');
     return resultStr;
 }
 function removeDigitGroups(str,digitGroupSeparator,currencySymbol){
@@ -351,6 +355,10 @@ function keyPressEventHandler(event){
 function keyDownEventHandler(event){
     var element = event.target;
     var elementModel = getElementModel(element);
+       if (checkKeyCodeIsBackSpace(event.keyCode) && !validateInputBeforeKeyPress(event)){
+        //element.value = elementModel.previousValue;
+        event.preventDefault();
+    }
 
 }
 function toggleSign(numberString){
@@ -521,9 +529,18 @@ function getInputValueAfterKeyPress(element,event){
 var char = String.fromCharCode(event.keyCode);
 var carretPosition = element.selectionStart;
 var inputValueAfterKeyPress = element.value;
+if (checkKeyCodeIsBackSpace(event.keyCode)){
+inputValueAfterKeyPress = inputValueAfterKeyPress.slice(0,carretPosition-1)+inputValueAfterKeyPress.slice(carretPosition);
+}
+else {
     inputValueAfterKeyPress = inputValueAfterKeyPress.slice(0,carretPosition) + char + inputValueAfterKeyPress.slice(carretPosition);
+}
+console.log('inputValueAfterKeyPress:'+inputValueAfterKeyPress);
 return inputValueAfterKeyPress;
 }
+
+
+
 
 function validateInputBeforeKeyPress(event){
 var inputValueAfterKeyPress = getInputValueAfterKeyPress(event.target,event);
@@ -534,10 +551,10 @@ function validateInputValue(inputValue){
         var unformattedValue = unformatString(inputValue);
         if (!isCorrectNumberString(unformattedValue,'.')) return false;
 var numberDetails = getNumberDetailsFromString(unformattedValue);
-if (numberDetails.intPart.toString().length > getCurrentConfig().integerPartMaxSize ) {
+if (numberDetails.intPartStr.length > getCurrentConfig().integerPartMaxSize ) {
 return false;
 }
-if (numberDetails.floatPart.toString().length > getCurrentConfig().floatPartMaxSize ) {
+if (numberDetails.floatPartStr.length > getCurrentConfig().floatPartMaxSize ) {
 return false;
 }
 return true;
