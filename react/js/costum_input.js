@@ -327,6 +327,7 @@ var elements = document.getElementsByClassName(COSTUM_ELEMENT_CLASS);
         elements[i].onpaste = function(e) {
             e.preventDefault();
         }
+         elements[i].style.userSelect = "none";
         elements[i].placeholder = getCurrentConfig().placeholder;
         initCssPropertiesOfInput(elements[i],getCurrentConfig());
         elementsModels.push(new ElementModel(elements[i]));
@@ -337,7 +338,8 @@ var elements = document.getElementsByClassName(COSTUM_ELEMENT_CLASS);
 
 function applyPressedKeyFunctionIfExcist(event){
     var element = event.target;
-        if (event.keyCode == KeyCode.minus){
+    var keyCode = event.keyCode || event.which;
+        if (keyCode == KeyCode.minus){
             var elementValue = element.value;
             var withToggledSign = toggleSign(elementValue);
             element.value = withToggledSign;
@@ -385,7 +387,8 @@ function keyUpEventHandler(event){
     var element = event.target;
     var elementModel = getElementModel(element);
     var carretIndexWithoutFormat = getCarretPosExcludingFormatChars(element);
-        var char = String.fromCharCode(event.keyCode);
+    var keyCode = event.keyCode || event.which;
+        var char = String.fromCharCode(keyCode);
 
     /*if (!saveKeysStatusBeforeKeyPress(event)){
         element.value = elementModel.previousValue;
@@ -405,7 +408,8 @@ elementModel.previousCarretIndex = carretIndexWithoutFormat;
 }
 
 function isViewUpdateRequired(event){
-if (KeyCode.isArrowKey(event.keyCode)) return false;
+    var keyCode = event.keyCode || event.which;
+if (KeyCode.isArrowKey(keyCode)) return false;
 return true;
 }
 
@@ -525,7 +529,8 @@ return getLanguageOptions().digitGroupSeparator == String.fromCharCode(keyCode);
 
 
 function preventIllegalKeyCode(event){
-if (event.shiftKey || !KeyCode.isKeyCodePermitted(event.keyCode) || isKeyCodeOfDigitGroupSeparator(event.keyCode) || event.keyCode == KeyCode.minus)//contains not number
+    var keyCode = event.keyCode || event.which;
+if (event.shiftKey || !KeyCode.isKeyCodePermitted(keyCode) || isKeyCodeOfDigitGroupSeparator(keyCode) || keyCode == KeyCode.minus)//contains not number
     event.preventDefault();
 }
 var KeysStatus = {
@@ -542,20 +547,22 @@ KeysStatus.isRemovingKeyPressed = false;
 
 
 function saveKeysStatusBeforeKeyPress(event){
+    var keyCode = event.keyCode || event.which;
  
-KeysStatus.isBackSpacePressed = checkKeyCodeIsBackSpace(event.keyCode);
-KeysStatus.isDeletePressed = checkKeyCodeIsDelete(event.keyCode)
-KeysStatus.isRemovingKeyPressed = checkKeyCodeIsRemovable(event.keyCode);
+KeysStatus.isBackSpacePressed = checkKeyCodeIsBackSpace(keyCode);
+KeysStatus.isDeletePressed = checkKeyCodeIsDelete(keyCode)
+KeysStatus.isRemovingKeyPressed = checkKeyCodeIsRemovable(keyCode);
 
 }
 
 function getInputValueOnKeyPress(element,event){
-    if (event.keyCode == KeyCode.minus){
+    var keyCode = event.keyCode || event.which;
+    if (keyCode == KeyCode.minus){
         var toggledSign =  toggleSign(element.value);
         console.log('toggled sign:'+toggledSign);
         return toggledSign;
     }
-var char = String.fromCharCode(event.keyCode);
+var char = String.fromCharCode(keyCode);
 var carretPosition = element.selectionStart;
 var inputValueAfterKeyPress = element.value;
 if (KeysStatus.isBackSpacePressed){

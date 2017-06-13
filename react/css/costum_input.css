@@ -1,6 +1,14 @@
 input { 
-    text-align: right; 
+    text-align: right;    
 }
+input[type="text"]{
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
 .bold_costum_input{
   font-weight:bold;
 }
