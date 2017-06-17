@@ -1,7 +1,6 @@
 import React from 'react';
 import Script from 'react-load-script'
 import { Button } from 'react-bootstrap';
-import $ from 'jquery';
 import Velocity from 'velocity-animate';
 import CostumInput from '../css/mit.css';
 import ButtonsAnimations from '../css/animation_button.css'
@@ -13,13 +12,24 @@ class Lab2 extends React.Component {
     constructor(props) {
         super(props);
            //this.processTask1 = window.processTask1;
+           this.state ={result:''};
            this.processTask1 = window.processTask1
            this.processTask2 = window.processTask2;
-           this.processTask3 = function(){
-            window.processTask3();
+           var self = this;
+
+           function processTaskAndShowResultInModal(taskHandler) {
+            var result = taskHandler();
+            self.setState({'result':result});
             $("#resultModal").modal('show');
+           }
+
+           this.processTask3 = function(){
+          processTaskAndShowResultInModal(window.processTask3);
           }
-           this.processTask4 = window.processTask4;
+            this.processTask4 = function(){
+          processTaskAndShowResultInModal(window.processTask4);
+          }
+
     };
    
     render() {
@@ -66,7 +76,6 @@ class Lab2 extends React.Component {
     </div>
     <div className="col-xs-6"> 
     <button type="submit" className="btn btn-default submit_button" >Розрахувати</button>
-    <span >Послідовність Хеєса:</span> <span id="task3Result">0</span>
     </div>
 
   </form>
@@ -79,12 +88,9 @@ class Lab2 extends React.Component {
     </div>
     <div className="col-xs-6"> 
     <button type="submit" className="btn btn-default submit_button" >Розрахувати</button>
-    <span>Результат:</span> <span id="task4Result">0</span>
     </div>
 
   </form>
-  </div>
-
 
   <div id="resultModal" className="modal fade">
       <div className="modal-dialog">
@@ -95,7 +101,7 @@ class Lab2 extends React.Component {
               </div>
               <div className="modal-body">
                   <p>Результат операції:</p>
-                  <p className="text-warning"><small>If you dont save, your changes will be lost.</small></p>
+                  <p className="text-warning"><small className="operation_result" id="operationResult"> {this.state.result}</small></p>
               </div>
               <div className="modal-footer">
                   <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
@@ -103,6 +109,9 @@ class Lab2 extends React.Component {
           </div>
       </div>
   </div>
+
+  </div>
+
   </div>
     }
 

@@ -34,3 +34,13 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
+
+.second_module_container .modal-dialog {
+color:black;
+}
+
+.operation_result{
+	display: block;
+    width: 100%;
+    word-break: break-all;
+}

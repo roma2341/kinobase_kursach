@@ -95,9 +95,9 @@ window.processTask3 = function processTask3(num){
 var num = parseInt(document.getElementById('task3Input').value);
 var result = findHeyes(num);
 var resultJSON = JSON.stringify(result);
-var resultElm = document.getElementById('task3Result');
-resultElm.innerText = resultJSON;
-
+//var resultElm = document.getElementById('task3Result');
+//resultElm.innerText = resultJSON;
+return resultJSON;
 
 
 }
@@ -161,6 +161,7 @@ var resultObj = {
 }
 
 var resultJSON = JSON.stringify(resultObj);
-var resultElm = document.getElementById('task4Result');
-resultElm.innerText = resultJSON;
+return resultJSON;
+//var resultElm = document.getElementById('task4Result');
+//resultElm.innerText = resultJSON;
 }
