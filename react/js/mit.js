@@ -1,3 +1,4 @@
+
 function isEven(n){
 	if (!Number.isFinite(parseFloat(n))) return undefined;
 	return !isOdd(n);

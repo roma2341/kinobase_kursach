@@ -1,6 +1,7 @@
 import 'babel-polyfill'
 import React from 'react';
 import { render } from 'react-dom';
+import CostumInput from '../less/app.less'
 
 
 import { browserHistory, Link, hashHistory, Router, Route, IndexRoute } from 'react-router'
@@ -18,7 +19,14 @@ constructor(props) {
     render() {
         return (
             <div>
-           <nav className="navbar-inverse">
+
+<div className="fullscreen-bg">
+    <video loop muted autoPlay poster="assets/images/blue_nature_shine.jpg" className="bg__video">
+        <source src="assets/video/blue_nature_shine.mp4" type="video/mp4"/>
+    </video>
+</div>
+
+      <nav className="navbar-inverse">
   <div className="container-fluid">
     <div className="navbar-header">
       <a className="navbar-brand" href="#">Курсова робота</a>

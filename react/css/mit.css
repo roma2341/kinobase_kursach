@@ -1,3 +1,36 @@
-input {
+
+.second_module_container {
+	width: 1366px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow:hidden;
+}
+.second_module_container input {
 	text-align:left;
+}
+.second_module_container input
+{
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.second_module_container input::-webkit-input-placeholder {color:white;opacity:0.5;}
+.second_module_container input::-moz-placeholder          {color:white;opacity:0.5;}/* Firefox 19+ */
+.second_module_container input:-moz-placeholder           {color:white;opacity:0.5;}/* Firefox 18- */
+.second_module_container input:-ms-input-placeholder      {color:white;opacity:0.5;}
+
+.second_module_container .submit_button {
+	width:100%;
+}
+
+.second_module_container input:nth-child(2) {
+    margin-top: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
