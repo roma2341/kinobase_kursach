@@ -11,6 +11,9 @@
 .full_width {
 width: 100%;
 }
+.hide_overflow{
+    overflow:hidden;
+}
 
 /*Not my*/
 

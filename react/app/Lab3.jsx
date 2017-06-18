@@ -65,7 +65,7 @@ class Lab3 extends React.Component {
  		 <div className="form-group">
           <label className="cols-sm-2 control-label">Вигляд елементу</label>
           <div className="cols-sm-10">
-          <div className="input-group full_width">
+          <div className="input-group full_width hide_overflow">
           <input type="text" className="costum_input form-control" />
           </div>
           </div>
