@@ -1,10 +1,27 @@
 import React from 'react';
-import CostumInput from '../less/kinobase.less'
+import CostumInput from '../less/kinobase.less';
 import StarRating from './components/StarRating.jsx';
+import TrianglePaginator from './components/TrianglePaginator.jsx';
+import DigitalScoreboard from './components/DigitalScoreboard.jsx';
+import CommentsList from './components/CommentsList.jsx';
 class Lab1 extends React.Component {
 
     constructor(props) {
         super(props);
+        var Comment = function(userName,avatar,commentDate,isFirstLevel,commentText){
+
+            this.userName = userName;
+            this.avatar = avatar;
+            this.commentDate = commentDate;
+            this.commentText = commentText;
+            this.isFirstLevel = isFirstLevel;
+
+        }
+        this.comments = [
+            new Comment('TritonGrown','spiderman_avatar.png','26.05.2012 в 18:40',true,'Фельмище супер,а для тех кто любит гонки вообще найлучшое что может бить.Для семейного просмотра тоже идеал.Фильм + 5 '),
+            new Comment('TritonGrown','spiderman_avatar.png','26.05.2012 в 18:40',false,'Фельмище супер,а для тех кто любит гонки вообще найлучшое что может бить.Для семейного просмотра тоже идеал.Фильм + 5 '),
+
+        ]
 
     }
 
@@ -29,10 +46,7 @@ class Lab1 extends React.Component {
                                 <div className="title title_ru">Мадагаскар 3</div>
                                 <div className="title title_en">Madagascar 3: Europes Most Wanted</div>
                                 <div className="date_and_rate">
-                                    <div className="date_counter">
-                                        <div className="digit_scoreboard">0</div>
-                                        <div className="digit_scoreboard">7</div>
-                                    </div>
+                                    <DigitalScoreboard text="07"/>
                                     <div className="month_wrapper">
                                         <div className="on_site">На сайте</div>
                                         <div className="month">Июня</div>
@@ -189,39 +203,7 @@ class Lab1 extends React.Component {
 
     <div className="comments_area">
 
-        <div className="user_comment">
-            <div className="user_avatar">
-                <img src="assets/images/spiderman_avatar.png" alt=""/>
-                <div className="response_link">Ответить</div>
-            </div>
-            <div className="comment_body">
-                <div className="title">
-                    <div className="user_name">TritonGrown</div>
-                    <div className="comment_date">26.05.2012 в 18:40</div>
-                </div>
-                <div className="comment_text">
-                Фельмище супер,а для тех кто любит гонки вообще найлучшое что может бить.Для семейного просмотра тоже идеал.Фильм + 5   
-                </div>
-
-            </div>
-        </div>
-
-            <div className="user_comment second_level">
-            <div className="user_avatar">
-                <img src="assets/images/spiderman_avatar.png" alt=""/>
-                <div className="response_link">Ответить</div>
-            </div>
-            <div className="comment_body">
-                <div className="title">
-                    <div className="user_name">TritonGrown</div>
-                    <div className="comment_date">26.05.2012 в 18:40</div>
-                </div>
-                <div className="comment_text">
-                Фельмище супер,а для тех кто любит гонки вообще найлучшое что может бить.Для семейного просмотра тоже идеал.Фильм + 5   
-                </div>
-
-            </div>
-        </div>
+       <CommentsList comments={this.comments} />
 
     </div>
 
@@ -230,12 +212,7 @@ class Lab1 extends React.Component {
         <div className="send_comment_button">Отправить сообщение</div>
     </div>
 
-    <div className="paginator_area">
-        <div className="paginator_item selected"><span>1</span></div>
-        <div className="paginator_item"><span>2</span></div>
-        <div className="paginator_item"><span>3</span></div>
-        <div className="paginator_item"><span>4</span></div>
-    </div>
+   <TrianglePaginator total-pages={5} current-page={1}/>
 
 
 

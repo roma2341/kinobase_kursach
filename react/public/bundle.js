@@ -30094,11 +30094,7 @@
 		_createClass(Home, [{
 			key: 'render',
 			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(_StarRating2.default, { rating: 3, 'max-rating': 5 })
-				);
+				return _react2.default.createElement('div', null);
 			}
 		}]);
 	
@@ -56949,6 +56945,18 @@
 	
 	var _StarRating2 = _interopRequireDefault(_StarRating);
 	
+	var _TrianglePaginator = __webpack_require__(847);
+	
+	var _TrianglePaginator2 = _interopRequireDefault(_TrianglePaginator);
+	
+	var _DigitalScoreboard = __webpack_require__(848);
+	
+	var _DigitalScoreboard2 = _interopRequireDefault(_DigitalScoreboard);
+	
+	var _CommentsList = __webpack_require__(849);
+	
+	var _CommentsList2 = _interopRequireDefault(_CommentsList);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -56963,7 +56971,19 @@
 	    function Lab1(props) {
 	        _classCallCheck(this, Lab1);
 	
-	        return _possibleConstructorReturn(this, (Lab1.__proto__ || Object.getPrototypeOf(Lab1)).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (Lab1.__proto__ || Object.getPrototypeOf(Lab1)).call(this, props));
+	
+	        var Comment = function Comment(userName, avatar, commentDate, isFirstLevel, commentText) {
+	
+	            this.userName = userName;
+	            this.avatar = avatar;
+	            this.commentDate = commentDate;
+	            this.commentText = commentText;
+	            this.isFirstLevel = isFirstLevel;
+	        };
+	        _this.comments = [new Comment('TritonGrown', 'spiderman_avatar.png', '26.05.2012 в 18:40', true, 'Фельмище супер,а для тех кто любит гонки вообще найлучшое что может бить.Для семейного просмотра тоже идеал.Фильм + 5 '), new Comment('TritonGrown', 'spiderman_avatar.png', '26.05.2012 в 18:40', false, 'Фельмище супер,а для тех кто любит гонки вообще найлучшое что может бить.Для семейного просмотра тоже идеал.Фильм + 5 ')];
+	
+	        return _this;
 	    }
 	
 	    _createClass(Lab1, [{
@@ -57017,20 +57037,7 @@
 	                                            _react2.default.createElement(
 	                                                'div',
 	                                                { className: 'date_and_rate' },
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'date_counter' },
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'digit_scoreboard' },
-	                                                        '0'
-	                                                    ),
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'digit_scoreboard' },
-	                                                        '7'
-	                                                    )
-	                                                ),
+	                                                _react2.default.createElement(_DigitalScoreboard2.default, { text: '07' }),
 	                                                _react2.default.createElement(
 	                                                    'div',
 	                                                    { className: 'month_wrapper' },
@@ -57396,80 +57403,7 @@
 	                                        _react2.default.createElement(
 	                                            'div',
 	                                            { className: 'comments_area' },
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'user_comment' },
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'user_avatar' },
-	                                                    _react2.default.createElement('img', { src: 'assets/images/spiderman_avatar.png', alt: '' }),
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'response_link' },
-	                                                        '\u041E\u0442\u0432\u0435\u0442\u0438\u0442\u044C'
-	                                                    )
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'comment_body' },
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'title' },
-	                                                        _react2.default.createElement(
-	                                                            'div',
-	                                                            { className: 'user_name' },
-	                                                            'TritonGrown'
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            'div',
-	                                                            { className: 'comment_date' },
-	                                                            '26.05.2012 \u0432 18:40'
-	                                                        )
-	                                                    ),
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'comment_text' },
-	                                                        '\u0424\u0435\u043B\u044C\u043C\u0438\u0449\u0435 \u0441\u0443\u043F\u0435\u0440,\u0430 \u0434\u043B\u044F \u0442\u0435\u0445 \u043A\u0442\u043E \u043B\u044E\u0431\u0438\u0442 \u0433\u043E\u043D\u043A\u0438 \u0432\u043E\u043E\u0431\u0449\u0435 \u043D\u0430\u0439\u043B\u0443\u0447\u0448\u043E\u0435 \u0447\u0442\u043E \u043C\u043E\u0436\u0435\u0442 \u0431\u0438\u0442\u044C.\u0414\u043B\u044F \u0441\u0435\u043C\u0435\u0439\u043D\u043E\u0433\u043E \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430 \u0442\u043E\u0436\u0435 \u0438\u0434\u0435\u0430\u043B.\u0424\u0438\u043B\u044C\u043C + 5'
-	                                                    )
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'user_comment second_level' },
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'user_avatar' },
-	                                                    _react2.default.createElement('img', { src: 'assets/images/spiderman_avatar.png', alt: '' }),
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'response_link' },
-	                                                        '\u041E\u0442\u0432\u0435\u0442\u0438\u0442\u044C'
-	                                                    )
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'comment_body' },
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'title' },
-	                                                        _react2.default.createElement(
-	                                                            'div',
-	                                                            { className: 'user_name' },
-	                                                            'TritonGrown'
-	                                                        ),
-	                                                        _react2.default.createElement(
-	                                                            'div',
-	                                                            { className: 'comment_date' },
-	                                                            '26.05.2012 \u0432 18:40'
-	                                                        )
-	                                                    ),
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'comment_text' },
-	                                                        '\u0424\u0435\u043B\u044C\u043C\u0438\u0449\u0435 \u0441\u0443\u043F\u0435\u0440,\u0430 \u0434\u043B\u044F \u0442\u0435\u0445 \u043A\u0442\u043E \u043B\u044E\u0431\u0438\u0442 \u0433\u043E\u043D\u043A\u0438 \u0432\u043E\u043E\u0431\u0449\u0435 \u043D\u0430\u0439\u043B\u0443\u0447\u0448\u043E\u0435 \u0447\u0442\u043E \u043C\u043E\u0436\u0435\u0442 \u0431\u0438\u0442\u044C.\u0414\u043B\u044F \u0441\u0435\u043C\u0435\u0439\u043D\u043E\u0433\u043E \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430 \u0442\u043E\u0436\u0435 \u0438\u0434\u0435\u0430\u043B.\u0424\u0438\u043B\u044C\u043C + 5'
-	                                                    )
-	                                                )
-	                                            )
+	                                            _react2.default.createElement(_CommentsList2.default, { comments: this.comments })
 	                                        ),
 	                                        _react2.default.createElement(
 	                                            'div',
@@ -57481,46 +57415,7 @@
 	                                                '\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u0441\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435'
 	                                            )
 	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'paginator_area' },
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'paginator_item selected' },
-	                                                _react2.default.createElement(
-	                                                    'span',
-	                                                    null,
-	                                                    '1'
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'paginator_item' },
-	                                                _react2.default.createElement(
-	                                                    'span',
-	                                                    null,
-	                                                    '2'
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'paginator_item' },
-	                                                _react2.default.createElement(
-	                                                    'span',
-	                                                    null,
-	                                                    '3'
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'paginator_item' },
-	                                                _react2.default.createElement(
-	                                                    'span',
-	                                                    null,
-	                                                    '4'
-	                                                )
-	                                            )
-	                                        )
+	                                        _react2.default.createElement(_TrianglePaginator2.default, { 'total-pages': 5, 'current-page': 1 })
 	                                    )
 	                                ),
 	                                _react2.default.createElement('div', { className: 'right_content_block' })
@@ -57577,7 +57472,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n  margin: 0 0;\n  padding: 0 0;\n}\n.page_content_wrapper {\n  margin: 0 auto;\n  width: 1349px;\n  background-image: url(" + __webpack_require__(770) + ");\n  background-repeat: repeat;\n}\n.navigation_menu_block {\n  height: 36px;\n  background-color: #202020;\n}\n.account_and_search_block {\n  height: 52px;\n  background-color: #144b9e;\n}\n.expectations_rating_title_wrapper {\n  padding-top: 23px;\n  padding-left: 282px;\n  overflow: hidden;\n}\n.expectations_rating_title_wrapper .expectations_title {\n  color: #ece8e8;\n  text-shadow: 1px 1px 2px black, 0 0 1em white;\n  font-family: Tahoma;\n  font-size: 19px;\n  font-weight: 700;\n  text-transform: uppercase;\n}\n.expectations_and_ratings_block_wrapper {\n  padding: 10px 0px;\n  background-image: url(" + __webpack_require__(771) + ");\n  box-shadow: inset 0 0 25px 25px rgba(0, 0, 0, 0.08);\n  background-color: #202020;\n}\n.expectations_and_ratings_block {\n  height: 275px;\n  background-image: url(" + __webpack_require__(772) + ");\n  background-size: cover;\n  position: relative;\n}\n.expectations_and_ratings_block .content {\n  padding-top: 23px;\n}\n.expectations_and_ratings_block .previous_item {\n  position: absolute;\n  left: 178px;\n  top: 120px;\n}\n.expectations_and_ratings_block .next_item {\n  position: absolute;\n  top: 120px;\n  right: 180px;\n}\n.circle {\n  width: 34px;\n  height: 34px;\n  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 0 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(255, 255, 255, 0.5);\n  border: 1px solid #d2d2d2;\n  background-color: #eeeeee;\n  border-radius: 20px;\n}\n.circle.item:after {\n  content: '';\n  display: block;\n  width: 10px;\n  height: 16px;\n  background-image: url(" + __webpack_require__(773) + ");\n  margin: 0 auto;\n  margin-top: 8px;\n}\n.circle.item.next_item:after {\n  -webkit-transform: rotate(180deg);\n  -moz-transform: rotate(180deg);\n  -ms-transform: rotate(180deg);\n  -o-transform: rotate(180deg);\n  transform: rotate(180deg);\n}\n.expectations_details_wrapper {\n  position: relative;\n  left: 813px;\n  top: 12px;\n  width: 307px;\n}\n.expectations_details {\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);\n  border-radius: 4px 5px 5px 4px;\n  background-color: #000000;\n  opacity: 0.89;\n  color: white;\n}\n.expectations_details .title {\n  width: 205px;\n  height: 29px;\n  color: white;\n  font-family: Tahoma;\n}\n.expectations_details .title_ru {\n  font-size: 16px;\n  font-weight: 700;\n}\n.expectations_details .title_en {\n  font-size: 12px;\n  font-weight: 400;\n}\n.expectations_details .content {\n  width: 277px;\n  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);\n  color: white;\n  font-family: Tahoma;\n  font-size: 11px;\n  font-weight: 400;\n}\n.date_and_rate .date_counter {\n  vertical-align: top;\n  position: relative;\n}\n.date_and_rate .rating {\n  vertical-align: bottom;\n  margin-left: 18px;\n}\n.date_and_rate .rate_scale {\n  display: inline-block;\n  width: 36px;\n  color: white;\n  font-family: Tahoma;\n  font-size: 12px;\n  font-weight: 400;\n  vertical-align: bottom;\n}\n.date_counter {\n  display: inline-block;\n}\n.date_counter .digit_scoreboard {\n  display: inline-block;\n  width: 29px;\n  line-height: 46px;\n  font-family: Tahoma;\n  font-size: 60px;\n  font-weight: 400;\n  background-image: url(" + __webpack_require__(774) + ");\n  padding: 7px;\n  color: black;\n  box-sizing: content-box;\n}\n.month_wrapper {\n  display: inline-block;\n  vertical-align: bottom;\n}\n.month_wrapper .on_site {\n  width: 44px;\n  color: white;\n  font-family: Tahoma;\n  font-size: 9px;\n  font-weight: 700;\n}\n.month_wrapper .month {\n  margin-top: 10px;\n  width: 41px;\n  color: white;\n  font-family: Tahoma;\n  font-size: 14px;\n  font-weight: 700;\n}\n.rating {\n  font-size: 0px;\n  display: inline-block;\n}\n.rating .star {\n  background-image: url(" + __webpack_require__(775) + ");\n  width: 17px;\n  height: 17px;\n  display: inline-block;\n}\n.rating .star.checked {\n  background-image: url(" + __webpack_require__(776) + ");\n}\n.expectations_images_preview {\n  width: 307px;\n  margin-top: 6px;\n}\n.expectations_images_preview .image_item {\n  display: inline-block;\n  width: 93px;\n  height: 42px;\n  margin-left: 4px;\n  border: 2px grey solid;\n}\n.expectations_images_preview .image_item:nth-child(1) {\n  margin-left: 0px;\n}\n.content_block {\n  margin-left: 116px;\n}\n.content_block .content_title {\n  width: 100%;\n  height: 16px;\n  font-family: Tahoma;\n  font-weight: 700;\n  font-size: 14px;\n  text-align: center;\n  display: inline-block;\n}\n.content_title h3 {\n  font-size: 17px;\n  margin: 0;\n  padding: 0;\n  display: inline-block;\n}\n.films_list_block {\n  padding-left: 28px;\n  padding-top: 17px;\n}\n.films_list_block .film_item {\n  margin-left: 28px;\n  display: inline-block;\n  vertical-align: top;\n}\n.films_list_block .film_item:first-child {\n  margin-left: 0px;\n}\n.film_item .item_title {\n  width: 214px;\n  height: 25px;\n  color: #202020;\n  font-family: Tahoma;\n  font-size: 12px;\n  font-weight: 400;\n  display: block;\n}\n.film_item .item_details {\n  width: 220px;\n  height: 61px;\n  color: #202020;\n  font-family: Tahoma;\n  font-size: 11px;\n  font-weight: 400;\n}\n.film_item .item_image {\n  margin-top: 7px;\n  width: 221px;\n  height: 154px;\n  padding: 5px;\n  padding-top: 4px;\n  background-color: #bebebe;\n  box-sizing: border-box;\n  position: relative;\n}\n.film_item .rating {\n  vertical-align: bottom;\n  right: 4px;\n  top: 5px;\n  position: absolute;\n}\n.bottom_shadow {\n  width: 245px;\n  height: 21px;\n  content: '';\n  opacity: 0.6;\n  display: block;\n  background-image: url(" + __webpack_require__(777) + ");\n}\n.watch_now {\n  background: url(" + __webpack_require__(778) + ") no-repeat;\n  padding: 7px 9px;\n  color: white;\n  font-family: Tahoma;\n  font-size: 11px;\n  font-weight: 700;\n  white-space: nowrap;\n  display: inline-block;\n  box-sizing: border-box;\n  background-size: 150% 100%;\n  border-radius: 4px;\n}\n.left_content_block {\n  width: 830px;\n  display: inline-block;\n}\n.right_content_block {\n  width: 245px;\n  background-color: #2a92a9;\n  display: inline-block;\n}\n.film_info_block {\n  width: 265px;\n  height: 795px;\n  background-image: url(" + __webpack_require__(779) + ");\n  overflow: hidden;\n  position: relative;\n  margin-top: 22px;\n  display: inline-block;\n}\n.film_info_block .section {\n  padding-top: 10px;\n  padding-left: 9px;\n}\n.film_info_block .section:before {\n  height: 2px;\n  width: 100%;\n  background-image: url(" + __webpack_require__(780) + ");\n  display: block;\n  position: absolute;\n  content: '';\n  left: 0px;\n  margin-top: -7px;\n}\n.info_section_title {\n  width: 242px;\n  font-family: Tahoma;\n  color: white;\n  font-size: 14px;\n  font-weight: 700;\n}\n.info_section {\n  color: #6d6c6c;\n  font-size: 12px;\n  font-weight: 400;\n}\n.film_info_image {\n  padding-bottom: 12px;\n}\n.half_width_block {\n  width: 49%;\n  display: inline-block;\n  box-sizing: border-box;\n}\n.film_details_block {\n  width: 468px;\n  display: inline-block;\n  vertical-align: top;\n  margin-top: 22px;\n}\n.film_details_block .item {\n  width: 150px;\n  display: inline-block;\n  color: black;\n  font-family: Tahoma;\n  font-size: 11px;\n  line-height: 20px;\n  font-weight: 700;\n}\n.film_details_block .value {\n  width: 150px;\n  display: inline-block;\n  color: black;\n  font-family: Tahoma;\n  font-size: 11px;\n  line-height: 20px;\n  font-weight: 400;\n}\n.film_details_block .details_title {\n  color: black;\n  font-family: Tahoma;\n  font-weight: 400;\n  text-transform: uppercase;\n}\n.film_details_block .ru {\n  font-size: 20px;\n}\n.film_details_block .en {\n  font-size: 12px;\n}\n.short_info_block {\n  padding-left: 17px;\n  padding-right: 25px;\n  padding-bottom: 22px;\n  background-color: white;\n}\n.story_label {\n  color: black;\n  font-family: Tahoma;\n  font-size: 14px;\n  font-weight: 700;\n}\n.story_content {\n  color: black;\n  font-family: Tahoma;\n  font-size: 11px;\n  font-weight: 400;\n}\n.playback_area_wrapper {\n  background-color: white;\n  margin-top: 8px;\n  padding-top: 12px;\n  width: 468px;\n  height: 249px;\n}\n.playback_area {\n  position: relative;\n}\n.play_button {\n  position: absolute;\n  right: 9px;\n  top: 8px;\n}\n.comments_area {\n  background-color: rgba(201, 201, 201, 0.5);\n  padding-top: 5px;\n}\n.comments_area .comment_body {\n  padding: 4px 4px;\n  width: 372px;\n  background-image: url(" + __webpack_require__(779) + ");\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 4px;\n  display: inline-block;\n}\n.comments_area .title .user_name:before {\n  background-image: url(" + __webpack_require__(781) + ");\n  width: 12px;\n  height: 12px;\n  content: '';\n  display: inline-block;\n}\n.user_comment.second_level {\n  margin-left: 80px;\n}\n.user_comment.second_level .comment_body {\n  width: 303px;\n  background: white;\n}\n.user_comment.second_level .title .user_name {\n  color: #92006b;\n}\n.user_comment.second_level .comment_text {\n  color: #272727;\n}\n.user_comment {\n  margin-left: 12px;\n  margin-top: 11px;\n}\n.user_comment .user_avatar {\n  display: inline-block;\n  vertical-align: top;\n}\n.user_comment .user_avatar *img {\n  width: 66px;\n  height: 66px;\n}\n.user_comment .title .user_name {\n  color: #dfdfdf;\n  font-family: Tahoma;\n  font-size: 12px;\n  font-weight: 700;\n  display: inline-block;\n}\n.user_comment .title .comment_date {\n  color: #999898;\n  font-family: Tahoma;\n  font-size: 9px;\n  font-weight: 400;\n  display: inline-block;\n  float: right;\n}\n.user_comment .comment_text {\n  height: 41px;\n  color: white;\n  font-family: Tahoma;\n  font-size: 12px;\n  font-weight: 400;\n}\n.user_comment .response_link {\n  color: #92006b;\n  font-family: Tahoma;\n  font-size: 10px;\n  font-weight: 400;\n}\n.comment_input_area {\n  width: 100%;\n  padding: 5px 7px 1px 6px;\n  border-radius: 4px;\n  background-color: rgba(201, 201, 201, 0.5);\n  box-sizing: border-box;\n  margin-top: 7px;\n}\n.comment_input {\n  height: 54px;\n  border: 1px solid #8b8b8b;\n  background-color: #edeaea;\n}\ntextarea.comment_input {\n  resize: none;\n  width: 100%;\n}\n.send_comment_button {\n  color: #e2e2e2;\n  font-family: Tahoma;\n  font-size: 12px;\n  font-weight: 400;\n  background-color: #1955b0;\n  padding: 3px 3px;\n  display: inline-block;\n  border-radius: 5px;\n  margin-top: 6px;\n}\n.paginator_item {\n  display: inline-block;\n  font-family: Tahoma;\n  font-size: 9px;\n  font-weight: 400;\n  color: #e2e2e2;\n  background-color: blue;\n  margin-left: 0px;\n  positino: absolute;\n  width: 21px;\n  height: 18px;\n  background: url(" + __webpack_require__(782) + ");\n  background-size: cover;\n  bacgkround-repeat: none;\n  margin-left: 15px;\n  vertical-align: bottom;\n}\n.paginator_item span {\n  padding-top: 5px;\n  display: inline-block;\n  text-align: center;\n  width: 100%;\n}\n.paginator_item.selected {\n  width: 32px;\n  height: 28px;\n  background: url(" + __webpack_require__(783) + ");\n}\n.paginator_item.selected span {\n  padding-top: 12px;\n}\n.paginator_area {\n  margin-top: 15px;\n}\n", ""]);
+	exports.push([module.id, "body {\n  margin: 0 0;\n  padding: 0 0;\n}\n.page_content_wrapper {\n  margin: 0 auto;\n  width: 1349px;\n  background-image: url(" + __webpack_require__(770) + ");\n  background-repeat: repeat;\n}\n.navigation_menu_block {\n  height: 36px;\n  background-color: #202020;\n}\n.account_and_search_block {\n  height: 52px;\n  background-color: #144b9e;\n}\n.expectations_rating_title_wrapper {\n  padding-top: 23px;\n  padding-left: 282px;\n  overflow: hidden;\n}\n.expectations_rating_title_wrapper .expectations_title {\n  color: #ece8e8;\n  text-shadow: 1px 1px 2px black, 0 0 1em white;\n  font-family: Tahoma;\n  font-size: 19px;\n  font-weight: 700;\n  text-transform: uppercase;\n}\n.expectations_and_ratings_block_wrapper {\n  padding: 10px 0px;\n  background-image: url(" + __webpack_require__(771) + ");\n  box-shadow: inset 0 0 25px 25px rgba(0, 0, 0, 0.08);\n  background-color: #202020;\n}\n.expectations_and_ratings_block {\n  height: 275px;\n  background-image: url(" + __webpack_require__(772) + ");\n  background-size: cover;\n  position: relative;\n}\n.expectations_and_ratings_block .content {\n  padding-top: 23px;\n}\n.expectations_and_ratings_block .previous_item {\n  position: absolute;\n  left: 178px;\n  top: 120px;\n}\n.expectations_and_ratings_block .next_item {\n  position: absolute;\n  top: 120px;\n  right: 180px;\n}\n.circle {\n  width: 34px;\n  height: 34px;\n  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 0 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(255, 255, 255, 0.5);\n  border: 1px solid #d2d2d2;\n  background-color: #eeeeee;\n  border-radius: 20px;\n}\n.circle.item:after {\n  content: '';\n  display: block;\n  width: 10px;\n  height: 16px;\n  background-image: url(" + __webpack_require__(773) + ");\n  margin: 0 auto;\n  margin-top: 8px;\n}\n.circle.item.next_item:after {\n  -webkit-transform: rotate(180deg);\n  -moz-transform: rotate(180deg);\n  -ms-transform: rotate(180deg);\n  -o-transform: rotate(180deg);\n  transform: rotate(180deg);\n}\n.expectations_details_wrapper {\n  position: relative;\n  left: 813px;\n  top: 12px;\n  width: 307px;\n}\n.expectations_details {\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);\n  border-radius: 4px 5px 5px 4px;\n  background-color: #000000;\n  opacity: 0.89;\n  color: white;\n}\n.expectations_details .title {\n  width: 205px;\n  height: 29px;\n  color: white;\n  font-family: Tahoma;\n}\n.expectations_details .title_ru {\n  font-size: 16px;\n  font-weight: 700;\n}\n.expectations_details .title_en {\n  font-size: 12px;\n  font-weight: 400;\n}\n.expectations_details .content {\n  width: 277px;\n  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);\n  color: white;\n  font-family: Tahoma;\n  font-size: 11px;\n  font-weight: 400;\n}\n.date_and_rate .date_counter {\n  vertical-align: top;\n  position: relative;\n}\n.date_and_rate .rating {\n  vertical-align: bottom;\n  margin-left: 18px;\n}\n.date_and_rate .rate_scale {\n  display: inline-block;\n  width: 36px;\n  color: white;\n  font-family: Tahoma;\n  font-size: 12px;\n  font-weight: 400;\n  vertical-align: bottom;\n}\n.date_counter {\n  display: inline-block;\n}\n.date_counter .digit_scoreboard {\n  display: inline-block;\n  width: 29px;\n  line-height: 46px;\n  font-family: Tahoma;\n  font-size: 60px;\n  font-weight: 400;\n  background-image: url(" + __webpack_require__(774) + ");\n  padding: 7px;\n  color: black;\n  box-sizing: content-box;\n}\n.month_wrapper {\n  display: inline-block;\n  vertical-align: bottom;\n}\n.month_wrapper .on_site {\n  width: 44px;\n  color: white;\n  font-family: Tahoma;\n  font-size: 9px;\n  font-weight: 700;\n}\n.month_wrapper .month {\n  margin-top: 10px;\n  width: 41px;\n  color: white;\n  font-family: Tahoma;\n  font-size: 14px;\n  font-weight: 700;\n}\n.rating {\n  font-size: 0px;\n  display: inline-block;\n}\n.rating .star {\n  background-image: url(" + __webpack_require__(775) + ");\n  width: 17px;\n  height: 17px;\n  display: inline-block;\n}\n.rating .star.checked {\n  background-image: url(" + __webpack_require__(776) + ");\n}\n.expectations_images_preview {\n  width: 307px;\n  margin-top: 6px;\n}\n.expectations_images_preview .image_item {\n  display: inline-block;\n  width: 93px;\n  height: 42px;\n  margin-left: 4px;\n  border: 2px grey solid;\n}\n.expectations_images_preview .image_item:nth-child(1) {\n  margin-left: 0px;\n}\n.content_block {\n  margin-left: 116px;\n}\n.content_block .content_title {\n  width: 100%;\n  height: 16px;\n  font-family: Tahoma;\n  font-weight: 700;\n  font-size: 14px;\n  text-align: center;\n  display: inline-block;\n}\n.content_title h3 {\n  font-size: 17px;\n  margin: 0;\n  padding: 0;\n  display: inline-block;\n}\n.films_list_block {\n  padding-left: 28px;\n  padding-top: 17px;\n}\n.films_list_block .film_item {\n  margin-left: 28px;\n  display: inline-block;\n  vertical-align: top;\n}\n.films_list_block .film_item:first-child {\n  margin-left: 0px;\n}\n.film_item .item_title {\n  width: 214px;\n  height: 25px;\n  color: #202020;\n  font-family: Tahoma;\n  font-size: 12px;\n  font-weight: 400;\n  display: block;\n}\n.film_item .item_details {\n  width: 220px;\n  height: 61px;\n  color: #202020;\n  font-family: Tahoma;\n  font-size: 11px;\n  font-weight: 400;\n}\n.film_item .item_image {\n  margin-top: 7px;\n  width: 221px;\n  height: 154px;\n  padding: 5px;\n  padding-top: 4px;\n  background-color: #bebebe;\n  box-sizing: border-box;\n  position: relative;\n}\n.film_item .rating {\n  vertical-align: bottom;\n  right: 4px;\n  top: 5px;\n  position: absolute;\n}\n.bottom_shadow {\n  width: 245px;\n  height: 21px;\n  content: '';\n  opacity: 0.6;\n  display: block;\n  background-image: url(" + __webpack_require__(777) + ");\n}\n.watch_now {\n  background: url(" + __webpack_require__(778) + ") no-repeat;\n  padding: 7px 9px;\n  color: white;\n  font-family: Tahoma;\n  font-size: 11px;\n  font-weight: 700;\n  white-space: nowrap;\n  display: inline-block;\n  box-sizing: border-box;\n  background-size: 150% 100%;\n  border-radius: 4px;\n}\n.left_content_block {\n  width: 830px;\n  display: inline-block;\n}\n.right_content_block {\n  width: 245px;\n  background-color: #2a92a9;\n  display: inline-block;\n}\n.film_info_block {\n  width: 265px;\n  height: 795px;\n  background-image: url(" + __webpack_require__(779) + ");\n  overflow: hidden;\n  position: relative;\n  margin-top: 22px;\n  display: inline-block;\n}\n.film_info_block .section {\n  padding-top: 10px;\n  padding-left: 9px;\n}\n.film_info_block .section:before {\n  height: 2px;\n  width: 100%;\n  background-image: url(" + __webpack_require__(780) + ");\n  display: block;\n  position: absolute;\n  content: '';\n  left: 0px;\n  margin-top: -7px;\n}\n.info_section_title {\n  width: 242px;\n  font-family: Tahoma;\n  color: white;\n  font-size: 14px;\n  font-weight: 700;\n}\n.info_section {\n  color: #6d6c6c;\n  font-size: 12px;\n  font-weight: 400;\n}\n.film_info_image {\n  padding-bottom: 12px;\n}\n.half_width_block {\n  width: 49%;\n  display: inline-block;\n  box-sizing: border-box;\n}\n.film_details_block {\n  width: 468px;\n  display: inline-block;\n  vertical-align: top;\n  margin-top: 22px;\n}\n.film_details_block .item {\n  width: 150px;\n  display: inline-block;\n  color: black;\n  font-family: Tahoma;\n  font-size: 11px;\n  line-height: 20px;\n  font-weight: 700;\n}\n.film_details_block .value {\n  width: 150px;\n  display: inline-block;\n  color: black;\n  font-family: Tahoma;\n  font-size: 11px;\n  line-height: 20px;\n  font-weight: 400;\n}\n.film_details_block .details_title {\n  color: black;\n  font-family: Tahoma;\n  font-weight: 400;\n  text-transform: uppercase;\n}\n.film_details_block .ru {\n  font-size: 20px;\n}\n.film_details_block .en {\n  font-size: 12px;\n}\n.short_info_block {\n  padding-left: 17px;\n  padding-right: 25px;\n  padding-bottom: 22px;\n  background-color: white;\n}\n.story_label {\n  color: black;\n  font-family: Tahoma;\n  font-size: 14px;\n  font-weight: 700;\n}\n.story_content {\n  color: black;\n  font-family: Tahoma;\n  font-size: 11px;\n  font-weight: 400;\n}\n.playback_area_wrapper {\n  background-color: white;\n  margin-top: 8px;\n  padding-top: 12px;\n  width: 468px;\n  height: 249px;\n}\n.playback_area {\n  position: relative;\n}\n.play_button {\n  position: absolute;\n  right: 9px;\n  top: 8px;\n}\n.comments_area {\n  background-color: rgba(201, 201, 201, 0.5);\n  padding-top: 5px;\n}\n.comments_area .comment_body {\n  padding: 4px 4px;\n  width: 372px;\n  background-image: url(" + __webpack_require__(779) + ");\n  background-repeat: repeat-y;\n  background-size: cover;\n  border-radius: 4px;\n  display: inline-block;\n}\n.comments_area .title .user_name:before {\n  background-image: url(" + __webpack_require__(781) + ");\n  width: 12px;\n  height: 12px;\n  content: '';\n  display: inline-block;\n}\n.user_comment.second_level {\n  margin-left: 80px;\n}\n.user_comment.second_level .comment_body {\n  width: 303px;\n  background: white;\n}\n.user_comment.second_level .title .user_name {\n  color: #92006b;\n}\n.user_comment.second_level .comment_text {\n  color: #272727;\n}\n.user_comment {\n  margin-left: 12px;\n  margin-top: 11px;\n}\n.user_comment .user_avatar {\n  display: inline-block;\n  vertical-align: top;\n}\n.user_comment .user_avatar *img {\n  width: 66px;\n  height: 66px;\n}\n.user_comment .title .user_name {\n  color: #dfdfdf;\n  font-family: Tahoma;\n  font-size: 12px;\n  font-weight: 700;\n  display: inline-block;\n}\n.user_comment .title .comment_date {\n  color: #999898;\n  font-family: Tahoma;\n  font-size: 9px;\n  font-weight: 400;\n  display: inline-block;\n  float: right;\n}\n.user_comment .comment_text {\n  height: 41px;\n  color: white;\n  font-family: Tahoma;\n  font-size: 12px;\n  font-weight: 400;\n  display: inline-block;\n}\n.user_comment .response_link {\n  color: #92006b;\n  font-family: Tahoma;\n  font-size: 10px;\n  font-weight: 400;\n}\n.comment_input_area {\n  width: 100%;\n  padding: 5px 7px 1px 6px;\n  border-radius: 4px;\n  background-color: rgba(201, 201, 201, 0.5);\n  box-sizing: border-box;\n  margin-top: 7px;\n}\n.comment_input {\n  height: 54px;\n  border: 1px solid #8b8b8b;\n  background-color: #edeaea;\n}\ntextarea.comment_input {\n  resize: none;\n  width: 100%;\n}\n.send_comment_button {\n  color: #e2e2e2;\n  font-family: Tahoma;\n  font-size: 12px;\n  font-weight: 400;\n  background-color: #1955b0;\n  padding: 3px 3px;\n  display: inline-block;\n  border-radius: 5px;\n  margin-top: 6px;\n}\n.paginator_item {\n  display: inline-block;\n  font-family: Tahoma;\n  font-size: 9px;\n  font-weight: 400;\n  color: #e2e2e2;\n  background-color: blue;\n  margin-left: 0px;\n  positino: absolute;\n  width: 21px;\n  height: 18px;\n  background: url(" + __webpack_require__(782) + ");\n  background-size: cover;\n  bacgkround-repeat: none;\n  margin-left: 15px;\n  vertical-align: bottom;\n}\n.paginator_item span {\n  padding-top: 5px;\n  display: inline-block;\n  text-align: center;\n  width: 100%;\n}\n.paginator_item.selected {\n  width: 32px;\n  height: 28px;\n  background: url(" + __webpack_require__(783) + ");\n}\n.paginator_item.selected span {\n  padding-top: 12px;\n}\n.paginator_area {\n  margin-top: 15px;\n}\n", ""]);
 	
 	// exports
 
@@ -63620,6 +63515,255 @@
 	}(_react2.default.Component);
 	
 	exports.default = StarRating;
+
+/***/ }),
+/* 847 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	__webpack_require__(1);
+	
+	var _react = __webpack_require__(297);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(335);
+	
+	var _reactRouter = __webpack_require__(787);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var TrianglePaginator = function (_React$Component) {
+	    _inherits(TrianglePaginator, _React$Component);
+	
+	    //var hashHistory = ReactRouter.hashHistory;
+	
+	    function TrianglePaginator(props) {
+	        _classCallCheck(this, TrianglePaginator);
+	
+	        var _this = _possibleConstructorReturn(this, (TrianglePaginator.__proto__ || Object.getPrototypeOf(TrianglePaginator)).call(this, props));
+	
+	        var currentPage = _this.props["current-page"];
+	        var totalPages = _this.props["total-pages"];
+	        _this.starNodes = [];
+	        for (var i = 0; i < totalPages; i++) {
+	            var isCurrent = currentPage - 1 == i;
+	            var extraClass = isCurrent ? "selected" : "";
+	            _this.starNodes.push(_react2.default.createElement(
+	                'div',
+	                { key: i, className: "paginator_item " + extraClass },
+	                _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    i + 1
+	                )
+	            ));
+	        }
+	
+	        return _this;
+	    }
+	
+	    _createClass(TrianglePaginator, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'paginator_area' },
+	                this.starNodes
+	            );
+	        }
+	    }]);
+	
+	    return TrianglePaginator;
+	}(_react2.default.Component);
+	
+	exports.default = TrianglePaginator;
+
+/***/ }),
+/* 848 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	__webpack_require__(1);
+	
+	var _react = __webpack_require__(297);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(335);
+	
+	var _reactRouter = __webpack_require__(787);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var DigitalScoreboard = function (_React$Component) {
+	    _inherits(DigitalScoreboard, _React$Component);
+	
+	    //var hashHistory = ReactRouter.hashHistory;
+	
+	    function DigitalScoreboard(props) {
+	        _classCallCheck(this, DigitalScoreboard);
+	
+	        var _this = _possibleConstructorReturn(this, (DigitalScoreboard.__proto__ || Object.getPrototypeOf(DigitalScoreboard)).call(this, props));
+	
+	        _this.starNodes = [];
+	        var text = _this.props["text"];
+	        for (var i = 0; i < text.length; i++) {
+	            var currentChar = text.charAt(i);
+	            _this.starNodes.push(_react2.default.createElement(
+	                'div',
+	                { key: i, className: 'digit_scoreboard' },
+	                currentChar
+	            ));
+	        }
+	
+	        return _this;
+	    }
+	
+	    _createClass(DigitalScoreboard, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'date_counter' },
+	                this.starNodes
+	            );
+	        }
+	    }]);
+	
+	    return DigitalScoreboard;
+	}(_react2.default.Component);
+	
+	exports.default = DigitalScoreboard;
+
+/***/ }),
+/* 849 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	__webpack_require__(1);
+	
+	var _react = __webpack_require__(297);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(335);
+	
+	var _reactRouter = __webpack_require__(787);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var CommentsList = function (_React$Component) {
+	    _inherits(CommentsList, _React$Component);
+	
+	    //var hashHistory = ReactRouter.hashHistory;
+	
+	    function CommentsList(props) {
+	        _classCallCheck(this, CommentsList);
+	
+	        var _this = _possibleConstructorReturn(this, (CommentsList.__proto__ || Object.getPrototypeOf(CommentsList)).call(this, props));
+	
+	        var comments = _this.props["comments"];
+	        _this.starNodes = [];
+	        for (var i = 0; i < comments.length; i++) {
+	            var currentComment = comments[i];
+	            var extraClass = currentComment.isFirstLevel ? "" : "second_level";
+	            _this.starNodes.push(_react2.default.createElement(
+	                'div',
+	                { key: i, className: "user_comment " + extraClass },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'user_avatar' },
+	                    _react2.default.createElement('img', { src: "assets/images/" + currentComment.avatar, alt: '' }),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'response_link' },
+	                        '\u041E\u0442\u0432\u0435\u0442\u0438\u0442\u044C'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'comment_body' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'title' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'user_name' },
+	                            currentComment.userName
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'comment_date' },
+	                            currentComment.commentDate
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'comment_text' },
+	                        currentComment.commentText
+	                    )
+	                )
+	            ));
+	        }
+	
+	        return _this;
+	    }
+	
+	    _createClass(CommentsList, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'comments_area' },
+	                this.starNodes
+	            );
+	        }
+	    }]);
+	
+	    return CommentsList;
+	}(_react2.default.Component);
+	
+	exports.default = CommentsList;
 
 /***/ })
 /******/ ]);

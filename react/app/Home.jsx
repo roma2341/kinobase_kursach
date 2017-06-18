@@ -16,8 +16,6 @@ class Home extends React.Component {
 	render() {
 		return <div>
 
-		<StarRating rating={3} max-rating={5}/>
-
 		</div>
 	}
 
