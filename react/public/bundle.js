@@ -30066,6 +30066,10 @@
 	
 	var _jquery321Min2 = _interopRequireDefault(_jquery321Min);
 	
+	var _StarRating = __webpack_require__(846);
+	
+	var _StarRating2 = _interopRequireDefault(_StarRating);
+	
 	var _home_animated_text = __webpack_require__(496);
 	
 	var _home_animated_text2 = _interopRequireDefault(_home_animated_text);
@@ -30090,7 +30094,11 @@
 		_createClass(Home, [{
 			key: 'render',
 			value: function render() {
-				return _react2.default.createElement('div', null);
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(_StarRating2.default, { rating: 3, 'max-rating': 5 })
+				);
 			}
 		}]);
 	
@@ -30750,7 +30758,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n#backgroundController {\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n\n#block {\n  font-size: 170px;\n  z-index: 2;\n  display: inline-block;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  -moz-transform: translate(-50%, -50%);\n  -o-transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n}\n\n#fullText {\n  width: 100%;\n  z-index: 2;\n  display: inline-block;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  -moz-transform: translate(-50%, -50%);\n  -o-transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n  font-size: 50px;\n  letter-spacing: 10px;\n}", ""]);
+	exports.push([module.id, "body {\n  background-color:#000315; \n}\n\n\n#backgroundController {\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n\n#block {\n  font-size: 170px;\n  z-index: 2;\n  display: inline-block;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  -moz-transform: translate(-50%, -50%);\n  -o-transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n}\n\n#fullText {\n  width: 100%;\n  z-index: 2;\n  display: inline-block;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  -moz-transform: translate(-50%, -50%);\n  -o-transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n  font-size: 50px;\n  letter-spacing: 10px;\n}", ""]);
 	
 	// exports
 
@@ -56937,6 +56945,10 @@
 	
 	var _kinobase2 = _interopRequireDefault(_kinobase);
 	
+	var _StarRating = __webpack_require__(846);
+	
+	var _StarRating2 = _interopRequireDefault(_StarRating);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -57033,15 +57045,7 @@
 	                                                        '\u0418\u044E\u043D\u044F'
 	                                                    )
 	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'rating' },
-	                                                    _react2.default.createElement('div', { className: 'star checked' }),
-	                                                    _react2.default.createElement('div', { className: 'star checked' }),
-	                                                    _react2.default.createElement('div', { className: 'star checked' }),
-	                                                    _react2.default.createElement('div', { className: 'star checked' }),
-	                                                    _react2.default.createElement('div', { className: 'star' })
-	                                                ),
+	                                                _react2.default.createElement(_StarRating2.default, { rating: 4, 'max-rating': 5 }),
 	                                                _react2.default.createElement(
 	                                                    'div',
 	                                                    { className: 'rate_scale' },
@@ -57116,15 +57120,7 @@
 	                                                'div',
 	                                                { className: 'item_image' },
 	                                                _react2.default.createElement('img', { src: 'assets/images/spider_man1.png', alt: '' }),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'rating' },
-	                                                    _react2.default.createElement('div', { className: 'star checked' }),
-	                                                    _react2.default.createElement('div', { className: 'star checked' }),
-	                                                    _react2.default.createElement('div', { className: 'star checked' }),
-	                                                    _react2.default.createElement('div', { className: 'star checked' }),
-	                                                    _react2.default.createElement('div', { className: 'star' })
-	                                                )
+	                                                _react2.default.createElement(_StarRating2.default, { rating: 4, 'max-rating': 5 })
 	                                            ),
 	                                            _react2.default.createElement('div', { className: 'bottom_shadow' }),
 	                                            _react2.default.createElement(
@@ -57150,15 +57146,7 @@
 	                                                'div',
 	                                                { className: 'item_image' },
 	                                                _react2.default.createElement('img', { src: 'assets/images/lincoln1.png', alt: '' }),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'rating' },
-	                                                    _react2.default.createElement('div', { className: 'star checked' }),
-	                                                    _react2.default.createElement('div', { className: 'star checked' }),
-	                                                    _react2.default.createElement('div', { className: 'star checked' }),
-	                                                    _react2.default.createElement('div', { className: 'star checked' }),
-	                                                    _react2.default.createElement('div', { className: 'star' })
-	                                                )
+	                                                _react2.default.createElement(_StarRating2.default, { rating: 4, 'max-rating': 5 })
 	                                            ),
 	                                            _react2.default.createElement('div', { className: 'bottom_shadow' }),
 	                                            _react2.default.createElement(
@@ -57184,15 +57172,7 @@
 	                                                'div',
 	                                                { className: 'item_image' },
 	                                                _react2.default.createElement('img', { src: 'assets/images/batman1.png', alt: '' }),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'rating' },
-	                                                    _react2.default.createElement('div', { className: 'star checked' }),
-	                                                    _react2.default.createElement('div', { className: 'star checked' }),
-	                                                    _react2.default.createElement('div', { className: 'star checked' }),
-	                                                    _react2.default.createElement('div', { className: 'star checked' }),
-	                                                    _react2.default.createElement('div', { className: 'star' })
-	                                                )
+	                                                _react2.default.createElement(_StarRating2.default, { rating: 4, 'max-rating': 5 })
 	                                            ),
 	                                            _react2.default.createElement('div', { className: 'bottom_shadow' }),
 	                                            _react2.default.createElement(
@@ -57326,12 +57306,12 @@
 	                                            _react2.default.createElement(
 	                                                'div',
 	                                                { className: 'details_title ru' },
-	                                                '\u041C\u0415\u0425\u0410\u041D\u0418\u041A'
+	                                                '\u041F\u0420\u041E\u0413\u0420\u0410\u041C\u0406\u0421\u0422'
 	                                            ),
 	                                            _react2.default.createElement(
 	                                                'div',
 	                                                { className: 'details_title en' },
-	                                                'THE MECHANIC'
+	                                                'THE CODER'
 	                                            ),
 	                                            _react2.default.createElement(
 	                                                'div',
@@ -57341,7 +57321,7 @@
 	                                            _react2.default.createElement(
 	                                                'div',
 	                                                { className: 'value' },
-	                                                '2010'
+	                                                '1010'
 	                                            ),
 	                                            _react2.default.createElement('br', null),
 	                                            _react2.default.createElement(
@@ -57352,7 +57332,7 @@
 	                                            _react2.default.createElement(
 	                                                'div',
 	                                                { className: 'value' },
-	                                                '\u0421\u0428\u0410'
+	                                                '\u0423\u043A\u0440\u0430\u0457\u043D\u0430'
 	                                            ),
 	                                            _react2.default.createElement('br', null),
 	                                            _react2.default.createElement(
@@ -57374,7 +57354,7 @@
 	                                            _react2.default.createElement(
 	                                                'div',
 	                                                { className: 'value' },
-	                                                '89 \u043C\u0438\u043D.'
+	                                                '5 \u0440\u043E\u043A\u0456\u0432.'
 	                                            ),
 	                                            _react2.default.createElement('br', null),
 	                                            _react2.default.createElement(
@@ -57396,7 +57376,7 @@
 	                                            _react2.default.createElement(
 	                                                'div',
 	                                                { className: 'story_content' },
-	                                                '\u0410\u0440\u0442\u0443\u0440 \u0411\u0438\u0448\u043E\u043F \u043E\u0447\u0435\u043D\u044C \u0445\u043E\u0440\u043E\u0448\u043E \u0437\u043D\u0430\u0435\u0442 \u0441\u0432\u043E\u0435 \u0434\u0435\u043B\u043E. \u0410 \u0434\u0435\u043B\u043E \u0435\u0433\u043E \u2013 \u0443\u0431\u0438\u0432\u0430\u0442\u044C. \u041E\u043D \u043D\u0430\u0435\u043C\u043D\u0438\u043A, \u043B\u0443\u0447\u0448\u0438\u0439 \u0441\u0440\u0435\u0434\u0438 \u043B\u0443\u0447\u0448\u0438\u0445. \u0410\u0440\u0442\u0443\u0440 \u0432\u0441\u0435\u0433\u0434\u0430 \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442 \u043E\u0434\u0438\u043D, \u043D\u043E \u0435\u043C\u0443 \u043F\u0440\u0438\u0445\u043E\u0434\u0438\u0442\u0441\u044F \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u0447\u0430\u0442\u044C \u0441 \u043C\u043E\u043B\u043E\u0434\u044B\u043C \u043F\u0430\u0440\u043D\u0435\u043C. \u0422\u0435\u043F\u0435\u0440\u044C \u043E\u043D\u0438 \u043A\u043E\u043C\u0430\u043D\u0434\u0430. \u0412\u043E\u0442 \u0442\u043E\u043B\u044C\u043A\u043E \u0438\u043C \u0432\u0441\u0435 \u0440\u0430\u0432\u043D\u043E \u043F\u0440\u0435\u0434\u0441\u0442\u043E\u0438\u0442 \u0432\u0441\u0442\u0443\u043F\u0438\u0442\u044C \u0432 \u0431\u043E\u0439 \u0434\u0440\u0443\u0433 \u0441 \u0434\u0440\u0443\u0433\u043E\u043C, \u0438\u0437 \u043A\u043E\u0442\u043E\u0440\u043E\u0433\u043E \u0445\u043E\u0442\u044F \u0431\u044B \u043E\u0434\u043D\u043E\u043C\u0443 \u043D\u0435 \u0443\u0439\u0442\u0438 \u0436\u0438\u0432\u044B\u043C.'
+	                                                '\u0420\u043E\u043C\u0430 \u0417\u0456\u043D\u0447\u0443\u043A \u043E\u0447\u0435\u043D\u044C \u0445\u043E\u0440\u043E\u0448\u043E \u0437\u043D\u0430\u0435\u0442 \u0441\u0432\u043E\u0435 \u0434\u0435\u043B\u043E. \u0410 \u0434\u0435\u043B\u043E \u0435\u0433\u043E \u2013 \u043A\u043E\u0434\u0438\u0442\u044C. \u041E\u043D \u043D\u0430\u0435\u043C\u043D\u0438\u043A, \u043B\u0443\u0447\u0448\u0438\u0439 \u0441\u0440\u0435\u0434\u0438 \u043B\u0443\u0447\u0448\u0438\u0445. \u0420\u043E\u043C\u0430 \u0432\u0441\u0435\u0433\u0434\u0430 \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442 \u043E\u0434\u0438\u043D, \u043D\u043E \u0435\u043C\u0443 \u043F\u0440\u0438\u0445\u043E\u0434\u0438\u0442\u0441\u044F \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u0447\u0430\u0442\u044C \u0441 \u043C\u043E\u043B\u043E\u0434\u044B\u043C \u043F\u0430\u0440\u043D\u0435\u043C. \u0422\u0435\u043F\u0435\u0440\u044C \u043E\u043D\u0438 \u043A\u043E\u043C\u0430\u043D\u0434\u0430. \u0412\u043E\u0442 \u0442\u043E\u043B\u044C\u043A\u043E \u0438\u043C \u0432\u0441\u0435 \u0440\u0430\u0432\u043D\u043E \u043F\u0440\u0435\u0434\u0441\u0442\u043E\u0438\u0442 \u0432\u0441\u0442\u0443\u043F\u0438\u0442\u044C \u0432 \u0431\u043E\u0439 \u0434\u0440\u0443\u0433 \u0441 \u0434\u0440\u0443\u0433\u043E\u043C, \u0438\u0437 \u043A\u043E\u0442\u043E\u0440\u043E\u0433\u043E \u0445\u043E\u0442\u044F \u0431\u044B \u043E\u0434\u043D\u043E\u043C\u0443 \u043D\u0435 \u0443\u0439\u0442\u0438 \u0436\u0438\u0432\u044B\u043C.'
 	                                            )
 	                                        ),
 	                                        _react2.default.createElement(
@@ -63572,6 +63552,74 @@
 	
 	// exports
 
+
+/***/ }),
+/* 846 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	__webpack_require__(1);
+	
+	var _react = __webpack_require__(297);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(335);
+	
+	var _reactRouter = __webpack_require__(787);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var StarRating = function (_React$Component) {
+	    _inherits(StarRating, _React$Component);
+	
+	    //var hashHistory = ReactRouter.hashHistory;
+	
+	    function StarRating(props) {
+	        _classCallCheck(this, StarRating);
+	
+	        var _this = _possibleConstructorReturn(this, (StarRating.__proto__ || Object.getPrototypeOf(StarRating)).call(this, props));
+	
+	        var currentRating = _this.props["rating"];
+	        var maxRating = _this.props["max-rating"];
+	        _this.starNodes = [];
+	        for (var i = 0; i < maxRating; i++) {
+	            var isChecked = currentRating - 1 >= i;
+	            var extraClass = isChecked ? "checked" : "";
+	            _this.starNodes.push(_react2.default.createElement('div', { key: i, className: "star " + extraClass }));
+	        }
+	
+	        return _this;
+	    }
+	
+	    _createClass(StarRating, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'rating' },
+	                this.starNodes
+	            );
+	        }
+	    }]);
+	
+	    return StarRating;
+	}(_react2.default.Component);
+	
+	exports.default = StarRating;
 
 /***/ })
 /******/ ]);

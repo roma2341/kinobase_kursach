@@ -1,5 +1,6 @@
 import React from 'react';
 import CostumInput from '../less/kinobase.less'
+import StarRating from './components/StarRating.jsx';
 class Lab1 extends React.Component {
 
     constructor(props) {
@@ -36,13 +37,7 @@ class Lab1 extends React.Component {
                                         <div className="on_site">На сайте</div>
                                         <div className="month">Июня</div>
                                     </div>
-                                    <div className="rating">
-                                        <div className="star checked"></div>
-                                        <div className="star checked"></div>
-                                        <div className="star checked"></div>
-                                        <div className="star checked"></div>
-                                        <div className="star"></div>
-                                    </div>
+                                   <StarRating rating={4} max-rating={5}/>
                                     <div className="rate_scale">9,5/10</div>
                                 </div>
                                 <div className="content">
@@ -75,13 +70,7 @@ class Lab1 extends React.Component {
                             <div className="item_title">Новый Человек-паук (2012)</div>
                             <div className="item_image">
                                 <img src="assets/images/spider_man1.png" alt=""/>
-                                <div className="rating">
-                                    <div className="star checked"></div>
-                                    <div className="star checked"></div>
-                                    <div className="star checked"></div>
-                                    <div className="star checked"></div>
-                                    <div className="star"></div>
-                                </div>
+                                <StarRating rating={4} max-rating={5}/>
                             </div>
                             <div className="bottom_shadow"></div>
                             <div className="item_details">
@@ -94,13 +83,7 @@ class Lab1 extends React.Component {
                             <div className="item_title">Авраам Линкольн: Охотник на вампиров (2012)</div>
                             <div className="item_image">
                                 <img src="assets/images/lincoln1.png" alt=""/>
-                                <div className="rating">
-                                    <div className="star checked"></div>
-                                    <div className="star checked"></div>
-                                    <div className="star checked"></div>
-                                    <div className="star checked"></div>
-                                    <div className="star"></div>
-                                </div>
+                                <StarRating rating={4} max-rating={5}/>
                             </div>
                             <div className="bottom_shadow"></div>
                             <div className="item_details">
@@ -114,13 +97,7 @@ class Lab1 extends React.Component {
                             <div className="item_title">Темный рыцарь: Возрождение легенды (2012)</div>
                             <div className="item_image">
                                 <img src="assets/images/batman1.png" alt=""/>
-                                <div className="rating">
-                                    <div className="star checked"></div>
-                                    <div className="star checked"></div>
-                                    <div className="star checked"></div>
-                                    <div className="star checked"></div>
-                                    <div className="star"></div>
-                                </div>
+                                <StarRating rating={4} max-rating={5}/>
                             </div>
                             <div className="bottom_shadow"></div>
                             <div className="item_details">
@@ -173,15 +150,15 @@ class Lab1 extends React.Component {
 
                     <div className="film_details_block">
                     <div className="short_info_block">
-        <div className="details_title ru">МЕХАНИК</div>
-        <div className="details_title en">THE MECHANIC</div>
+        <div className="details_title ru">ПРОГРАМІСТ</div>
+        <div className="details_title en">THE CODER</div>
 
         <div className="item">Год выпуска:</div>
-        <div className="value">2010</div>
+        <div className="value">1010</div>
                 <br/>
 
         <div className="item">Страна</div>
-        <div className="value">США</div>
+        <div className="value">Україна</div>
                 <br/>
 
         <div className="item">Жанр</div>
@@ -189,7 +166,7 @@ class Lab1 extends React.Component {
                 <br/>
 
         <div className="item">Продолжительность:</div>
-        <div className="value">89 мин.</div>
+        <div className="value">5 років.</div>
                 <br/>
 
         <div className="item">Рейтинг фильма:</div>
@@ -198,7 +175,7 @@ class Lab1 extends React.Component {
 
         <div className="story_label">Сюжет:</div>
         <div className="story_content">
-Артур Бишоп очень хорошо знает свое дело. А дело его – убивать. Он наемник, лучший среди лучших. Артур всегда работает один, но ему приходится сотрудничать с молодым парнем. Теперь они команда. Вот только им все равно предстоит вступить в бой друг с другом, из которого хотя бы одному не уйти живым.
+Рома Зінчук очень хорошо знает свое дело. А дело его – кодить. Он наемник, лучший среди лучших. Рома всегда работает один, но ему приходится сотрудничать с молодым парнем. Теперь они команда. Вот только им все равно предстоит вступить в бой друг с другом, из которого хотя бы одному не уйти живым.
         </div>
     </div>
     <div className="playback_area_wrapper">
