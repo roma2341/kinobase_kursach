@@ -30750,7 +30750,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n  color: #FFF;\n  font-family: \"Helvetica\";\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: 800;\n}\n\n#backgroundController {\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n\n#block {\n  font-size: 170px;\n  z-index: 2;\n  display: inline-block;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  -moz-transform: translate(-50%, -50%);\n  -o-transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n}\n\n#fullText {\n  width: 100%;\n  z-index: 2;\n  display: inline-block;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  -moz-transform: translate(-50%, -50%);\n  -o-transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n  font-size: 50px;\n  letter-spacing: 10px;\n}", ""]);
+	exports.push([module.id, "\n#backgroundController {\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n\n#block {\n  font-size: 170px;\n  z-index: 2;\n  display: inline-block;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  -moz-transform: translate(-50%, -50%);\n  -o-transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n}\n\n#fullText {\n  width: 100%;\n  z-index: 2;\n  display: inline-block;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  -moz-transform: translate(-50%, -50%);\n  -o-transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n  font-size: 50px;\n  letter-spacing: 10px;\n}", ""]);
 	
 	// exports
 
@@ -30856,25 +30856,25 @@
 					null,
 					_react2.default.createElement(
 						'div',
-						{ className: 'row' },
+						{ className: 'col-xs-6' },
+						_react2.default.createElement('input', { type: 'text', className: 'costum_input' })
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'row input_config_wrapper' },
 						_react2.default.createElement(
 							'div',
-							{ className: 'col-xs-6' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement('textarea', (_React$createElement = { id: 'formatArea', className: 'form-control', rows: '5' }, _defineProperty(_React$createElement, 'id', 'comment'), _defineProperty(_React$createElement, 'onChange', this.handleConfigInputChange), _defineProperty(_React$createElement, 'value', this.state.configValueJson || ''), _React$createElement)),
-								_react2.default.createElement(
-									'button',
-									{ className: 'btn', onClick: this.handleInputAreaClick },
-									'\u041E\u043D\u043E\u0432\u0438\u0442\u0438 \u043A\u043E\u043D\u0444\u0456\u0433'
-								)
-							)
+							{ className: 'col-xs-11 config_column' },
+							_react2.default.createElement('textarea', (_React$createElement = { className: 'config_input', id: 'formatArea' }, _defineProperty(_React$createElement, 'className', 'form-control'), _defineProperty(_React$createElement, 'rows', '5'), _defineProperty(_React$createElement, 'id', 'comment'), _defineProperty(_React$createElement, 'onChange', this.handleConfigInputChange), _defineProperty(_React$createElement, 'value', this.state.configValueJson || ''), _React$createElement))
 						),
 						_react2.default.createElement(
 							'div',
-							{ className: 'col-xs-6' },
-							_react2.default.createElement('input', { type: 'text', className: 'costum_input' })
+							{ className: 'col-xs-1 config_column' },
+							_react2.default.createElement(
+								'button',
+								{ className: ' apply_config_btn', onClick: this.handleInputAreaClick },
+								'\u041E\u043D\u043E\u0432\u0438\u0442\u0438 \u043A\u043E\u043D\u0444\u0456\u0433'
+							)
 						)
 					)
 				);
@@ -30933,7 +30933,7 @@
 	
 	
 	// module
-	exports.push([module.id, "input { \n    text-align: right;    \n}\ninput[type=\"text\"]{\n    -moz-user-select: -moz-none;\n    -o-user-select: none;\n    -khtml-user-select: none;\n    -webkit-user-select: none;\n    user-select: none;\n}\n\n.bold_costum_input{\n  font-weight:bold;\n}\n.italic_costum_input{\n  font-style :italic;\n}\n.underline_costum_input{\n text-decoration: underline;\n}\ntextarea {\n   resize: none;\n}", ""]);
+	exports.push([module.id, "input { \n    text-align: right;    \n}\ninput[type=\"text\"]{\n    -moz-user-select: -moz-none;\n    -o-user-select: none;\n    -khtml-user-select: none;\n    -webkit-user-select: none;\n    user-select: none;\n}\n\n.bold_costum_input{\n  font-weight:bold;\n}\n.italic_costum_input{\n  font-style :italic;\n}\n.underline_costum_input{\n text-decoration: underline;\n}\ntextarea {\n   resize: none;\n}\n.row.input_config_wrapper {\n    position: fixed;\n    bottom: 0px;\n    width: 100%;\n}\n.config_input{\n\twidth:100%;\n\theight:100%;\n}\n.apply_config_btn {\n\theight:100%;\n}\n.config_column{\n\theight: 115px;\n}", ""]);
 	
 	// exports
 
@@ -31661,173 +31661,181 @@
 	                null,
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'second_module_container' },
+	                    { className: 'container' },
 	                    _react2.default.createElement(
-	                        'h3',
-	                        { className: 'text-center' },
-	                        '\u041B\u0430\u0431\u043E\u0440\u0430\u0442\u043E\u0440\u043D\u0430 \u0440\u043E\u0431\u043E\u0442\u0430 3'
-	                    ),
-	                    _react2.default.createElement('hr', null),
-	                    _react2.default.createElement(
-	                        'form',
-	                        { onSubmit: this.processTask1, id: 'task1FormGroup', className: 'form-group row', 'data-toggle': 'validator' },
+	                        'div',
+	                        { className: 'second_module_container row' },
 	                        _react2.default.createElement(
 	                            'div',
-	                            { className: 'col-xs-6' },
-	                            _react2.default.createElement('input', { required: true, type: 'number', min: '0', className: 'form-control', id: 'task1FirstNumber', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u043F\u0435\u0440\u0448\u0435 \u0447\u0438\u0441\u043B\u043E \u043F\u043E\u0441\u043B\u0456\u0434\u043E\u0432\u043D\u043E\u0441\u0442\u0456' }),
-	                            _react2.default.createElement('input', { required: true, type: 'number', min: '0', className: 'form-control', id: 'task1LastNumber', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u043E\u0441\u0442\u0430\u043D\u043D\u0454 \u0447\u0438\u0441\u043B\u043E \u043F\u043E\u0441\u043B\u0456\u0434\u043E\u0432\u043D\u043E\u0441\u0442\u0456' })
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'col-xs-6' },
+	                            { className: 'col-md-9 col-md-offset-1 col-xs-12' },
 	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'btn-bg bg-1' },
+	                                'h3',
+	                                { className: 'text-center' },
+	                                '\u041B\u0430\u0431\u043E\u0440\u0430\u0442\u043E\u0440\u043D\u0430 \u0440\u043E\u0431\u043E\u0442\u0430 3'
+	                            ),
+	                            _react2.default.createElement('hr', null),
+	                            _react2.default.createElement(
+	                                'form',
+	                                { onSubmit: this.processTask1, id: 'task1FormGroup', className: 'form-group row', 'data-toggle': 'validator' },
 	                                _react2.default.createElement(
 	                                    'div',
-	                                    { className: 'btn btn-1' },
+	                                    { className: 'col-xs-12 col-md-3' },
+	                                    _react2.default.createElement('input', { required: true, type: 'number', min: '0', className: 'form-control', id: 'task1FirstNumber', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u043F\u0435\u0440\u0448\u0435 \u0447\u0438\u0441\u043B\u043E \u043F\u043E\u0441\u043B\u0456\u0434\u043E\u0432\u043D\u043E\u0441\u0442\u0456' }),
+	                                    _react2.default.createElement('input', { required: true, type: 'number', min: '0', className: 'form-control', id: 'task1LastNumber', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u043E\u0441\u0442\u0430\u043D\u043D\u0454 \u0447\u0438\u0441\u043B\u043E \u043F\u043E\u0441\u043B\u0456\u0434\u043E\u0432\u043D\u043E\u0441\u0442\u0456' })
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'col-xs-12 col-md-9' },
 	                                    _react2.default.createElement(
-	                                        'h2',
-	                                        null,
-	                                        '\u0421\u0443\u043C\u0430 \u043D\u0435\u043F\u0430\u0440\u043D\u0438\u0445 \u0447\u0438\u0441\u0435\u043B \u0432 \u043F\u0440\u043E\u043C\u0456\u0436\u043A\u0443:'
-	                                    ),
-	                                    ' ',
-	                                    _react2.default.createElement(
-	                                        'h2',
-	                                        { id: 'task1Result' },
-	                                        '0'
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        _reactBootstrap.Button,
-	                                        { type: 'submit', className: 'btn btn-default submit_button', value: '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438' },
-	                                        '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438'
+	                                        'div',
+	                                        { className: 'btn-bg bg-1' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'btn btn-1' },
+	                                            _react2.default.createElement(
+	                                                'h2',
+	                                                { className: 'wrapable_word' },
+	                                                '\u0421\u0443\u043C\u0430 \u043D\u0435\u043F\u0430\u0440\u043D\u0438\u0445 \u0447\u0438\u0441\u0435\u043B \u0432 \u043F\u0440\u043E\u043C\u0456\u0436\u043A\u0443:'
+	                                            ),
+	                                            ' ',
+	                                            _react2.default.createElement(
+	                                                'h2',
+	                                                { id: 'task1Result' },
+	                                                '0'
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                _reactBootstrap.Button,
+	                                                { type: 'submit', className: 'btn btn-default submit_button', value: '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438' },
+	                                                '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438'
+	                                            )
+	                                        )
 	                                    )
 	                                )
-	                            )
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'form',
-	                        { onSubmit: this.processTask2, id: 'task2FormGroup', className: 'form-group row' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'col-xs-6' },
-	                            _react2.default.createElement('input', { required: true, type: 'number', min: '0', max: '100', className: 'form-control', id: 'task2Input', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u0447\u0438\u0441\u043B\u043E' })
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'col-xs-6' },
+	                            ),
 	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'btn-bg bg-1' },
+	                                'form',
+	                                { onSubmit: this.processTask2, id: 'task2FormGroup', className: 'form-group row' },
 	                                _react2.default.createElement(
 	                                    'div',
-	                                    { className: 'btn btn-1' },
+	                                    { className: 'col-xs-12 col-md-3' },
+	                                    _react2.default.createElement('input', { required: true, type: 'number', min: '0', max: '100', className: 'form-control', id: 'task2Input', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u0447\u0438\u0441\u043B\u043E' })
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'col-xs-12 col-md-9' },
 	                                    _react2.default.createElement(
-	                                        'h2',
-	                                        null,
-	                                        '\u0424\u0430\u043A\u0442\u043E\u0440\u0456\u0430\u043B \u0447\u0438\u0441\u043B\u0430:'
-	                                    ),
-	                                    ' ',
-	                                    _react2.default.createElement(
-	                                        'h2',
-	                                        { id: 'task2Result' },
-	                                        '0'
-	                                    ),
+	                                        'div',
+	                                        { className: 'btn-bg bg-1' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'btn btn-1' },
+	                                            _react2.default.createElement(
+	                                                'h2',
+	                                                { className: 'wrapable_word' },
+	                                                '\u0424\u0430\u043A\u0442\u043E\u0440\u0456\u0430\u043B \u0447\u0438\u0441\u043B\u0430:'
+	                                            ),
+	                                            ' ',
+	                                            _react2.default.createElement(
+	                                                'h2',
+	                                                { id: 'task2Result' },
+	                                                '0'
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'button',
+	                                                { type: 'submit', className: 'btn btn-default submit_button' },
+	                                                '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438'
+	                                            )
+	                                        )
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'form',
+	                                { onSubmit: this.processTask3, id: 'task3FormGroup', className: 'form-group row' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'col-xs-12 col-md-6' },
+	                                    _react2.default.createElement('input', { required: true, type: 'number', className: 'form-control', id: 'task3Input', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u0447\u0438\u0441\u043B\u043E' })
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'col-xs-12 col-md-6' },
 	                                    _react2.default.createElement(
 	                                        'button',
 	                                        { type: 'submit', className: 'btn btn-default submit_button' },
 	                                        '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438'
 	                                    )
 	                                )
-	                            )
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'form',
-	                        { onSubmit: this.processTask3, id: 'task3FormGroup', className: 'form-group row' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'col-xs-6' },
-	                            _react2.default.createElement('input', { required: true, type: 'number', className: 'form-control', id: 'task3Input', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u0447\u0438\u0441\u043B\u043E' })
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'col-xs-6' },
+	                            ),
 	                            _react2.default.createElement(
-	                                'button',
-	                                { type: 'submit', className: 'btn btn-default submit_button' },
-	                                '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438'
-	                            )
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'form',
-	                        { onSubmit: this.processTask4, id: 'task4FormGroup', className: 'form-group row' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'col-xs-6' },
-	                            _react2.default.createElement('input', { required: true, type: 'number', className: 'form-control', id: 'task4Input', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u0447\u0438\u0441\u043B\u043E' })
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'col-xs-6' },
-	                            _react2.default.createElement(
-	                                'button',
-	                                { type: 'submit', className: 'btn btn-default submit_button' },
-	                                '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438'
-	                            )
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { id: 'resultModal', className: 'modal fade' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'modal-dialog' },
+	                                'form',
+	                                { onSubmit: this.processTask4, id: 'task4FormGroup', className: 'form-group row' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'col-xs-12 col-md-6' },
+	                                    _react2.default.createElement('input', { required: true, type: 'number', className: 'form-control', id: 'task4Input', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u0447\u0438\u0441\u043B\u043E' })
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'col-xs-12 col-md-6' },
+	                                    _react2.default.createElement(
+	                                        'button',
+	                                        { type: 'submit', className: 'btn btn-default submit_button' },
+	                                        '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438'
+	                                    )
+	                                )
+	                            ),
 	                            _react2.default.createElement(
 	                                'div',
-	                                { className: 'modal-content' },
+	                                { id: 'resultModal', className: 'modal fade' },
 	                                _react2.default.createElement(
 	                                    'div',
-	                                    { className: 'modal-header' },
+	                                    { className: 'modal-dialog' },
 	                                    _react2.default.createElement(
-	                                        'button',
-	                                        { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
-	                                        '\xD7'
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'h4',
-	                                        { className: 'modal-title' },
-	                                        '\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442'
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'modal-body' },
-	                                    _react2.default.createElement(
-	                                        'p',
-	                                        null,
-	                                        '\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442 \u043E\u043F\u0435\u0440\u0430\u0446\u0456\u0457:'
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'p',
-	                                        { className: 'text-warning' },
+	                                        'div',
+	                                        { className: 'modal-content' },
 	                                        _react2.default.createElement(
-	                                            'small',
-	                                            { className: 'operation_result', id: 'operationResult' },
-	                                            ' ',
-	                                            this.state.result
+	                                            'div',
+	                                            { className: 'modal-header' },
+	                                            _react2.default.createElement(
+	                                                'button',
+	                                                { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
+	                                                '\xD7'
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'h4',
+	                                                { className: 'modal-title' },
+	                                                '\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442'
+	                                            )
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'modal-body' },
+	                                            _react2.default.createElement(
+	                                                'p',
+	                                                null,
+	                                                '\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442 \u043E\u043F\u0435\u0440\u0430\u0446\u0456\u0457:'
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'p',
+	                                                { className: 'text-warning' },
+	                                                _react2.default.createElement(
+	                                                    'small',
+	                                                    { className: 'operation_result', id: 'operationResult' },
+	                                                    ' ',
+	                                                    this.state.result
+	                                                )
+	                                            )
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'modal-footer' },
+	                                            _react2.default.createElement(
+	                                                'button',
+	                                                { type: 'button', className: 'btn btn-default', 'data-dismiss': 'modal' },
+	                                                'Close'
+	                                            )
 	                                        )
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'modal-footer' },
-	                                    _react2.default.createElement(
-	                                        'button',
-	                                        { type: 'button', className: 'btn btn-default', 'data-dismiss': 'modal' },
-	                                        'Close'
 	                                    )
 	                                )
 	                            )
@@ -56567,7 +56575,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.second_module_container {\n\twidth: 1366px;\n    margin-left: auto;\n    margin-right: auto;\n    overflow:hidden;\n}\n.second_module_container input {\n\ttext-align:left;\n}\n.second_module_container input\n{\n    background: transparent;\n    border: 1px solid white;\n    color: white;\n}\n\n.second_module_container input::-webkit-input-placeholder {color:white;opacity:0.5;}\n.second_module_container input::-moz-placeholder          {color:white;opacity:0.5;}/* Firefox 19+ */\n.second_module_container input:-moz-placeholder           {color:white;opacity:0.5;}/* Firefox 18- */\n.second_module_container input:-ms-input-placeholder      {color:white;opacity:0.5;}\n\n.second_module_container .submit_button {\n\twidth:100%;\n}\n\n.second_module_container input:nth-child(2) {\n    margin-top: 5px;\n}\n\ninput::-webkit-outer-spin-button,\ninput::-webkit-inner-spin-button {\n    /* display: none; <- Crashes Chrome on hover */\n    -webkit-appearance: none;\n    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */\n}\n\n.second_module_container .modal-dialog {\ncolor:black;\n}\n\n.operation_result{\n\tdisplay: block;\n    width: 100%;\n    word-break: break-all;\n}", ""]);
+	exports.push([module.id, "\n.second_module_container {\n    margin-left: auto;\n    margin-right: auto;\n    overflow:hidden;\n}\n.second_module_container input {\n\ttext-align:left;\n}\n.second_module_container input\n{\n    background: transparent;\n    border: 1px solid white;\n    color: white;\n}\n\n.second_module_container input::-webkit-input-placeholder {color:white;opacity:0.5;}\n.second_module_container input::-moz-placeholder          {color:white;opacity:0.5;}/* Firefox 19+ */\n.second_module_container input:-moz-placeholder           {color:white;opacity:0.5;}/* Firefox 18- */\n.second_module_container input:-ms-input-placeholder      {color:white;opacity:0.5;}\n\n.second_module_container .submit_button {\n\twidth:100%;\n}\n\n.second_module_container input:nth-child(2) {\n    margin-top: 5px;\n}\n\ninput::-webkit-outer-spin-button,\ninput::-webkit-inner-spin-button {\n    /* display: none; <- Crashes Chrome on hover */\n    -webkit-appearance: none;\n    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */\n}\n\n.second_module_container .modal-dialog {\ncolor:black;\n}\n\n.operation_result{\n\tdisplay: block;\n    width: 100%;\n    word-break: break-all;\n}\n.wrapable_word{\n\tword-break: break-word;\n\twhite-space: normal;\n}", ""]);
 	
 	// exports
 

@@ -34,18 +34,20 @@ class Lab2 extends React.Component {
    
     render() {
         return <div>
-        <div className="second_module_container">
+        <div className="container">
+        <div className="second_module_container row">
+        <div className="col-md-9 col-md-offset-1 col-xs-12">
         <h3 className="text-center">Лабораторна робота 3</h3>
     <hr/>
     <form onSubmit={this.processTask1} id="task1FormGroup" className="form-group row" data-toggle="validator">
-    <div className="col-xs-6"> 
+    <div className="col-xs-12 col-md-3"> 
         <input required type="number" min="0"   className="form-control" id="task1FirstNumber" placeholder="Введіть перше число послідовності"/>
     <input required type="number" min="0"   className="form-control" id="task1LastNumber" placeholder="Введіть останнє число послідовності"/>
     </div>
-     <div className="col-xs-6">
+     <div className="col-xs-12 col-md-9">
      <div className="btn-bg bg-1">
     <div className="btn btn-1">
-     <h2>Сума непарних чисел в проміжку:</h2> <h2 id="task1Result">0</h2>
+     <h2 className="wrapable_word">Сума непарних чисел в проміжку:</h2> <h2 id="task1Result">0</h2>
       <Button  type="submit" className="btn btn-default submit_button" value="Розрахувати">Розрахувати</Button>
     </div>
     </div>
@@ -55,13 +57,13 @@ class Lab2 extends React.Component {
 
 
     <form onSubmit={this.processTask2} id="task2FormGroup" className="form-group row">
-     <div className="col-xs-6"> 
+     <div className="col-xs-12 col-md-3"> 
     <input required type="number" min="0" max="100" className="form-control" id="task2Input" placeholder="Введіть число"/>
     </div>
-     <div className="col-xs-6">
+     <div className="col-xs-12 col-md-9">
          <div className="btn-bg bg-1">
     <div className="btn btn-1">
-     <h2>Факторіал числа:</h2> <h2 id="task2Result">0</h2>
+     <h2 className="wrapable_word">Факторіал числа:</h2> <h2 id="task2Result">0</h2>
     <button type="submit" className="btn btn-default submit_button" >Розрахувати</button>
     </div>
     </div>
@@ -71,10 +73,10 @@ class Lab2 extends React.Component {
 
 
     <form onSubmit={this.processTask3} id="task3FormGroup" className="form-group row">
-     <div className="col-xs-6"> 
+     <div className="col-xs-12 col-md-6"> 
     <input  required type="number"  className="form-control" id="task3Input" placeholder="Введіть число"/>
     </div>
-    <div className="col-xs-6"> 
+    <div className="col-xs-12 col-md-6"> 
     <button type="submit" className="btn btn-default submit_button" >Розрахувати</button>
     </div>
 
@@ -83,10 +85,10 @@ class Lab2 extends React.Component {
 
     <form onSubmit={this.processTask4} id="task4FormGroup" className="form-group row">
 
-    <div className="col-xs-6"> 
+    <div className="col-xs-12 col-md-6"> 
     <input  required type="number" className="form-control" id="task4Input" placeholder="Введіть число"/>
     </div>
-    <div className="col-xs-6"> 
+    <div className="col-xs-12 col-md-6"> 
     <button type="submit" className="btn btn-default submit_button" >Розрахувати</button>
     </div>
 
@@ -108,6 +110,10 @@ class Lab2 extends React.Component {
               </div>
           </div>
       </div>
+  </div>
+
+  </div>
+
   </div>
 
   </div>

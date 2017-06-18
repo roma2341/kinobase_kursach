@@ -1,6 +1,5 @@
 
 .second_module_container {
-	width: 1366px;
     margin-left: auto;
     margin-right: auto;
     overflow:hidden;
@@ -43,4 +42,8 @@ color:black;
 	display: block;
     width: 100%;
     word-break: break-all;
+}
+.wrapable_word{
+	word-break: break-word;
+	white-space: normal;
 }

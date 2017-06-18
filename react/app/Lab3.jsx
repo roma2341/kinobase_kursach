@@ -1,6 +1,7 @@
 import React from 'react';
 import CostumInput from '../css/costum_input.css'
 
+
 require('../js/costum_input.js');
 
 class Lab3 extends React.Component {
@@ -36,15 +37,18 @@ class Lab3 extends React.Component {
 
 	render() {
 		return <div>
-		<div className="row">
-			<div className="col-xs-6">
-				<div className="row">
-					<textarea  id="formatArea"  className="form-control" rows="5" id="comment" onChange={this.handleConfigInputChange} value={this.state.configValueJson || ''}></textarea>
-					<button className="btn" onClick={this.handleInputAreaClick}>Оновити конфіг</button>
-				</div>
-			</div>
-			<div className="col-xs-6">
+
+					<div className="col-xs-6">
 				<input type="text" className="costum_input"/>
+			</div>
+
+		<div className="row input_config_wrapper">
+			<div className="col-xs-11 config_column">
+					<textarea className="config_input"  id="formatArea"  className="form-control" rows="5" id="comment" onChange={this.handleConfigInputChange} value={this.state.configValueJson || ''}></textarea>
+			</div>
+
+			<div className="col-xs-1 config_column">
+					<button className=" apply_config_btn" onClick={this.handleInputAreaClick}>Оновити конфіг</button>
 			</div>
 		</div>
 
