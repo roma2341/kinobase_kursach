@@ -45,6 +45,9 @@ class Lab3 extends React.Component {
 	render() {
 		return <div>
 
+		<h3 className="text-center">Input з конфігом через JSON і підтримкою різних грошових форматів</h3>
+          <hr/>
+
 		<div className="row main">
            <div className="main-login main-center">
            <h5>Конфігурування елементу</h5>
