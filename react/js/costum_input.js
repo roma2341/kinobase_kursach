@@ -264,13 +264,13 @@ function DefaultConfig(){
         width:600,
         font:{
             size: 20,
-            color: "red",
+            color: "black",
             family: "Impact,Charcoal,sans-serif"
         },
-        fillColor: "pink",
+        fillColor: "white",
         border:{
-            color: "red",
-            size: 1
+            color: "black",
+            size: 0
         },
         align: "right",
         emphasises: ["bold","italic","underline"]

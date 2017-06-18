@@ -31208,13 +31208,13 @@
 	        width:600,
 	        font:{
 	            size: 20,
-	            color: "red",
+	            color: "black",
 	            family: "Impact,Charcoal,sans-serif"
 	        },
-	        fillColor: "pink",
+	        fillColor: "white",
 	        border:{
-	            color: "red",
-	            size: 1
+	            color: "black",
+	            size: 0
 	        },
 	        align: "right",
 	        emphasises: ["bold","italic","underline"]
@@ -31585,7 +31585,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -31608,10 +31608,6 @@
 	
 	var _mit2 = _interopRequireDefault(_mit);
 	
-	var _animation_button = __webpack_require__(763);
-	
-	var _animation_button2 = _interopRequireDefault(_animation_button);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31624,229 +31620,341 @@
 	/*$.prototype.velocity = Velocity;*/
 	
 	var Lab2 = function (_React$Component) {
-	    _inherits(Lab2, _React$Component);
+	  _inherits(Lab2, _React$Component);
 	
-	    function Lab2(props) {
-	        _classCallCheck(this, Lab2);
+	  function Lab2(props) {
+	    _classCallCheck(this, Lab2);
 	
-	        //this.processTask1 = window.processTask1;
-	        var _this = _possibleConstructorReturn(this, (Lab2.__proto__ || Object.getPrototypeOf(Lab2)).call(this, props));
+	    //this.processTask1 = window.processTask1;
+	    var _this = _possibleConstructorReturn(this, (Lab2.__proto__ || Object.getPrototypeOf(Lab2)).call(this, props));
 	
-	        _this.state = { result: '' };
-	        _this.processTask1 = window.processTask1;
-	        _this.processTask2 = window.processTask2;
-	        var self = _this;
+	    _this.state = { result: '' };
+	    _this.processTask1 = window.processTask1;
+	    _this.processTask2 = window.processTask2;
+	    var self = _this;
 	
-	        function processTaskAndShowResultInModal(taskHandler) {
-	            var result = taskHandler();
-	            self.setState({ 'result': result });
-	            $("#resultModal").modal('show');
-	        }
-	
-	        _this.processTask3 = function () {
-	            processTaskAndShowResultInModal(window.processTask3);
-	        };
-	        _this.processTask4 = function () {
-	            processTaskAndShowResultInModal(window.processTask4);
-	        };
-	
-	        return _this;
+	    function processTaskAndShowResultInModal(taskHandler) {
+	      var result = taskHandler();
+	      self.setState({ 'result': result });
+	      $("#resultModal").modal('show');
 	    }
 	
-	    _createClass(Lab2, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'container' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'second_module_container row' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'col-md-9 col-md-offset-1 col-xs-12' },
-	                            _react2.default.createElement(
-	                                'h3',
-	                                { className: 'text-center' },
-	                                '\u041B\u0430\u0431\u043E\u0440\u0430\u0442\u043E\u0440\u043D\u0430 \u0440\u043E\u0431\u043E\u0442\u0430 3'
-	                            ),
-	                            _react2.default.createElement('hr', null),
-	                            _react2.default.createElement(
-	                                'form',
-	                                { onSubmit: this.processTask1, id: 'task1FormGroup', className: 'form-group row', 'data-toggle': 'validator' },
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'col-xs-12 col-md-3' },
-	                                    _react2.default.createElement('input', { required: true, type: 'number', min: '0', className: 'form-control', id: 'task1FirstNumber', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u043F\u0435\u0440\u0448\u0435 \u0447\u0438\u0441\u043B\u043E \u043F\u043E\u0441\u043B\u0456\u0434\u043E\u0432\u043D\u043E\u0441\u0442\u0456' }),
-	                                    _react2.default.createElement('input', { required: true, type: 'number', min: '0', className: 'form-control', id: 'task1LastNumber', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u043E\u0441\u0442\u0430\u043D\u043D\u0454 \u0447\u0438\u0441\u043B\u043E \u043F\u043E\u0441\u043B\u0456\u0434\u043E\u0432\u043D\u043E\u0441\u0442\u0456' })
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'col-xs-12 col-md-9' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'btn-bg bg-1' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'btn btn-1' },
-	                                            _react2.default.createElement(
-	                                                'h2',
-	                                                { className: 'wrapable_word' },
-	                                                '\u0421\u0443\u043C\u0430 \u043D\u0435\u043F\u0430\u0440\u043D\u0438\u0445 \u0447\u0438\u0441\u0435\u043B \u0432 \u043F\u0440\u043E\u043C\u0456\u0436\u043A\u0443:'
-	                                            ),
-	                                            ' ',
-	                                            _react2.default.createElement(
-	                                                'h2',
-	                                                { id: 'task1Result' },
-	                                                '0'
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                _reactBootstrap.Button,
-	                                                { type: 'submit', className: 'btn btn-default submit_button', value: '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438' },
-	                                                '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438'
-	                                            )
-	                                        )
-	                                    )
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'form',
-	                                { onSubmit: this.processTask2, id: 'task2FormGroup', className: 'form-group row' },
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'col-xs-12 col-md-3' },
-	                                    _react2.default.createElement('input', { required: true, type: 'number', min: '0', max: '100', className: 'form-control', id: 'task2Input', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u0447\u0438\u0441\u043B\u043E' })
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'col-xs-12 col-md-9' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'btn-bg bg-1' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'btn btn-1' },
-	                                            _react2.default.createElement(
-	                                                'h2',
-	                                                { className: 'wrapable_word' },
-	                                                '\u0424\u0430\u043A\u0442\u043E\u0440\u0456\u0430\u043B \u0447\u0438\u0441\u043B\u0430:'
-	                                            ),
-	                                            ' ',
-	                                            _react2.default.createElement(
-	                                                'h2',
-	                                                { id: 'task2Result' },
-	                                                '0'
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'button',
-	                                                { type: 'submit', className: 'btn btn-default submit_button' },
-	                                                '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438'
-	                                            )
-	                                        )
-	                                    )
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'form',
-	                                { onSubmit: this.processTask3, id: 'task3FormGroup', className: 'form-group row' },
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'col-xs-12 col-md-6' },
-	                                    _react2.default.createElement('input', { required: true, type: 'number', className: 'form-control', id: 'task3Input', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u0447\u0438\u0441\u043B\u043E' })
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'col-xs-12 col-md-6' },
-	                                    _react2.default.createElement(
-	                                        'button',
-	                                        { type: 'submit', className: 'btn btn-default submit_button' },
-	                                        '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438'
-	                                    )
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'form',
-	                                { onSubmit: this.processTask4, id: 'task4FormGroup', className: 'form-group row' },
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'col-xs-12 col-md-6' },
-	                                    _react2.default.createElement('input', { required: true, type: 'number', className: 'form-control', id: 'task4Input', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u0447\u0438\u0441\u043B\u043E' })
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'col-xs-12 col-md-6' },
-	                                    _react2.default.createElement(
-	                                        'button',
-	                                        { type: 'submit', className: 'btn btn-default submit_button' },
-	                                        '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438'
-	                                    )
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'div',
-	                                { id: 'resultModal', className: 'modal fade' },
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'modal-dialog' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'modal-content' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'modal-header' },
-	                                            _react2.default.createElement(
-	                                                'button',
-	                                                { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
-	                                                '\xD7'
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'h4',
-	                                                { className: 'modal-title' },
-	                                                '\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442'
-	                                            )
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'modal-body' },
-	                                            _react2.default.createElement(
-	                                                'p',
-	                                                null,
-	                                                '\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442 \u043E\u043F\u0435\u0440\u0430\u0446\u0456\u0457:'
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'p',
-	                                                { className: 'text-warning' },
-	                                                _react2.default.createElement(
-	                                                    'small',
-	                                                    { className: 'operation_result', id: 'operationResult' },
-	                                                    ' ',
-	                                                    this.state.result
-	                                                )
-	                                            )
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'modal-footer' },
-	                                            _react2.default.createElement(
-	                                                'button',
-	                                                { type: 'button', className: 'btn btn-default', 'data-dismiss': 'modal' },
-	                                                'Close'
-	                                            )
-	                                        )
-	                                    )
-	                                )
-	                            )
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
+	    _this.processTask3 = function () {
+	      processTaskAndShowResultInModal(window.processTask3);
+	    };
+	    _this.processTask4 = function () {
+	      processTaskAndShowResultInModal(window.processTask4);
+	    };
 	
-	    return Lab2;
+	    return _this;
+	  }
+	
+	  _createClass(Lab2, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'second_module_container row' },
+	            _react2.default.createElement(
+	              'h3',
+	              { className: 'text-center' },
+	              '\u0421\u0443\u0447\u0430\u0441\u043D\u0438\u0439 \u0434\u0438\u0437\u0430\u0439\u043D, \u0432\u0430\u043B\u0456\u0434\u0430\u0446\u0456\u044F \u0456 \u043C\u043E\u0434\u0430\u043B\u044C\u043D\u0456 \u0432\u0456\u043A\u043D\u0430'
+	            ),
+	            _react2.default.createElement('hr', null),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'row main' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'main-login main-center' },
+	                _react2.default.createElement(
+	                  'h5',
+	                  null,
+	                  '\u0426\u044F \u0444\u043E\u0440\u043C\u0430 \u0434\u043E\u0437\u0432\u043E\u043B\u0438\u0442\u044C \u0432\u0430\u043C \u0440\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438 \u0441\u0443\u043C\u0443 \u043D\u0435\u043F\u0430\u0440\u043D\u0438\u0445 \u0447\u0438\u0441\u0435\u043B \u0432 \u043F\u0440\u043E\u043C\u0456\u0436\u043A\u0443'
+	                ),
+	                _react2.default.createElement(
+	                  'form',
+	                  { onSubmit: this.processTask1, id: 'task1FormGroup', 'data-toggle': 'validator' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement(
+	                      'label',
+	                      { className: 'cols-sm-2 control-label' },
+	                      '\u041F\u0435\u0440\u0448\u0435 \u0447\u0438\u0441\u043B\u043E'
+	                    ),
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'cols-sm-10' },
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'input-group' },
+	                        _react2.default.createElement(
+	                          'span',
+	                          { className: 'input-group-addon' },
+	                          _react2.default.createElement('i', { className: 'fa fa-check fa', 'aria-hidden': 'true' })
+	                        ),
+	                        _react2.default.createElement('input', { required: true, type: 'number', min: '0', className: 'form-control', id: 'task1FirstNumber', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u0437\u043D\u0430\u0447\u0435\u043D\u043D\u044F' })
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'label',
+	                      { className: 'cols-sm-2 control-label' },
+	                      '\u041E\u0441\u0442\u0430\u043D\u043D\u0454 \u0447\u0438\u0441\u043B\u043E'
+	                    ),
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'cols-sm-10' },
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'input-group' },
+	                        _react2.default.createElement(
+	                          'span',
+	                          { className: 'input-group-addon' },
+	                          _react2.default.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' })
+	                        ),
+	                        _react2.default.createElement('input', { required: true, type: 'number', min: '0', className: 'form-control', id: 'task1LastNumber', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u0437\u043D\u0430\u0447\u0435\u043D\u043D\u044F' })
+	                      )
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'span',
+	                    { className: 'wrapable_word' },
+	                    '\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442:'
+	                  ),
+	                  ' ',
+	                  _react2.default.createElement(
+	                    'span',
+	                    { id: 'task1Result' },
+	                    '0'
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group ' },
+	                    _react2.default.createElement(
+	                      _reactBootstrap.Button,
+	                      { type: 'submit', className: 'btn btn-primary btn-lg btn-block login-button', value: '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438' },
+	                      '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438'
+	                    )
+	                  )
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'row main' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'main-login main-center' },
+	                _react2.default.createElement(
+	                  'h5',
+	                  null,
+	                  '\u0426\u044F \u0444\u043E\u0440\u043C\u0430 \u0434\u043E\u0437\u0432\u043E\u043B\u0438\u0442\u044C \u0432\u0430\u043C \u0440\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438 \u0444\u0430\u043A\u0442\u043E\u0440\u0456\u0430\u043B \u0447\u0438\u0441\u043B\u0430'
+	                ),
+	                _react2.default.createElement(
+	                  'form',
+	                  { onSubmit: this.processTask2, id: 'task2FormGroup' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement(
+	                      'label',
+	                      { className: 'cols-sm-2 control-label' },
+	                      '\u0427\u0438\u0441\u043B\u043E, \u0434\u043B\u044F \u044F\u043A\u043E\u0433\u043E \u0448\u0443\u043A\u0430\u0442\u0438 \u0444\u0430\u043A\u0442\u043E\u0440\u0456\u0430\u043B'
+	                    ),
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'cols-sm-10' },
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'input-group' },
+	                        _react2.default.createElement(
+	                          'span',
+	                          { className: 'input-group-addon' },
+	                          _react2.default.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' })
+	                        ),
+	                        _react2.default.createElement('input', { required: true, type: 'number', min: '0', max: '100', className: 'form-control', id: 'task2Input', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u0447\u0438\u0441\u043B\u043E' })
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'span',
+	                      { className: 'wrapable_word' },
+	                      '\u0424\u0430\u043A\u0442\u043E\u0440\u0456\u0430\u043B \u0447\u0438\u0441\u043B\u0430:'
+	                    ),
+	                    ' ',
+	                    _react2.default.createElement(
+	                      'span',
+	                      { id: 'task2Result' },
+	                      '0'
+	                    ),
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'form-group ' },
+	                      _react2.default.createElement(
+	                        'button',
+	                        { type: 'submit', className: 'btn btn-primary btn-lg btn-block login-button' },
+	                        '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438'
+	                      )
+	                    )
+	                  )
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'row main' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'main-login main-center' },
+	                _react2.default.createElement(
+	                  'h5',
+	                  null,
+	                  '\u0426\u044F \u0444\u043E\u0440\u043C\u0430 \u0434\u043E\u0437\u0432\u043E\u043B\u0438\u0442\u044C \u0432\u0430\u043C \u0440\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438 \u043F\u043E\u0441\u043B\u0456\u0434\u043E\u0432\u043D\u0456\u0441\u0442\u044C \u0425\u0435\u0454\u0441\u0430 \u0456 \u043F\u043E\u043A\u0430\u0436\u0435 \u0457\u0457 \u0432 \u043C\u043E\u0434\u0430\u043B\u044C\u043D\u043E\u043C\u0443 \u0432\u0456\u043A\u043D\u0456'
+	                ),
+	                _react2.default.createElement(
+	                  'form',
+	                  { onSubmit: this.processTask3, id: 'task3FormGroup', className: 'form-group row' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'cols-sm-10' },
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'input-group' },
+	                        _react2.default.createElement(
+	                          'span',
+	                          { className: 'input-group-addon' },
+	                          _react2.default.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' })
+	                        ),
+	                        _react2.default.createElement('input', { required: true, type: 'number', className: 'form-control', id: 'task3Input', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u0447\u0438\u0441\u043B\u043E' })
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'form-group' },
+	                      _react2.default.createElement(
+	                        'button',
+	                        { type: 'submit', className: 'btn btn-primary btn-lg btn-block login-button' },
+	                        '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438'
+	                      )
+	                    )
+	                  )
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'row main' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'main-login main-center' },
+	                _react2.default.createElement(
+	                  'h5',
+	                  null,
+	                  '\u0426\u044F \u0444\u043E\u0440\u043C\u0430 \u043F\u043E\u043A\u0430\u0436\u0435 \u0440\u0456\u0437\u043D\u043E\u0433\u043E \u0440\u043E\u0434\u0443 \u0456\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0456\u044E \u043F\u0440\u043E \u0447\u0438\u0441\u043B\u043E'
+	                ),
+	                _react2.default.createElement(
+	                  'form',
+	                  { onSubmit: this.processTask4, id: 'task4FormGroup', className: 'form-group row' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'cols-sm-10' },
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'input-group' },
+	                        _react2.default.createElement(
+	                          'span',
+	                          { className: 'input-group-addon' },
+	                          _react2.default.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' })
+	                        ),
+	                        _react2.default.createElement('input', { required: true, type: 'number', className: 'form-control', id: 'task4Input', placeholder: '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u0447\u0438\u0441\u043B\u043E' })
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'form-group' },
+	                      _react2.default.createElement(
+	                        'button',
+	                        { type: 'submit', className: 'btn btn-primary btn-lg btn-block login-button' },
+	                        '\u0420\u043E\u0437\u0440\u0430\u0445\u0443\u0432\u0430\u0442\u0438'
+	                      )
+	                    )
+	                  )
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'resultModal', className: 'modal fade' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'modal-dialog' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'modal-content' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'modal-header' },
+	                    _react2.default.createElement(
+	                      'button',
+	                      { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' },
+	                      '\xD7'
+	                    ),
+	                    _react2.default.createElement(
+	                      'h4',
+	                      { className: 'modal-title' },
+	                      '\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442'
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'modal-body' },
+	                    _react2.default.createElement(
+	                      'p',
+	                      null,
+	                      '\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442 \u043E\u043F\u0435\u0440\u0430\u0446\u0456\u0457:'
+	                    ),
+	                    _react2.default.createElement(
+	                      'p',
+	                      { className: 'text-warning' },
+	                      _react2.default.createElement(
+	                        'small',
+	                        { className: 'operation_result', id: 'operationResult' },
+	                        ' ',
+	                        this.state.result
+	                      )
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'modal-footer' },
+	                    _react2.default.createElement(
+	                      'button',
+	                      { type: 'button', className: 'btn btn-default', 'data-dismiss': 'modal' },
+	                      'Close'
+	                    )
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Lab2;
 	}(_react2.default.Component);
 	
 	exports.default = Lab2;
@@ -56575,58 +56683,14 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.second_module_container {\n    margin-left: auto;\n    margin-right: auto;\n    overflow:hidden;\n}\n.second_module_container input {\n\ttext-align:left;\n}\n.second_module_container input\n{\n    background: transparent;\n    border: 1px solid white;\n    color: white;\n}\n\n.second_module_container input::-webkit-input-placeholder {color:white;opacity:0.5;}\n.second_module_container input::-moz-placeholder          {color:white;opacity:0.5;}/* Firefox 19+ */\n.second_module_container input:-moz-placeholder           {color:white;opacity:0.5;}/* Firefox 18- */\n.second_module_container input:-ms-input-placeholder      {color:white;opacity:0.5;}\n\n.second_module_container .submit_button {\n\twidth:100%;\n}\n\n.second_module_container input:nth-child(2) {\n    margin-top: 5px;\n}\n\ninput::-webkit-outer-spin-button,\ninput::-webkit-inner-spin-button {\n    /* display: none; <- Crashes Chrome on hover */\n    -webkit-appearance: none;\n    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */\n}\n\n.second_module_container .modal-dialog {\ncolor:black;\n}\n\n.operation_result{\n\tdisplay: block;\n    width: 100%;\n    word-break: break-all;\n}\n.wrapable_word{\n\tword-break: break-word;\n\twhite-space: normal;\n}", ""]);
+	exports.push([module.id, "\n.second_module_container {\n    margin-left: auto;\n    margin-right: auto;\n    overflow:hidden;\n}\n.second_module_container input {\n\ttext-align:left;\n}\n\n\n.second_module_container .submit_button {\n\twidth:100%;\n}\n\ninput::-webkit-outer-spin-button,\ninput::-webkit-inner-spin-button {\n    /* display: none; <- Crashes Chrome on hover */\n    -webkit-appearance: none;\n    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */\n}\n\n.second_module_container .modal-dialog {\ncolor:black;\n}\n\n.operation_result{\n\tdisplay: block;\n    width: 100%;\n    word-break: break-all;\n}\n.wrapable_word{\n\tword-break: break-word;\n\twhite-space: normal;\n}\n\nh3 {\n\tcolor: white;\n}\n\n/*https://bootsnipp.com/snippets/featured/register-page-design*/\n\n/*\n/* Created by Filipe Pina\n * Specific styles of signin, register, component\n */\n/*\n * General styles\n */\n#playground-container {\n    height: 500px;\n    overflow: hidden !important;\n    -webkit-overflow-scrolling: touch;\n}\nbody, html{\n     height: 100%;\n \tbackground-repeat: no-repeat;\n \tfont-family: 'Oxygen', sans-serif;\n\t    background-size: cover;\n}\n\n.main{\n \tmargin:50px 15px;\n}\n\nh1.title { \n\tfont-size: 50px;\n\tfont-family: 'Passion One', cursive; \n\tfont-weight: 400; \n}\n\nhr{\n\twidth: 10%;\n\tcolor: #fff;\n}\n\n.form-group{\n\tmargin-bottom: 15px;\n}\n\nlabel{\n\tmargin-bottom: 15px;\n}\n\ninput,\ninput::-webkit-input-placeholder {\n    font-size: 11px;\n    padding-top: 3px;\n}\n\n.main-login{\n \tbackground-color: #fff;\n    /* shadows and rounded borders */\n    -moz-border-radius: 2px;\n    -webkit-border-radius: 2px;\n    border-radius: 2px;\n    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n\n}\n.form-control {\n    height: auto!important;\npadding: 8px 12px !important;\n}\n.input-group {\n    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n}\n#button {\n    border: 1px solid #ccc;\n    margin-top: 28px;\n    padding: 6px 12px;\n    color: #666;\n    text-shadow: 0 1px #fff;\n    cursor: pointer;\n    -moz-border-radius: 3px 3px;\n    -webkit-border-radius: 3px 3px;\n    border-radius: 3px 3px;\n    -moz-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    -webkit-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    background: #f5f5f5;\n    background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));\n    background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);\n}\n.main-center{\n \tmargin-top: 30px;\n \tmargin: 0 auto;\n \tmax-width: 400px;\n    padding: 10px 40px;\n\tbackground:#009edf;\n\t    color: #FFF;\n    text-shadow: none;\n\t-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\nbox-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n\n}\nspan.input-group-addon i {\n    color: #009edf;\n    font-size: 17px;\n}\n\n.login-button{\n\tmargin-top: 5px;\n}\n\n.login-register{\n\tfont-size: 11px;\n\ttext-align: center;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ }),
-/* 763 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(764);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// Prepare cssTransformation
-	var transform;
-	
-	var options = {}
-	options.transform = transform
-	// add the styles to the DOM
-	var update = __webpack_require__(490)(content, options);
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!../node_modules/css-loader/index.js!./animation_button.css", function() {
-				var newContent = require("!!../node_modules/css-loader/index.js!./animation_button.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ }),
-/* 764 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(484)(undefined);
-	// imports
-	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700,100italic,300italic,400italic,700italic,900,900italic);", ""]);
-	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);", ""]);
-	
-	// module
-	exports.push([module.id, "body {\n  padding: 0;\n  margin: 0;\n}\nbody .btn-bg {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n.btn h2 {\n  margin-top:0px;\n}\nbody .btn-bg.bg-1 {\n\n}\nbody .btn-bg.bg-1 .btn-1 button {\n  color: #c7f8f9;\n  background: transparent;\n  border: 3px solid #c7f8f9;\n  border-radius: 5px;\n  -webkit-transition: all 0.5s ease;\n  transition: all 0.5s ease;\n  -webkit-transform: translate(0, 0);\n  transform: translate(0, 0);\n}\nbody .btn-bg.bg-1 .btn-1 button a {\n  color: #c7f8f9;\n}\nbody .btn-bg.bg-1 .btn-1 button:hover {\n  background: #c7f8f9;\n  color: #6ab1c9;\n  border: 3px solid #6ab1c9;\n  -webkit-transition: all 0.35s ease;\n  transition: all 0.35s ease;\n}\nbody .btn-bg.bg-1 .btn-1 button:hover >a {\n  color: #6ab1c9;\n  -webkit-transition: all 0.35s ease;\n  transition: all 0.35s ease;\n}\nbody .btn-bg.bg-1 .btn-1 button:active {\n  -webkit-transform: translate(5px, 5px);\n  transform: translate(5px, 5px);\n}\nbody .btn-bg.bg-2 {\n  background: #78c98d;\n}\nbody .btn-bg.bg-2 .btn-2 button {\n  color: #78c98d;\n  background: #d0f9c7;\n  border: none;\n  -webkit-transition: all 0.7s ease;\n  transition: all 0.7s ease;\n}\nbody .btn-bg.bg-2 .btn-2 button:hover {\n  background: transparent;\n  color: #d0f9c7;\n}\nbody .btn-bg.bg-2 .btn-2 button:hover:before,\nbody .btn-bg.bg-2 .btn-2 button:hover:after {\n  -webkit-transition: all 0.7s ease;\n  transition: all 0.7s ease;\n  width: 100%;\n}\nbody .btn-bg.bg-2 .btn-2 button:before,\nbody .btn-bg.bg-2 .btn-2 button:after {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 0px;\n  width: 0px;\n  height: 3px;\n  background: #d0f9c7;\n  transition: all 0.4s ease;\n}\nbody .btn-bg.bg-2 .btn-2 button:after {\n  top: inherit;\n  left: inherit;\n  bottom: 0;\n  right: 0;\n}\nbody .btn-bg.bg-3 {\n  background: #e5d272;\n}\nbody .btn-bg.bg-3 .btn-3 button {\n  color: #e5d272;\n  background: #f6f7c5;\n  border: none;\n  -webkit-transition: all 1s ease;\n  transition: all 1s ease;\n}\nbody .btn-bg.bg-3 .btn-3 button:hover {\n  -webkit-transition: all 0.7s ease;\n  transition: all 0.7s ease;\n  background: transparent;\n  color: #f6f7c5;\n}\nbody .btn-bg.bg-3 .btn-3 button:hover:after {\n  transition: all 0.3s ease;\n  width: 100%;\n  left: 0;\n}\nbody .btn-bg.bg-3 .btn-3 button:after {\n  position: absolute;\n  transition: all 0.3s ease;\n  content: '';\n  width: 0;\n  bottom: 0;\n  left: inherit;\n  right: 0;\n  height: 3px;\n  background: #f6f7c5;\n}\nbody .btn-bg.bg-4 {\n  background: #ed6a5a;\n}\nbody .btn-bg.bg-4 .btn-4 button {\n  color: #eda39a;\n  border-radius: 5px;\n  background: radial-gradient(circle, #ed412a 0.25em, transparent 0.25em) center/1.2em 1.2em;\n  border: 3px solid #ed412a;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n}\nbody .btn-bg.bg-4 .btn-4 button:hover {\n  color: #fff;\n  background: radial-gradient(circle, #ed412a 0.25em, transparent 0.25em) center/0.1em 0.1em;\n  -webkit-transition: all 0.5s ease;\n  transition: all 0.5s ease;\n}\nbody .btn-bg.bg-5 {\n  background: #fff;\n}\nbody .btn-bg.bg-5 .btn-5 h2 {\n  color: #c4c0c0;\n}\nbody .btn-bg.bg-5 .btn-5 button {\n  color: #c4c0c0;\n  background: transparent;\n  border: 3px solid #c4c0c0;\n  border-radius: 5px;\n  -webkit-transition: all 0.25s ease;\n  transition: all 0.25s ease;\n}\nbody .btn-bg.bg-5 .btn-5 button:hover {\n  border-color: #50514f;\n  color: #50514f;\n  background-image: repeating-linear-gradient(-25deg, #c4c0c0, #c4c0c0 3px, transparent 4px, transparent 7px);\n  background-size: 12px 16px;\n  -webkit-animation: cloud-animation 1.25s infinite ease;\n  animation: cloud-animation 1.25s infinite ease;\n  -webkit-animation-delay: 0;\n  -webkit-transition: all 0.25s ease;\n  transition: all 0.25s ease;\n}\nbody .btn-bg.bg-6 {\n  background: #ac7ee5;\n}\nbody .btn-bg.bg-6 .btn-6 button {\n  width: 11em;\n  height: 3em;\n  color: #d3b7f7;\n  background: transparent;\n  border: 3px solid #d3b7f7;\n  border-radius: 5px;\n  -webkit-transition: border 0.5s ease-out;\n  transition: border 0.5s ease-out;\n  transition-delay: 0.8s;\n}\nbody .btn-bg.bg-6 .btn-6 button a {\n  position: absolute;\n  z-index: 2;\n  left: 43px;\n  top: 17px;\n}\nbody .btn-bg.bg-6 .btn-6 button::before,\nbody .btn-bg.bg-6 .btn-6 button::after {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  margin: auto;\n  content: 'LONG NIGHT';\n  border-radius: 50%;\n  display: block;\n  width: 22em;\n  height: 22em;\n  left: -5.5em;\n  text-align: center;\n  -webkit-transition: box-shadow 0.5s ease-out;\n  transition: box-shadow 0.5s ease-out;\n  transition-delay: 0.75s;\n  -webkit-transition-delay: 0.75s;\n  z-index: 1;\n}\nbody .btn-bg.bg-6 .btn-6 button::after {\n  transition-delay: 0.25s;\n  -webkit-transition-delay: 0.25s;\n}\nbody .btn-bg.bg-6 .btn-6 button:hover {\n  color: #fff;\n  border-color: #8460af;\n  animation: witch-word-color 1.5s ease;\n  -webkit-transition: border 0.2s ease;\n  transition: border 0.2s ease;\n}\nbody .btn-bg.bg-6 .btn-6 button:hover::before {\n  box-shadow: inset 0 0 0 11em #b657e5;\n  transition-delay: 0.05s;\n}\nbody .btn-bg.bg-6 .btn-6 button:hover::after {\n  box-shadow: inset 0 0 0 11em #8460af;\n  transition-delay: 0.5s;\n}\n.btn {\n  margin: 0 auto 30px auto;\n  display: block;\n}\nh2 {\n  text-align: center;\n  font-family: 'Raleway';\n  font-weight: 600;\n  color: #fff;\n}\nbutton {\n  cursor: pointer;\n  overflow: hidden;\n  outline: none;\n  color: #fff;\n  position: relative;\n  letter-spacing: 0.1em;\n  font-weight: 400;\n  padding: 1rem 3rem 1rem 3rem;\n  text-transform: uppercase;\n  font-family: \"Lato\";\n  font-size: 1.5em;\n}\nbutton a {\n  text-decoration: none;\n}\n@-moz-keyframes cloud-animation {\n  100% {\n    background-position: 0px 2em;\n  }\n}\n@-webkit-keyframes cloud-animation {\n  100% {\n    background-position: 0px 2em;\n  }\n}\n@-o-keyframes cloud-animation {\n  100% {\n    background-position: 0px 2em;\n  }\n}\n@keyframes cloud-animation {\n  100% {\n    background-position: 0px 2em;\n  }\n}\n@-moz-keyframes witch-word-color {\n  0% {\n    color: #d3b7f7;\n  }\n  50% {\n    color: #50514f;\n  }\n  100% {\n    color: #fff;\n  }\n}\n@-webkit-keyframes witch-word-color {\n  0% {\n    color: #d3b7f7;\n  }\n  50% {\n    color: #50514f;\n  }\n  100% {\n    color: #fff;\n  }\n}\n@-o-keyframes witch-word-color {\n  0% {\n    color: #d3b7f7;\n  }\n  50% {\n    color: #50514f;\n  }\n  100% {\n    color: #fff;\n  }\n}\n@keyframes witch-word-color {\n  0% {\n    color: #d3b7f7;\n  }\n  50% {\n    color: #50514f;\n  }\n  100% {\n    color: #fff;\n  }\n}\n", ""]);
-	
-	// exports
-
-
-/***/ }),
+/* 763 */,
+/* 764 */,
 /* 765 */
 /***/ (function(module, exports) {
 
