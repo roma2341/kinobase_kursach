@@ -8,6 +8,13 @@ class Lab3 extends React.Component {
 
 	constructor(props) {
 		super(props);
+		var self = this;
+		this.processSubmit = function(event){
+			self.handleInputAreaClick;
+		}
+
+
+
 		 this.state = {configValueJson: ''};
 		var _self = this;
 		this.handleInputAreaClick = function(event){
@@ -38,20 +45,35 @@ class Lab3 extends React.Component {
 	render() {
 		return <div>
 
-					<div className="col-xs-6">
-				<input type="text" className="costum_input"/>
-			</div>
+		<div className="row main">
+           <div className="main-login main-center">
+           <h5>Конфігурування елементу</h5>
+          <form onSubmit={this.processSubmit} id="task2FormGroup">
+          <div className="form-group">
+          <label className="cols-sm-2 control-label">Json</label>
+          <div className="cols-sm-10">
+          <div className="input-group full_width">
+          <textarea onChange={this.handleConfigInputChange} value={this.state.configValueJson || ''} id="formatArea" rows="8" required type="number" min="0" max="100" className="config_input form-control" id="task2Input" placeholder="Введіть число"/>
+          </div>
+          </div>
+          </div>
 
-		<div className="row input_config_wrapper">
-			<div className="col-xs-11 config_column">
-					<textarea className="config_input"  id="formatArea"  className="form-control" rows="5" id="comment" onChange={this.handleConfigInputChange} value={this.state.configValueJson || ''}></textarea>
-			</div>
+          <div className="form-group ">
+          <button type="submit" className="btn btn-primary btn-lg btn-block login-button" onClick={this.handleInputAreaClick}>Зберегти</button>
+           </div>
 
-			<div className="col-xs-1 config_column">
-					<button className=" apply_config_btn" onClick={this.handleInputAreaClick}>Оновити конфіг</button>
-			</div>
-		</div>
+ 		 <div className="form-group">
+          <label className="cols-sm-2 control-label">Вигляд елементу</label>
+          <div className="cols-sm-10">
+          <div className="input-group full_width">
+          <input type="text" className="costum_input form-control" />
+          </div>
+          </div>
+          </div>
 
+          </form>
+          </div>
+          </div>
 
 		</div>
 	}

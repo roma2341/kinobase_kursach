@@ -3,6 +3,7 @@ import Script from 'react-load-script'
 import { Button } from 'react-bootstrap';
 import Velocity from 'velocity-animate';
 import CostumInput from '../css/mit.css';
+import FancyForm from '../css/fancy_form.css';
 require('../js/mit.js');
 /*$.prototype.velocity = Velocity;*/
 

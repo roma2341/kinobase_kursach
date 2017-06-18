@@ -261,7 +261,7 @@ function DefaultConfig(){
     this.floatPartMaxSize = 4;
     this.placeholder = "Тикніть сюди";
     this.style = {
-        width:600,
+        width:"100%",
         font:{
             size: 20,
             color: "black",
@@ -308,7 +308,7 @@ element.style.backgroundColor = conf.style.fillColor;
 element.style.borderColor = conf.style.border.color;
 element.style.borderWidth = conf.style.border.size+"px";
 element.style.textAlign = conf.style.align;
-element.style.width = conf.style.width+"px";
+element.style.width = conf.style.width;
 
 element.className = defaultClassName;
 

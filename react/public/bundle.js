@@ -30819,6 +30819,11 @@
 	
 			var _this = _possibleConstructorReturn(this, (Lab3.__proto__ || Object.getPrototypeOf(Lab3)).call(this, props));
 	
+			var self = _this;
+			_this.processSubmit = function (event) {
+				self.handleInputAreaClick;
+			};
+	
 			_this.state = { configValueJson: '' };
 			var _self = _this;
 			_this.handleInputAreaClick = function (event) {
@@ -30856,24 +30861,63 @@
 					null,
 					_react2.default.createElement(
 						'div',
-						{ className: 'col-xs-6' },
-						_react2.default.createElement('input', { type: 'text', className: 'costum_input' })
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'row input_config_wrapper' },
+						{ className: 'row main' },
 						_react2.default.createElement(
 							'div',
-							{ className: 'col-xs-11 config_column' },
-							_react2.default.createElement('textarea', (_React$createElement = { className: 'config_input', id: 'formatArea' }, _defineProperty(_React$createElement, 'className', 'form-control'), _defineProperty(_React$createElement, 'rows', '5'), _defineProperty(_React$createElement, 'id', 'comment'), _defineProperty(_React$createElement, 'onChange', this.handleConfigInputChange), _defineProperty(_React$createElement, 'value', this.state.configValueJson || ''), _React$createElement))
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'col-xs-1 config_column' },
+							{ className: 'main-login main-center' },
 							_react2.default.createElement(
-								'button',
-								{ className: ' apply_config_btn', onClick: this.handleInputAreaClick },
-								'\u041E\u043D\u043E\u0432\u0438\u0442\u0438 \u043A\u043E\u043D\u0444\u0456\u0433'
+								'h5',
+								null,
+								'\u041A\u043E\u043D\u0444\u0456\u0433\u0443\u0440\u0443\u0432\u0430\u043D\u043D\u044F \u0435\u043B\u0435\u043C\u0435\u043D\u0442\u0443'
+							),
+							_react2.default.createElement(
+								'form',
+								{ onSubmit: this.processSubmit, id: 'task2FormGroup' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'form-group' },
+									_react2.default.createElement(
+										'label',
+										{ className: 'cols-sm-2 control-label' },
+										'Json'
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'cols-sm-10' },
+										_react2.default.createElement(
+											'div',
+											{ className: 'input-group full_width' },
+											_react2.default.createElement('textarea', (_React$createElement = { onChange: this.handleConfigInputChange, value: this.state.configValueJson || '', id: 'formatArea', rows: '8', required: true, type: 'number', min: '0', max: '100', className: 'config_input form-control' }, _defineProperty(_React$createElement, 'id', 'task2Input'), _defineProperty(_React$createElement, 'placeholder', '\u0412\u0432\u0435\u0434\u0456\u0442\u044C \u0447\u0438\u0441\u043B\u043E'), _React$createElement))
+										)
+									)
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'form-group ' },
+									_react2.default.createElement(
+										'button',
+										{ type: 'submit', className: 'btn btn-primary btn-lg btn-block login-button', onClick: this.handleInputAreaClick },
+										'\u0417\u0431\u0435\u0440\u0435\u0433\u0442\u0438'
+									)
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'form-group' },
+									_react2.default.createElement(
+										'label',
+										{ className: 'cols-sm-2 control-label' },
+										'\u0412\u0438\u0433\u043B\u044F\u0434 \u0435\u043B\u0435\u043C\u0435\u043D\u0442\u0443'
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'cols-sm-10' },
+										_react2.default.createElement(
+											'div',
+											{ className: 'input-group full_width' },
+											_react2.default.createElement('input', { type: 'text', className: 'costum_input form-control' })
+										)
+									)
+								)
 							)
 						)
 					)
@@ -30933,7 +30977,7 @@
 	
 	
 	// module
-	exports.push([module.id, "input { \n    text-align: right;    \n}\ninput[type=\"text\"]{\n    -moz-user-select: -moz-none;\n    -o-user-select: none;\n    -khtml-user-select: none;\n    -webkit-user-select: none;\n    user-select: none;\n}\n\n.bold_costum_input{\n  font-weight:bold;\n}\n.italic_costum_input{\n  font-style :italic;\n}\n.underline_costum_input{\n text-decoration: underline;\n}\ntextarea {\n   resize: none;\n}\n.row.input_config_wrapper {\n    position: fixed;\n    bottom: 0px;\n    width: 100%;\n}\n.config_input{\n\twidth:100%;\n\theight:100%;\n}\n.apply_config_btn {\n\theight:100%;\n}\n.config_column{\n\theight: 115px;\n}", ""]);
+	exports.push([module.id, "input { \n    text-align: right;    \n}\ninput[type=\"text\"]{\n    -moz-user-select: -moz-none;\n    -o-user-select: none;\n    -khtml-user-select: none;\n    -webkit-user-select: none;\n    user-select: none;\n}\n\n.bold_costum_input{\n  font-weight:bold;\n}\n.italic_costum_input{\n  font-style :italic;\n}\n.underline_costum_input{\n text-decoration: underline;\n}\ntextarea {\n   resize: none;\n}\n", ""]);
 	
 	// exports
 
@@ -31205,7 +31249,7 @@
 	    this.floatPartMaxSize = 4;
 	    this.placeholder = "Тикніть сюди";
 	    this.style = {
-	        width:600,
+	        width:"100%",
 	        font:{
 	            size: 20,
 	            color: "black",
@@ -31252,7 +31296,7 @@
 	element.style.borderColor = conf.style.border.color;
 	element.style.borderWidth = conf.style.border.size+"px";
 	element.style.textAlign = conf.style.align;
-	element.style.width = conf.style.width+"px";
+	element.style.width = conf.style.width;
 	
 	element.className = defaultClassName;
 	
@@ -31607,6 +31651,10 @@
 	var _mit = __webpack_require__(761);
 	
 	var _mit2 = _interopRequireDefault(_mit);
+	
+	var _fancy_form = __webpack_require__(844);
+	
+	var _fancy_form2 = _interopRequireDefault(_fancy_form);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -56683,7 +56731,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.second_module_container {\n    margin-left: auto;\n    margin-right: auto;\n    overflow:hidden;\n}\n.second_module_container input {\n\ttext-align:left;\n}\n\n\n.second_module_container .submit_button {\n\twidth:100%;\n}\n\ninput::-webkit-outer-spin-button,\ninput::-webkit-inner-spin-button {\n    /* display: none; <- Crashes Chrome on hover */\n    -webkit-appearance: none;\n    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */\n}\n\n.second_module_container .modal-dialog {\ncolor:black;\n}\n\n.operation_result{\n\tdisplay: block;\n    width: 100%;\n    word-break: break-all;\n}\n.wrapable_word{\n\tword-break: break-word;\n\twhite-space: normal;\n}\n\nh3 {\n\tcolor: white;\n}\n\n/*https://bootsnipp.com/snippets/featured/register-page-design*/\n\n/*\n/* Created by Filipe Pina\n * Specific styles of signin, register, component\n */\n/*\n * General styles\n */\n#playground-container {\n    height: 500px;\n    overflow: hidden !important;\n    -webkit-overflow-scrolling: touch;\n}\nbody, html{\n     height: 100%;\n \tbackground-repeat: no-repeat;\n \tfont-family: 'Oxygen', sans-serif;\n\t    background-size: cover;\n}\n\n.main{\n \tmargin:50px 15px;\n}\n\nh1.title { \n\tfont-size: 50px;\n\tfont-family: 'Passion One', cursive; \n\tfont-weight: 400; \n}\n\nhr{\n\twidth: 10%;\n\tcolor: #fff;\n}\n\n.form-group{\n\tmargin-bottom: 15px;\n}\n\nlabel{\n\tmargin-bottom: 15px;\n}\n\ninput,\ninput::-webkit-input-placeholder {\n    font-size: 11px;\n    padding-top: 3px;\n}\n\n.main-login{\n \tbackground-color: #fff;\n    /* shadows and rounded borders */\n    -moz-border-radius: 2px;\n    -webkit-border-radius: 2px;\n    border-radius: 2px;\n    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n\n}\n.form-control {\n    height: auto!important;\npadding: 8px 12px !important;\n}\n.input-group {\n    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n}\n#button {\n    border: 1px solid #ccc;\n    margin-top: 28px;\n    padding: 6px 12px;\n    color: #666;\n    text-shadow: 0 1px #fff;\n    cursor: pointer;\n    -moz-border-radius: 3px 3px;\n    -webkit-border-radius: 3px 3px;\n    border-radius: 3px 3px;\n    -moz-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    -webkit-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    background: #f5f5f5;\n    background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));\n    background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);\n}\n.main-center{\n \tmargin-top: 30px;\n \tmargin: 0 auto;\n \tmax-width: 400px;\n    padding: 10px 40px;\n\tbackground:#009edf;\n\t    color: #FFF;\n    text-shadow: none;\n\t-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\nbox-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n\n}\nspan.input-group-addon i {\n    color: #009edf;\n    font-size: 17px;\n}\n\n.login-button{\n\tmargin-top: 5px;\n}\n\n.login-register{\n\tfont-size: 11px;\n\ttext-align: center;\n}\n", ""]);
+	exports.push([module.id, "\n.second_module_container {\n    margin-left: auto;\n    margin-right: auto;\n    overflow:hidden;\n}\n.second_module_container input {\n\ttext-align:left;\n}\n\n\n.second_module_container .submit_button {\n\twidth:100%;\n}\n\ninput::-webkit-outer-spin-button,\ninput::-webkit-inner-spin-button {\n    /* display: none; <- Crashes Chrome on hover */\n    -webkit-appearance: none;\n    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */\n}\n\n.second_module_container .modal-dialog {\ncolor:black;\n}\n\n.operation_result{\n\tdisplay: block;\n    width: 100%;\n    word-break: break-all;\n}\n.wrapable_word{\n\tword-break: break-word;\n\twhite-space: normal;\n}\n\nh3 {\n\tcolor: white;\n}\n\n", ""]);
 	
 	// exports
 
@@ -63471,6 +63519,53 @@
 	  });
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(299)))
+
+/***/ }),
+/* 842 */,
+/* 843 */,
+/* 844 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(845);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// Prepare cssTransformation
+	var transform;
+	
+	var options = {}
+	options.transform = transform
+	// add the styles to the DOM
+	var update = __webpack_require__(490)(content, options);
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../node_modules/css-loader/index.js!./fancy_form.css", function() {
+				var newContent = require("!!../node_modules/css-loader/index.js!./fancy_form.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 845 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(484)(undefined);
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "/*https://bootsnipp.com/snippets/featured/register-page-design*/\n\n/*\n/* Created by Filipe Pina\n * Specific styles of signin, register, component\n */\n/*\n * General styles\n */\n/*My*/\n.full_width {\nwidth: 100%;\n}\n\n/*Not my*/\n\n#playground-container {\n    height: 500px;\n    overflow: hidden !important;\n    -webkit-overflow-scrolling: touch;\n}\nbody, html{\n     height: 100%;\n \tbackground-repeat: no-repeat;\n \tfont-family: 'Oxygen', sans-serif;\n\t    background-size: cover;\n}\n\n.main{\n \tmargin:50px 15px;\n}\n\nh1.title { \n\tfont-size: 50px;\n\tfont-family: 'Passion One', cursive; \n\tfont-weight: 400; \n}\n\nhr{\n\twidth: 10%;\n\tcolor: #fff;\n}\n\n.form-group{\n\tmargin-bottom: 15px;\n}\n\nlabel{\n\tmargin-bottom: 15px;\n}\n\ninput,\ninput::-webkit-input-placeholder {\n    font-size: 11px;\n    padding-top: 3px;\n}\n\n.main-login{\n \tbackground-color: #fff;\n    /* shadows and rounded borders */\n    -moz-border-radius: 2px;\n    -webkit-border-radius: 2px;\n    border-radius: 2px;\n    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);\n\n}\n.form-control {\n    height: auto!important;\npadding: 8px 12px !important;\n}\n.input-group {\n    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;\n}\n#button {\n    border: 1px solid #ccc;\n    margin-top: 28px;\n    padding: 6px 12px;\n    color: #666;\n    text-shadow: 0 1px #fff;\n    cursor: pointer;\n    -moz-border-radius: 3px 3px;\n    -webkit-border-radius: 3px 3px;\n    border-radius: 3px 3px;\n    -moz-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    -webkit-box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    box-shadow: 0 1px #fff inset, 0 1px #ddd;\n    background: #f5f5f5;\n    background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));\n    background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);\n}\n.main-center{\n \tmargin-top: 30px;\n \tmargin: 0 auto;\n \tmax-width: 400px;\n    padding: 10px 40px;\n\tbackground:#009edf;\n\t    color: #FFF;\n    text-shadow: none;\n\t-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\nbox-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);\n\n}\nspan.input-group-addon i {\n    color: #009edf;\n    font-size: 17px;\n}\n\n.login-button{\n\tmargin-top: 5px;\n}\n\n.login-register{\n\tfont-size: 11px;\n\ttext-align: center;\n}\n", ""]);
+	
+	// exports
+
 
 /***/ })
 /******/ ]);
