@@ -5,6 +5,7 @@ import TrianglePaginator from './components/TrianglePaginator.jsx';
 import DigitalScoreboard from './components/DigitalScoreboard.jsx';
 import CommentsList from './components/CommentsList.jsx';
 import FilmList from './components/FilmList.jsx';
+import FilmInfoBlock from './components/FilmInfoBlock.jsx';
 class Lab1 extends React.Component {
 
     constructor(props) {
@@ -26,6 +27,25 @@ class Lab1 extends React.Component {
             this.buttonText = buttonText;
         }
 
+        var DetailedFilmItem = function(title,description) {
+            this.title = title;
+            this.description = description;
+        }
+
+        this.currentFilm = {image:"mechanic1.png", details:[
+        new DetailedFilmItem("Актеры:","Джейсон Стэтхэм, Дональд Сазерленд, Бен Фостер, Тони Голдуин, Джефф Чейз, Мини Анден, Джеймс Логан, Эдди Дж. Фернандез, Джошуа Бриджуотер, Джон МакКоннелл"),
+        new DetailedFilmItem("Продюссер:","Рене Бессон, Роберт Чартофф, Уильям Чартофф, Роб Кауэн"),
+        new DetailedFilmItem("Режиссер:","Саймон Уэст"),
+        new DetailedFilmItem("Сценарист:","Льюис Джон Карлино, Ричард Уэнк"),
+        new DetailedFilmItem(null,[
+            new DetailedFilmItem("Бюджет:","$40 000 000"),
+            new DetailedFilmItem("Сборы в мире:","$40 000 000"),
+            new DetailedFilmItem("Сборы в США:","$40 000 000"),
+            new DetailedFilmItem("Релиз на DVD:","$40 000 000")
+            ])
+        ]};
+
+
         this.comments = [
             new Comment('TritonGrown','spiderman_avatar.png','26.05.2012 в 18:40',true,'Фельмище супер,а для тех кто любит гонки вообще найлучшое что может бить.Для семейного просмотра тоже идеал.Фильм + 5 '),
             new Comment('TritonGrown','spiderman_avatar.png','26.05.2012 в 18:40',false,'Фельмище супер,а для тех кто любит гонки вообще найлучшое что может бить.Для семейного просмотра тоже идеал.Фильм + 5 '),
@@ -38,6 +58,11 @@ class Lab1 extends React.Component {
         new FilmItem("Новый Человек-паук (2012)","lincoln1.png","Получив сверхчеловеческие способности, Питер Паркер пытается вести нормальную жизнь и разобраться, кем же он теперь стал. Но сейчас на нормальную жизнь ..",3,SEE_NOW_ITEM_TEXT),
         new FilmItem("Новый Человек-паук (2012)","batman1.png","Получив сверхчеловеческие способности, Питер Паркер пытается вести нормальную жизнь и разобраться, кем же он теперь стал. Но сейчас на нормальную жизнь ..",4,SEE_NOW_ITEM_TEXT)
         ]
+
+
+
+
+
 
     }
 
@@ -95,44 +120,7 @@ class Lab1 extends React.Component {
                     <div className="left_content_block">
                     <FilmList films={this.films}/>
 
-                <div className="film_info_block">
-                    <div className="section film_info_image">
-                        <img src="assets/images/mechanic1.png" alt=""/>
-                    </div>
-                    <div className="section info_section_title">Актеры:</div>
-                    <div className="section info_section">Джейсон Стэтхэм, Дональд Сазерленд, Бен Фостер, Тони Голдуин, Джефф Чейз, Мини Анден, Джеймс Логан, Эдди Дж. Фернандез, Джошуа Бриджуотер, Джон МакКоннелл</div>
-
-                    <div className="section info_section_title">Продюссер:</div>
-                    <div className="section info_section">Рене Бессон, Роберт Чартофф, Уильям Чартофф, Роб Кауэн</div>
-
-                    <div className="section info_section_title">Режиссер:</div>
-                    <div className="section info_section">Саймон Уэст</div>
-
-                    <div className="section info_section_title">Сценарист:</div>
-                    <div className="section info_section">Льюис Джон Карлино, Ричард Уэнк</div>
-
-                    <div className="section info_section">
-                    <div className="half_width_block">
-                        <div className="info_section_title">Бюджет:</div>
-                    <div className="info_section">$40 000 000</div>
-                    </div>
-                    <div className="half_width_block">
-                        <div className="info_section_title">Сборы в мире:</div>
-                    <div className="info_section">$40 000 000</div>
-                    </div>
-                    <div className="half_width_block">
-                        <div className="info_section_title">Сборы в США:</div>
-                    <div className="info_section">$40 000 000</div>
-                    </div>
-                    <div className="half_width_block">
-                        <div className="info_section_title">Релиз на DVD:</div>
-                    <div className="info_section">$40 000 000</div>
-                    </div>
-                    </div>
-                    <div className="section"></div>
-
-
-                </div>
+               <FilmInfoBlock film={this.currentFilm}></FilmInfoBlock>
 
                     <div className="film_details_block">
                     <div className="short_info_block">

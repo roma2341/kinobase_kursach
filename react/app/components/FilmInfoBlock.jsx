@@ -10,37 +10,58 @@ class FilmInfoBlock extends React.Component {
 
 constructor(props) {
         super(props);
-       var film = this.props["film"];
-       var details = film.details;
-        this.nodes = [];
-        for (var i = 0; i < details.length; i++ ){
-          var detail = details[i];
-          this.nodes.push( 
-
-        <div key={i} className="film_item">
-                            <div className="item_title">{currentFilm.name}</div>
-                            <div className="item_image">
-                                <img src={"assets/images/"+currentFilm.picture} alt=""/>
-                                <StarRating rating={currentFilm.rating} max-rating={5}/>
-                            </div>
-                            <div className="bottom_shadow"></div>
-                            <div className="item_details">
-                                {currentFilm.description}
-                            </div>
-                            <div className="watch_now">{currentFilm.buttonText}</div>
-        </div>
-
-            );
-        }
-
     }
 
     render() {
+
+        var film = this.props["film"];
+       var details = film.details;
+       var image = film.image;
+        var nodes = [];
+        for (var i = 0; i < details.length; i++ ){
+          var detail = details[i];
+
+          var subNode;
+          switch(typeof detail.description){
+            case "string":
+            subNode = <span id={'s'+j}> {detail.description} </span>;
+            break;
+            case "object":
+            subNode = [];
+            for (var j = 0; j <  detail.description.length; j++){
+                var subDetails = detail.description[j];
+                subNode.push(
+                    <div id={j} className="half_width_block">
+                        <div id={0} className="info_section_title">{subDetails.title}</div>
+                        <div id={1} className="info_section">{subDetails.description}</div>
+                    </div>
+                    );
+            }
+            break;
+
+          }
+          nodes.push(
+
+          <div id={detail.title} className="section info_section">
+            <div className="section info_section_title">{detail.title}</div>
+                    <div className="info_section">{subNode}</div>
+                    </div>
+                    );
+        }
+
+
+
+
         return (
             <div className="film_info_block">
 
+                <div  className="section film_info_image">
+                        <img  src={"assets/images/"+film.image} alt=""/>
+                </div>
 
-              {this.nodes}
+              {nodes}
+
+              <div id={'fib_03'} className="section"></div>
 
 
             </div>

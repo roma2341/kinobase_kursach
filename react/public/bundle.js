@@ -56961,6 +56961,10 @@
 	
 	var _FilmList2 = _interopRequireDefault(_FilmList);
 	
+	var _FilmInfoBlock = __webpack_require__(851);
+	
+	var _FilmInfoBlock2 = _interopRequireDefault(_FilmInfoBlock);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -56992,6 +56996,13 @@
 	            this.rating = rating;
 	            this.buttonText = buttonText;
 	        };
+	
+	        var DetailedFilmItem = function DetailedFilmItem(title, description) {
+	            this.title = title;
+	            this.description = description;
+	        };
+	
+	        _this.currentFilm = { image: "mechanic1.png", details: [new DetailedFilmItem("Актеры:", "Джейсон Стэтхэм, Дональд Сазерленд, Бен Фостер, Тони Голдуин, Джефф Чейз, Мини Анден, Джеймс Логан, Эдди Дж. Фернандез, Джошуа Бриджуотер, Джон МакКоннелл"), new DetailedFilmItem("Продюссер:", "Рене Бессон, Роберт Чартофф, Уильям Чартофф, Роб Кауэн"), new DetailedFilmItem("Режиссер:", "Саймон Уэст"), new DetailedFilmItem("Сценарист:", "Льюис Джон Карлино, Ричард Уэнк"), new DetailedFilmItem(null, [new DetailedFilmItem("Бюджет:", "$40 000 000"), new DetailedFilmItem("Сборы в мире:", "$40 000 000"), new DetailedFilmItem("Сборы в США:", "$40 000 000"), new DetailedFilmItem("Релиз на DVD:", "$40 000 000")])] };
 	
 	        _this.comments = [new Comment('TritonGrown', 'spiderman_avatar.png', '26.05.2012 в 18:40', true, 'Фельмище супер,а для тех кто любит гонки вообще найлучшое что может бить.Для семейного просмотра тоже идеал.Фильм + 5 '), new Comment('TritonGrown', 'spiderman_avatar.png', '26.05.2012 в 18:40', false, 'Фельмище супер,а для тех кто любит гонки вообще найлучшое что может бить.Для семейного просмотра тоже идеал.Фильм + 5 ')];
 	        var SEE_NOW_ITEM_TEXT = "Смотреть сейчас";
@@ -57128,116 +57139,7 @@
 	                                    'div',
 	                                    { className: 'left_content_block' },
 	                                    _react2.default.createElement(_FilmList2.default, { films: this.films }),
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'film_info_block' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'section film_info_image' },
-	                                            _react2.default.createElement('img', { src: 'assets/images/mechanic1.png', alt: '' })
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'section info_section_title' },
-	                                            '\u0410\u043A\u0442\u0435\u0440\u044B:'
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'section info_section' },
-	                                            '\u0414\u0436\u0435\u0439\u0441\u043E\u043D \u0421\u0442\u044D\u0442\u0445\u044D\u043C, \u0414\u043E\u043D\u0430\u043B\u044C\u0434 \u0421\u0430\u0437\u0435\u0440\u043B\u0435\u043D\u0434, \u0411\u0435\u043D \u0424\u043E\u0441\u0442\u0435\u0440, \u0422\u043E\u043D\u0438 \u0413\u043E\u043B\u0434\u0443\u0438\u043D, \u0414\u0436\u0435\u0444\u0444 \u0427\u0435\u0439\u0437, \u041C\u0438\u043D\u0438 \u0410\u043D\u0434\u0435\u043D, \u0414\u0436\u0435\u0439\u043C\u0441 \u041B\u043E\u0433\u0430\u043D, \u042D\u0434\u0434\u0438 \u0414\u0436. \u0424\u0435\u0440\u043D\u0430\u043D\u0434\u0435\u0437, \u0414\u0436\u043E\u0448\u0443\u0430 \u0411\u0440\u0438\u0434\u0436\u0443\u043E\u0442\u0435\u0440, \u0414\u0436\u043E\u043D \u041C\u0430\u043A\u041A\u043E\u043D\u043D\u0435\u043B\u043B'
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'section info_section_title' },
-	                                            '\u041F\u0440\u043E\u0434\u044E\u0441\u0441\u0435\u0440:'
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'section info_section' },
-	                                            '\u0420\u0435\u043D\u0435 \u0411\u0435\u0441\u0441\u043E\u043D, \u0420\u043E\u0431\u0435\u0440\u0442 \u0427\u0430\u0440\u0442\u043E\u0444\u0444, \u0423\u0438\u043B\u044C\u044F\u043C \u0427\u0430\u0440\u0442\u043E\u0444\u0444, \u0420\u043E\u0431 \u041A\u0430\u0443\u044D\u043D'
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'section info_section_title' },
-	                                            '\u0420\u0435\u0436\u0438\u0441\u0441\u0435\u0440:'
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'section info_section' },
-	                                            '\u0421\u0430\u0439\u043C\u043E\u043D \u0423\u044D\u0441\u0442'
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'section info_section_title' },
-	                                            '\u0421\u0446\u0435\u043D\u0430\u0440\u0438\u0441\u0442:'
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'section info_section' },
-	                                            '\u041B\u044C\u044E\u0438\u0441 \u0414\u0436\u043E\u043D \u041A\u0430\u0440\u043B\u0438\u043D\u043E, \u0420\u0438\u0447\u0430\u0440\u0434 \u0423\u044D\u043D\u043A'
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'section info_section' },
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'half_width_block' },
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'info_section_title' },
-	                                                    '\u0411\u044E\u0434\u0436\u0435\u0442:'
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'info_section' },
-	                                                    '$40 000 000'
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'half_width_block' },
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'info_section_title' },
-	                                                    '\u0421\u0431\u043E\u0440\u044B \u0432 \u043C\u0438\u0440\u0435:'
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'info_section' },
-	                                                    '$40 000 000'
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'half_width_block' },
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'info_section_title' },
-	                                                    '\u0421\u0431\u043E\u0440\u044B \u0432 \u0421\u0428\u0410:'
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'info_section' },
-	                                                    '$40 000 000'
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'half_width_block' },
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'info_section_title' },
-	                                                    '\u0420\u0435\u043B\u0438\u0437 \u043D\u0430 DVD:'
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'info_section' },
-	                                                    '$40 000 000'
-	                                                )
-	                                            )
-	                                        ),
-	                                        _react2.default.createElement('div', { className: 'section' })
-	                                    ),
+	                                    _react2.default.createElement(_FilmInfoBlock2.default, { film: this.currentFilm }),
 	                                    _react2.default.createElement(
 	                                        'div',
 	                                        { className: 'film_details_block' },
@@ -63793,6 +63695,132 @@
 	}(_react2.default.Component);
 	
 	exports.default = FilmList;
+
+/***/ }),
+/* 851 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	__webpack_require__(1);
+	
+	var _react = __webpack_require__(297);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(335);
+	
+	var _StarRating = __webpack_require__(846);
+	
+	var _StarRating2 = _interopRequireDefault(_StarRating);
+	
+	var _reactRouter = __webpack_require__(787);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var FilmInfoBlock = function (_React$Component) {
+	    _inherits(FilmInfoBlock, _React$Component);
+	
+	    //var hashHistory = ReactRouter.hashHistory;
+	
+	    function FilmInfoBlock(props) {
+	        _classCallCheck(this, FilmInfoBlock);
+	
+	        return _possibleConstructorReturn(this, (FilmInfoBlock.__proto__ || Object.getPrototypeOf(FilmInfoBlock)).call(this, props));
+	    }
+	
+	    _createClass(FilmInfoBlock, [{
+	        key: 'render',
+	        value: function render() {
+	
+	            var film = this.props["film"];
+	            var details = film.details;
+	            var image = film.image;
+	            var nodes = [];
+	            for (var i = 0; i < details.length; i++) {
+	                var detail = details[i];
+	
+	                var subNode;
+	                switch (_typeof(detail.description)) {
+	                    case "string":
+	                        subNode = _react2.default.createElement(
+	                            'span',
+	                            { id: 's' + j },
+	                            ' ',
+	                            detail.description,
+	                            ' '
+	                        );
+	                        break;
+	                    case "object":
+	                        subNode = [];
+	                        for (var j = 0; j < detail.description.length; j++) {
+	                            var subDetails = detail.description[j];
+	                            subNode.push(_react2.default.createElement(
+	                                'div',
+	                                { id: j, className: 'half_width_block' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { id: 0, className: 'info_section_title' },
+	                                    subDetails.title
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { id: 1, className: 'info_section' },
+	                                    subDetails.description
+	                                )
+	                            ));
+	                        }
+	                        break;
+	
+	                }
+	                nodes.push(_react2.default.createElement(
+	                    'div',
+	                    { id: detail.title, className: 'section info_section' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'section info_section_title' },
+	                        detail.title
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'info_section' },
+	                        subNode
+	                    )
+	                ));
+	            }
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'film_info_block' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'section film_info_image' },
+	                    _react2.default.createElement('img', { src: "assets/images/" + film.image, alt: '' })
+	                ),
+	                nodes,
+	                _react2.default.createElement('div', { id: 'fib_03', className: 'section' })
+	            );
+	        }
+	    }]);
+	
+	    return FilmInfoBlock;
+	}(_react2.default.Component);
+	
+	exports.default = FilmInfoBlock;
 
 /***/ })
 /******/ ]);
