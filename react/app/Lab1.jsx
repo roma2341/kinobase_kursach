@@ -4,6 +4,7 @@ import StarRating from './components/StarRating.jsx';
 import TrianglePaginator from './components/TrianglePaginator.jsx';
 import DigitalScoreboard from './components/DigitalScoreboard.jsx';
 import CommentsList from './components/CommentsList.jsx';
+import FilmList from './components/FilmList.jsx';
 class Lab1 extends React.Component {
 
     constructor(props) {
@@ -17,10 +18,25 @@ class Lab1 extends React.Component {
             this.isFirstLevel = isFirstLevel;
 
         }
+        var FilmItem = function(name,picture,description,rating,buttonText) {
+            this.name = name;
+            this.picture = picture;
+            this.description = description;
+            this.rating = rating;
+            this.buttonText = buttonText;
+        }
+
         this.comments = [
             new Comment('TritonGrown','spiderman_avatar.png','26.05.2012 в 18:40',true,'Фельмище супер,а для тех кто любит гонки вообще найлучшое что может бить.Для семейного просмотра тоже идеал.Фильм + 5 '),
             new Comment('TritonGrown','spiderman_avatar.png','26.05.2012 в 18:40',false,'Фельмище супер,а для тех кто любит гонки вообще найлучшое что может бить.Для семейного просмотра тоже идеал.Фильм + 5 '),
 
+        ]
+        var SEE_NOW_ITEM_TEXT = "Смотреть сейчас";
+
+        this.films = [
+        new FilmItem("Новый Человек-паук (2012)","spider_man1.png","Получив сверхчеловеческие способности, Питер Паркер пытается вести нормальную жизнь и разобраться, кем же он теперь стал. Но сейчас на нормальную жизнь ..",2,SEE_NOW_ITEM_TEXT),
+        new FilmItem("Новый Человек-паук (2012)","lincoln1.png","Получив сверхчеловеческие способности, Питер Паркер пытается вести нормальную жизнь и разобраться, кем же он теперь стал. Но сейчас на нормальную жизнь ..",3,SEE_NOW_ITEM_TEXT),
+        new FilmItem("Новый Человек-паук (2012)","batman1.png","Получив сверхчеловеческие способности, Питер Паркер пытается вести нормальную жизнь и разобраться, кем же он теперь стал. Но сейчас на нормальную жизнь ..",4,SEE_NOW_ITEM_TEXT)
         ]
 
     }
@@ -69,8 +85,6 @@ class Lab1 extends React.Component {
                     </div>
 
                     <div className="circle item next_item"></div>
-
-
                 </div>
             </div>
 
@@ -79,49 +93,7 @@ class Lab1 extends React.Component {
                 <div className="content_block">
                     <div className="content_title"><span>Пусть к вам проникнет наше настроение и останется только хорошее впечатление! </span><h3>Наслаждайтесь просмотр...</h3></div>
                     <div className="left_content_block">
-                    <div className="films_list_block">
-                        <div className="film_item">
-                            <div className="item_title">Новый Человек-паук (2012)</div>
-                            <div className="item_image">
-                                <img src="assets/images/spider_man1.png" alt=""/>
-                                <StarRating rating={4} max-rating={5}/>
-                            </div>
-                            <div className="bottom_shadow"></div>
-                            <div className="item_details">
-                                Получив сверхчеловеческие способности, Питер Паркер пытается вести нормальную жизнь и разобраться, кем же он теперь стал. Но сейчас на нормальную жизнь ...
-                            </div>
-                            <div className="watch_now">Смотреть сейчас</div>
-                        </div>
-
-                        <div className="film_item">
-                            <div className="item_title">Авраам Линкольн: Охотник на вампиров (2012)</div>
-                            <div className="item_image">
-                                <img src="assets/images/lincoln1.png" alt=""/>
-                                <StarRating rating={4} max-rating={5}/>
-                            </div>
-                            <div className="bottom_shadow"></div>
-                            <div className="item_details">
-                                Убита мать президента Линкольна, и все указывает на вампиров. После этой трагедии Линкольн объявляет войну до полного уничтожения ...
-                            </div>
-                            <div className="watch_now">Смотреть сейчас</div>
-                        </div>
-
-
-                        <div className="film_item">
-                            <div className="item_title">Темный рыцарь: Возрождение легенды (2012)</div>
-                            <div className="item_image">
-                                <img src="assets/images/batman1.png" alt=""/>
-                                <StarRating rating={4} max-rating={5}/>
-                            </div>
-                            <div className="bottom_shadow"></div>
-                            <div className="item_details">
-                                Восемь лет спустя после событий Темного Рыцаря, в Готэм приходит новый лидер террористов, Бэйн, неся с собой хаос и разрушения ...
-                            </div>
-                            <div className="watch_now">Смотреть сейчас</div>
-                        </div>
-
-
-                    </div>
+                    <FilmList films={this.films}/>
 
                 <div className="film_info_block">
                     <div className="section film_info_image">
