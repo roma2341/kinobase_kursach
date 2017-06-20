@@ -181,6 +181,15 @@ class Lab1 extends React.Component {
                 </div>
 
     <div className="right_content_block">
+        <div className="updates_on_site" >
+        
+
+        </div>
+
+        <div className="interesting_info" >
+        
+
+        </div>
     </div>
 
                 </div>

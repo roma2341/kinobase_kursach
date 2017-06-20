@@ -249,9 +249,10 @@ body {
 		&:first-child {
 			margin-left: 0px;
 		}
-		margin-left: 28px;
+		/*margin-left: 28px;*/
 		display: inline-block;
 		vertical-align: top;
+		width:230px;
 	}
 }
 .film_item {
@@ -311,13 +312,25 @@ body {
 	border-radius: 4px;
 }
 .left_content_block {
-	width: 830px;
+	width: 750px;
 	display: inline-block;
 }
 .right_content_block {
 	width: 245px;
-	background-color: @background_color_7;
 	display: inline-block;
+	.updates_on_site {
+	height:240px;
+	width: 100%;
+	background-image: url('../assets/images/film_info_background.png');
+	border-radius:15px;
+	}
+	.interesting_info {
+	height:850px;
+	width: 100%;
+	margin-top:20px;
+	border-radius:15px;
+	background-image: url('../assets/images/film_info_background.png');
+	}
 }
 .film_info_block {
 	width: 265px;
