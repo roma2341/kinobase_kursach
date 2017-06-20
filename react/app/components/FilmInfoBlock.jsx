@@ -13,7 +13,7 @@ constructor(props) {
     }
 
     render() {
-
+        var currentId = 0;
         var film = this.props["film"];
        var details = film.details;
        var image = film.image;
@@ -24,29 +24,49 @@ constructor(props) {
           var subNode;
           switch(typeof detail.description){
             case "string":
-            subNode = <span id={'s'+j}> {detail.description} </span>;
+            subNode = <span key={currentId++}> {detail.description} </span>;
             break;
             case "object":
             subNode = [];
             for (var j = 0; j <  detail.description.length; j++){
                 var subDetails = detail.description[j];
                 subNode.push(
-                    <div id={j} className="half_width_block">
-                        <div id={0} className="info_section_title">{subDetails.title}</div>
-                        <div id={1} className="info_section">{subDetails.description}</div>
+                    <div key={currentId++} className="half_width_block">
+                        <div  className="info_section_title">{subDetails.title}</div>
+                        <div  className="info_section">{subDetails.description}</div>
                     </div>
                     );
             }
             break;
 
           }
-          nodes.push(
 
-          <div id={detail.title} className="section info_section">
-            <div className="section info_section_title">{detail.title}</div>
-                    <div className="info_section">{subNode}</div>
-                    </div>
+          switch(typeof detail.description){
+            case "string":
+                    nodes.push(
+
+          <div key={currentId++} className="section info_section">
+          <div  className="section info_section_title">{detail.title}</div>
+        <div className="info_section">{subNode}</div>
+        </div>
                     );
+            break;
+            case "object":
+                    nodes.push(
+
+          <div key={currentId++} className="section info_section_title">{detail.title}</div>
+                    );
+                          nodes.push(
+        <div key={currentId++} className="info_section">{subNode}</div>
+                    );
+            break;
+          }
+
+      
+
+         
+
+
         }
 
 

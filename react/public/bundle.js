@@ -63746,7 +63746,7 @@
 	    _createClass(FilmInfoBlock, [{
 	        key: 'render',
 	        value: function render() {
-	
+	            var currentId = 0;
 	            var film = this.props["film"];
 	            var details = film.details;
 	            var image = film.image;
@@ -63759,7 +63759,7 @@
 	                    case "string":
 	                        subNode = _react2.default.createElement(
 	                            'span',
-	                            { id: 's' + j },
+	                            { key: currentId++ },
 	                            ' ',
 	                            detail.description,
 	                            ' '
@@ -63771,15 +63771,15 @@
 	                            var subDetails = detail.description[j];
 	                            subNode.push(_react2.default.createElement(
 	                                'div',
-	                                { id: j, className: 'half_width_block' },
+	                                { key: currentId++, className: 'half_width_block' },
 	                                _react2.default.createElement(
 	                                    'div',
-	                                    { id: 0, className: 'info_section_title' },
+	                                    { className: 'info_section_title' },
 	                                    subDetails.title
 	                                ),
 	                                _react2.default.createElement(
 	                                    'div',
-	                                    { id: 1, className: 'info_section' },
+	                                    { className: 'info_section' },
 	                                    subDetails.description
 	                                )
 	                            ));
@@ -63787,20 +63787,37 @@
 	                        break;
 	
 	                }
-	                nodes.push(_react2.default.createElement(
-	                    'div',
-	                    { id: detail.title, className: 'section info_section' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'section info_section_title' },
-	                        detail.title
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'info_section' },
-	                        subNode
-	                    )
-	                ));
+	
+	                switch (_typeof(detail.description)) {
+	                    case "string":
+	                        nodes.push(_react2.default.createElement(
+	                            'div',
+	                            { key: currentId++, className: 'section info_section' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'section info_section_title' },
+	                                detail.title
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'info_section' },
+	                                subNode
+	                            )
+	                        ));
+	                        break;
+	                    case "object":
+	                        nodes.push(_react2.default.createElement(
+	                            'div',
+	                            { key: currentId++, className: 'section info_section_title' },
+	                            detail.title
+	                        ));
+	                        nodes.push(_react2.default.createElement(
+	                            'div',
+	                            { key: currentId++, className: 'info_section' },
+	                            subNode
+	                        ));
+	                        break;
+	                }
 	            }
 	
 	            return _react2.default.createElement(
