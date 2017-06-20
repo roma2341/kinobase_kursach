@@ -14,6 +14,9 @@ constructor(props) {
 
     render() {
         var currentId = 0;
+        var generateId = function(){
+            return currentId++;
+        }
         var film = this.props["film"];
        var details = film.details;
        var image = film.image;
@@ -24,14 +27,14 @@ constructor(props) {
           var subNode;
           switch(typeof detail.description){
             case "string":
-            subNode = <span key={currentId++}> {detail.description} </span>;
+            subNode = <span key={generateId()}> {detail.description} </span>;
             break;
             case "object":
             subNode = [];
             for (var j = 0; j <  detail.description.length; j++){
                 var subDetails = detail.description[j];
                 subNode.push(
-                    <div key={currentId++} className="half_width_block">
+                    <div key={generateId()} className="half_width_block">
                         <div  className="info_section_title">{subDetails.title}</div>
                         <div  className="info_section">{subDetails.description}</div>
                     </div>
@@ -45,7 +48,7 @@ constructor(props) {
             case "string":
                     nodes.push(
 
-          <div key={currentId++} className="section info_section">
+          <div key={generateId()} className="section info_section">
           <div  className="section info_section_title">{detail.title}</div>
         <div className="info_section">{subNode}</div>
         </div>
@@ -54,10 +57,10 @@ constructor(props) {
             case "object":
                     nodes.push(
 
-          <div key={currentId++} className="section info_section_title">{detail.title}</div>
+          <div key={generateId()} className="section info_section_title">{detail.title}</div>
                     );
                           nodes.push(
-        <div key={currentId++} className="info_section">{subNode}</div>
+        <div key={generateId()} className="info_section">{subNode}</div>
                     );
             break;
           }
